@@ -1,4 +1,4 @@
-import 'package:commplete_commerce_app/view/screens/on_boarding_screen.dart';
+import 'package:commplete_commerce_app/view/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/constant/color.dart';
 
-class AnimatedOnBoardingDot extends StatelessWidget {
-  const AnimatedOnBoardingDot({
+class DotControllerOnBoarding extends StatelessWidget {
+  const DotControllerOnBoarding({
     super.key,
     required this.currentIndex,
     required this.selectedIndex,
