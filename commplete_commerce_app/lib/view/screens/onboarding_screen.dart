@@ -1,4 +1,6 @@
+import 'package:commplete_commerce_app/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
 import '../widgets/custom_button.dart';
@@ -23,15 +25,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       }
     });
   }
-
-  onPageChanged(int value) {
-    setState(() {
-      selectedIndex = value;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    Get.put(OnBoardingControllerImp());
     return Scaffold(
         body: SafeArea(
       child: Column(
@@ -39,22 +35,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         children: [
           Expanded(
             flex: 3,
-            child: CustomPageView(
-                onPageChanged: onPageChanged, selectedIndex: selectedIndex),
+            child: CustomPageView(selectedIndex: selectedIndex),
           ),
           Expanded(
             flex: 1,
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    onBoardingList.length,
-                    (index) => DotControllerOnBoarding(
-                        currentIndex: index, selectedIndex: selectedIndex),
-                  ),
-                ),
+                DotControllerOnBoarding(),
                 const SizedBox(height: 40),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
