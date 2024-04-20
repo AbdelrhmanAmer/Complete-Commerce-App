@@ -1,7 +1,7 @@
-import 'package:commplete_commerce_app/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
+import '../../controller/onboarding_controller.dart';
 import '../../core/constant/color.dart';
 import '../../data/data_source/static/static.dart';
 

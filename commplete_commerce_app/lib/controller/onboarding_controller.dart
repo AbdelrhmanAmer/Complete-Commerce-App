@@ -1,16 +1,24 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/state_manager.dart';
 
-abstract class OnBoardingController extends GetxController{
+abstract class OnBoardingController extends GetxController {
   onClick();
   onPageChanged(int value);
 }
 
-class OnBoardingControllerImp extends OnBoardingController{
+class OnBoardingControllerImp extends OnBoardingController {
   int currentPage = 0;
+
+  late PageController pageController;
 
   @override
   onClick() {
-
+    currentPage++;
+    pageController.animateToPage(
+      currentPage,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
   }
 
   @override
@@ -19,4 +27,9 @@ class OnBoardingControllerImp extends OnBoardingController{
     update();
   }
 
+  @override
+  void onInit() {
+    pageController = PageController();
+    super.onInit();
+  }
 }
