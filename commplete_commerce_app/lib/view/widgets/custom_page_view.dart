@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
 import '../../controller/onboarding_controller.dart';
-import '../../core/constant/color.dart';
 import '../../data/data_source/static/static.dart';
 
 class CustomPageView extends GetView<OnBoardingControllerImp> {
@@ -24,25 +23,20 @@ class CustomPageView extends GetView<OnBoardingControllerImp> {
               const SizedBox(height: 30),
               Text(
                 onBoardingList[index].title!,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              const SizedBox(height: 80),
+              const SizedBox(height: 60),
               Image.asset(
                 onBoardingList[index].image!,
                 width: 200,
                 height: 230,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 30),
               Text(
                 onBoardingList[index].body!,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: AppColor.grey,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ],
           ),
