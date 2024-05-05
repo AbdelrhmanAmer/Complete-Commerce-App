@@ -7,12 +7,12 @@ import '../widgets/custom_button.dart';
 import '../widgets/custom_page_view.dart';
 import '../widgets/dot_controller.dart';
 
-class OnBoardingScreen extends GetView<OnBoardingControllerImp> {
-  const OnBoardingScreen({super.key});
+class OnBoarding extends GetView<OnBoardingControllerImp> {
+  const OnBoarding({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OnBoardingControllerImp());
+    Get.lazyPut(()=>OnBoardingControllerImp(), fenix: true);
     return Scaffold(
         body: SafeArea(
       child: Column(

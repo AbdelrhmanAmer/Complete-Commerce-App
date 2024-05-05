@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../core/constant/app_routes.dart';
+import '../../core/localization/change_local.dart';
 import '../../core/constant/color.dart';
 import '../widgets/custom_button.dart';
 
-class Language extends StatelessWidget {
+class Language extends GetView<LocaleController> {
   const Language({super.key});
 
   @override
@@ -13,21 +16,28 @@ class Language extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Choose Language.', style: Theme.of(context).textTheme.displayLarge),
+            Text('chooseLang'.tr,
+                style: Theme.of(context).textTheme.displayLarge),
             const SizedBox(height: 20),
             CustomButton(
               backgroundColor: AppColor.primaryColor,
               foregroundColor: Colors.white,
-              text: "العربية",
-              press: () {},
+              text: "arabic".tr,
+              press: () {
+                controller.changeLang("ar");
+                Get.toNamed(Routes.onBoarding);
+              },
               widthRatio: .45,
             ),
             const SizedBox(height: 20),
             CustomButton(
               backgroundColor: AppColor.primaryColor,
               foregroundColor: Colors.white,
-              text: "English",
-              press: () {},
+              text: "english".tr,
+              press: () {
+                controller.changeLang("en");
+                Get.toNamed(Routes.onBoarding);
+              },
               widthRatio: .45,
             ),
           ],

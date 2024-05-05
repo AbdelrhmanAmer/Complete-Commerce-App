@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'view/screens/language.dart';
+import 'core/localization/change_local.dart';
 import 'core/localization/translation.dart';
 import 'core/services/services.dart';
 import 'core/constant/color.dart';
@@ -19,8 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LocaleController controller = Get.put(LocaleController());
+
     return GetMaterialApp(
       translations: MyTranslation(),
+      locale: controller.intialLanguage,
       
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
