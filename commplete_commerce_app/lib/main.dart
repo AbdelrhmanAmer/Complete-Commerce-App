@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'view/screens/language.dart';
+import 'core/localization/translation.dart';
 import 'core/services/services.dart';
 import 'core/constant/color.dart';
-import 'view/screens/onboarding.dart';
 import 'routes.dart';
 
 void main() async{
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      translations: MyTranslation(),
       
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const OnBoardingScreen(),
+      home: const Language(),
       routes: routes,
     );
   }

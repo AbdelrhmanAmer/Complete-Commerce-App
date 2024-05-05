@@ -7,20 +7,20 @@ class CustomButton extends StatelessWidget {
     required this.foregroundColor,
     required this.text,
     required this.press,
+    this.widthRatio = .8,
     this.elevation = 0,
-    this.textColor = Colors.black87,
   });
   final Color backgroundColor;
   final Color foregroundColor;
   final String text;
   final double elevation;
-  final Color textColor;
+  final double widthRatio;
   final Function() press;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * .8,
+      width: MediaQuery.of(context).size.width * widthRatio,
       child: ElevatedButton(
           onPressed: press,
           style: ElevatedButton.styleFrom(
@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .labelLarge!
-                  .copyWith(color: textColor))),
+                  .copyWith(color: foregroundColor))),
     );
   }
 }

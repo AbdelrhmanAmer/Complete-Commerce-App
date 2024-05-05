@@ -33,7 +33,6 @@ class OnBoardingScreen extends GetView<OnBoardingControllerImp> {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: "Continue",
-                  textColor: Colors.white,
                   press: ()=>controller.next(),
                 ),
                 const SizedBox(height: 6),
