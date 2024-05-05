@@ -4,21 +4,21 @@ import 'package:get/get.dart';
 import '../../controller/onboarding_controller.dart';
 import '../../core/constant/color.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/page_view_card.dart';
+import '../widgets/custom_page_view.dart';
 import '../widgets/dot_controller.dart';
 
-class OnBoardingScreen extends StatelessWidget {
+class OnBoardingScreen extends GetView<OnBoardingControllerImp> {
   const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
-    return const Scaffold(
+    return Scaffold(
         body: SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
+          const Expanded(
             flex: 3,
             child: CustomPageView(),
           ),
@@ -26,24 +26,26 @@ class OnBoardingScreen extends StatelessWidget {
             flex: 1,
             child: Column(
               children: [
-                SizedBox(height: 20),
-                DotControllerOnBoarding(),
-                SizedBox(height: 40),
+                const SizedBox(height: 20),
+                const DotControllerOnBoarding(),
+                const SizedBox(height: 40),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: "Continue",
+                  press: ()=>controller.next(),
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 CustomButton(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
                   text: "Skip",
+                  press: () => controller.skip(),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
         ],
       ),
     ));

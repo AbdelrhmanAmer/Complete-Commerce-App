@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
 
-import '../../controller/onboarding_controller.dart';
-
-class CustomButton extends GetView<OnBoardingControllerImp> {
-  const CustomButton({
+class CustomButton extends StatelessWidget {
+  const CustomButton(
+  {
     super.key,
     required this.backgroundColor,
     required this.foregroundColor,
     required this.text,
+    required this.press,
     this.elevation = 0,
   });
   final Color backgroundColor;
   final Color foregroundColor;
   final String text;
   final double elevation;
+  final Function() press;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
       child: ElevatedButton(
-          onPressed: ()=>controller.onClick(),
+          onPressed: press,
           style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
             foregroundColor: foregroundColor,
