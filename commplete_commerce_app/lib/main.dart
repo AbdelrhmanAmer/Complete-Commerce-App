@@ -1,12 +1,16 @@
+import 'package:commplete_commerce_app/core/localization/translation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'core/services/services.dart';
 import 'core/constant/color.dart';
 import 'view/screens/onboarding.dart';
 import 'routes.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await intialServices();
   runApp(const MyApp());
 }
 
@@ -16,6 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      translations: MyTranslation(),
+      
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
