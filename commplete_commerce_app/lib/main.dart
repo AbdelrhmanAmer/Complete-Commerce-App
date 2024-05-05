@@ -1,4 +1,4 @@
-import 'package:commplete_commerce_app/core/localization/translation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      translations: MyTranslation(),
       
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
