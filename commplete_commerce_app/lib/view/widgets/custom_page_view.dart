@@ -21,18 +21,15 @@ class CustomPageView extends GetView<OnBoardingControllerImp> {
           child: Column(
             children: [
               const SizedBox(height: 30),
+              Image.asset(
+                onBoardingList[index].image!,
+              ),
+              const SizedBox(height: 30),
               Text(
                 onBoardingList[index].title!,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
-              const SizedBox(height: 60),
-              Image.asset(
-                onBoardingList[index].image!,
-                width: 200,
-                height: 230,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Text(
                 onBoardingList[index].body!,
                 textAlign: TextAlign.center,

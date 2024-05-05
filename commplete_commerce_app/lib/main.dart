@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'core/constant/color.dart';
 import 'view/screens/onboarding.dart';
@@ -18,11 +19,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: "PlayfairDisplay",
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          bodyLarge: TextStyle(color: AppColor.grey, fontSize: 14),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          background: AppColor.backgroundColor,
+        ),
+        textTheme: TextTheme(
+          displayLarge:
+              GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 22),
+          bodyLarge: GoogleFonts.roboto(color: AppColor.grey, fontSize: 14),
+          labelLarge:
+              GoogleFonts.roboto(fontWeight: FontWeight.w700, fontSize: 16),
         ),
         useMaterial3: true,
       ),

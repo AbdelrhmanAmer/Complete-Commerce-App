@@ -5,24 +5,18 @@ List<OnBoardingModel> onBoardingList = [
     title: "Choose Product",
     body:
         "We Have a 100k+ Product , Choose \n Your Product From  Our \n E-commerce Shop",
-    image: "assets/images/onboardingone.PNG",
+    image: "assets/images/one.PNG",
   ),
   OnBoardingModel(
     title: "Easy And Safe Paymnet",
     body:
         "We Have a 100k Product , Choose \n Your Product From Our E-commerce Shop",
-    image: "assets/images/onboardingtwo.PNG",
+    image: "assets/images/two.PNG",
   ),
   OnBoardingModel(
     title: "Track Your Order",
     body:
         "We Have a 100k Product , Choose \n Your Product From Our E-commerce Shop",
-    image: "assets/images/onboardingthree.PNG",
-  ),
-  OnBoardingModel(
-    title: "Fast Delivery",
-    body:
-        "We Have a 100k Product , Choose \n Your Product From Our E-commerce Shop",
-    image: "assets/images/onboardingfour.PNG",
+    image: "assets/images/three.PNG",
   ),
 ];

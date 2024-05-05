@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-  {
+  const CustomButton({
     super.key,
     required this.backgroundColor,
     required this.foregroundColor,
     required this.text,
     required this.press,
     this.elevation = 0,
+    this.textColor = Colors.black87,
   });
   final Color backgroundColor;
   final Color foregroundColor;
   final String text;
   final double elevation;
+  final Color textColor;
   final Function() press;
 
   @override
@@ -30,7 +31,11 @@ class CustomButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: elevation,
           ),
-          child: Text(text)),
+          child: Text(text,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelLarge!
+                  .copyWith(color: textColor))),
     );
   }
 }
