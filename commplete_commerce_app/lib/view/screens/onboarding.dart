@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../../controller/onboarding_controller.dart';
 import '../../core/constant/color.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/custom_page_view.dart';
-import '../widgets/dot_controller.dart';
+import '../widgets/onboarding/custom_page_view.dart';
+import '../widgets/onboarding/dot_controller.dart';
 
 class OnBoarding extends GetView<OnBoardingControllerImp> {
   const OnBoarding({super.key});

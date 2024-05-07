@@ -1,8 +1,8 @@
-import 'package:commplete_commerce_app/view/screens/onboarding.dart';
 import 'package:flutter/material.dart';
 
 import 'core/constant/app_routes.dart';
-import 'view/screens/authentication/login.dart';
+import 'view/screens/onboarding.dart';
+import 'view/screens/authentication/sign_in.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   Routes.login: (context) => const LogIn(),

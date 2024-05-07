@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
-import '../../controller/onboarding_controller.dart';
-import '../../data/data_source/static/static.dart';
+import '../../../controller/onboarding_controller.dart';
+import '../../../data/data_source/static/static.dart';
 
 class CustomPageView extends GetView<OnBoardingControllerImp> {
   const CustomPageView({
