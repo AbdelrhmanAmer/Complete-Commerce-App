@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/authentication/sign_in/sign_in_form.dart';
+import '../../../core/constant/color.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/social_icon.dart';
+
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
 
@@ -35,20 +40,50 @@ class LogIn extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 45),
-                Form(
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter your email",
-                          labelText: "Email",
-
+                const SignInForm(),
+                const SizedBox(height: 40),
+                CustomButton(
+                  backgroundColor: AppColor.primaryColor,
+                  foregroundColor: Colors.white,
+                  text: 'Continue',
+                  press: () {},
+                ),
+                const SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocialIcon(
+                      icon: 'assets/icons/facebook-2.svg',
+                      press: () {},
+                    ),
+                    const SizedBox(width: 10),
+                    SocialIcon(
+                      icon: 'assets/icons/google-icon.svg',
+                      press: () {},
+                    ),
+                    const SizedBox(width: 10),
+                    SocialIcon(
+                      icon: 'assets/icons/twitter.svg',
+                      press: () {},
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Don\'t have an account? '),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.primaryColor,
                         ),
-                        
-                        
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),

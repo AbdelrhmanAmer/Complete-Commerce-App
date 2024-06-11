@@ -17,6 +17,7 @@ dependencies:
   google_fonts: ^6.2.1
   path_provider: ^2.1.3
   shared_preferences: ^2.2.3
+  flutter_svg: ^2.0.10+1
 
 
 dev_dependencies:
@@ -30,6 +31,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
 
   fonts:
     - family: Cairo
