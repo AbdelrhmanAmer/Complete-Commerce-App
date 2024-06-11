@@ -19,14 +19,14 @@ class SignInForm extends StatelessWidget {
             decoration: inputDecoration(
                 labelText: "Email",
                 hintText: "Enter your email",
-                icon: const Icon(Icons.email_outlined)),
+                iconData: Icons.email_outlined),
           ),
           const SizedBox(height: 30),
           TextFormField(
             decoration: inputDecoration(
                 labelText: "Password",
                 hintText: "Enter your password",
-                icon: const Icon(Icons.lock_outline)),
+                iconData: Icons.lock_outline),
             obscureText: true,
           ),
           const SizedBox(height: 30),
