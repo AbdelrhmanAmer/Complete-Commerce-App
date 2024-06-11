@@ -40,7 +40,7 @@ class LogIn extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 45),
-                const SignInForm(),
+                SignInForm(),
                 const SizedBox(height: 40),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,

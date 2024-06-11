@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../../controller/sign_in_controller.dart';
 import '../../inputDecoration.dart';
 
 class SignInForm extends StatelessWidget {
-  const SignInForm({
+  SignInForm({
     super.key,
   });
 
+  final signInController = Get.put(SignInController());
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -36,7 +39,14 @@ class SignInForm extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Checkbox(value: true, onChanged: (newValue) {}),
+                        Obx(
+                          () => Checkbox(
+                            value: signInController.remember.value,
+                            onChanged: (newValue) {
+                              signInController.remember.value = newValue!;
+                            },
+                          ),
+                        ),
                         const Text("Remember Me"),
                       ],
                     ),
@@ -58,7 +68,14 @@ class SignInForm extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Checkbox(value: true, onChanged: (newValue) {}),
+                        Obx(
+                          () => Checkbox(
+                            value: signInController.remember.value,
+                            onChanged: (newValue) {
+                              signInController.remember.value = newValue!;
+                            },
+                          ),
+                        ),
                         const Text("Remember Me"),
                       ],
                     ),
