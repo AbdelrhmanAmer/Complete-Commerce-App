@@ -19,31 +19,33 @@ class OnBoarding extends GetView<OnBoardingControllerImp> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Expanded(
-            flex: 3,
+            flex: 2,
             child: CustomPageView(),
           ),
           Expanded(
             flex: 1,
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                const DotControllerOnBoarding(),
-                const SizedBox(height: 40),
-                CustomButton(
-                  backgroundColor: AppColor.primaryColor,
-                  foregroundColor: Colors.white,
-                  text: "Continue",
-                  press: ()=>controller.next(),
-                ),
-                const SizedBox(height: 6),
-                CustomButton(
-                  backgroundColor: AppColor.lightWhite,
-                  foregroundColor: Colors.black,
-                  text: "Skip",
-                  press: () => controller.skip(),
-                  elevation: 1,
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  const DotControllerOnBoarding(),
+                  const SizedBox(height: 40),
+                  CustomButton(
+                    backgroundColor: AppColor.primaryColor,
+                    foregroundColor: Colors.white,
+                    text: "Continue",
+                    press: ()=>controller.next(),
+                  ),
+                  const SizedBox(height: 6),
+                  CustomButton(
+                    backgroundColor: AppColor.lightWhite,
+                    foregroundColor: Colors.black,
+                    text: "Skip",
+                    press: () => controller.skip(),
+                    elevation: 1,
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 10),
