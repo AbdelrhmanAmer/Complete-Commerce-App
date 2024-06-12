@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../controller/sign_in_controller.dart';
 import '../../../core/constant/constants.dart';
-import '../../widgets/authentication/sign_in/sign_in_form.dart';
 import '../../../core/constant/color.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/social_icon.dart';
+import '../../widgets/authentication/sign_in/sign_in_form.dart';
+import '../../widgets/authentication/account_prompt.dart';
+import '../../widgets/authentication/social_icons.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
+    var controller = Get.put(SignInController());
 
     return SafeArea(
       child: Scaffold(
@@ -35,7 +38,7 @@ class LogIn extends StatelessWidget {
               children: [
                 SizedBox(height: size.height * .02),
                 SizedBox(
-                  height: size.height * .25,
+                  height: size.height * .2,
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: CircleAvatar(
@@ -57,49 +60,20 @@ class LogIn extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * .03),
                 SignInForm(),
-                SizedBox(height: size.height * .02),
+                SizedBox(height: size.height * .03),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
                   press: () {},
                 ),
-                SizedBox(height: size.height * .02),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SocialIcon(
-                      icon: 'assets/icons/facebook-2.svg',
-                      press: () {},
-                    ),
-                    const SizedBox(width: 10),
-                    SocialIcon(
-                      icon: 'assets/icons/google-icon.svg',
-                      press: () {},
-                    ),
-                    const SizedBox(width: 10),
-                    SocialIcon(
-                      icon: 'assets/icons/twitter.svg',
-                      press: () {},
-                    ),
-                  ],
-                ),
-                SizedBox(height: size.height * .01),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Don\'t have an account? '),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: AppColor.primaryColor,
-                        ),
-                      ),
-                    )
-                  ],
+                SizedBox(height: size.height * .03),
+                const SocialIcons(),
+                SizedBox(height: size.height * .03),
+                AccountPrompt(
+                  promptText: 'Don\'t have an account? ',
+                  actionText: 'Sign Up',
+                  onActionPressed: controller.goToSignUp,
                 ),
                 SizedBox(height: size.height * .01),
               ],
