@@ -10,6 +10,8 @@ class LogIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -30,25 +32,25 @@ class LogIn extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 30),
+                SizedBox(height: size.height * .06),
                 Text('Welcome Back',
                     style: Theme.of(context).textTheme.displayLarge),
-                const SizedBox(height: 20),
+                SizedBox(height: size.height * .04),
                 Text(
                   'Sign in with your email and password\n or continue with social media',
                   style: Theme.of(context).textTheme.labelSmall,
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 45),
+                SizedBox(height: size.height * .07),
                 SignInForm(),
-                const SizedBox(height: 40),
+                SizedBox(height: size.height * .08),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
                   press: () {},
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: size.height * .04),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -68,7 +70,7 @@ class LogIn extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: size.height * .02),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -84,7 +86,8 @@ class LogIn extends StatelessWidget {
                       ),
                     )
                   ],
-                )
+                ),
+                SizedBox(height: size.height * .01),
               ],
             ),
           ),
