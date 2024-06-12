@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/constant/constants.dart';
 import '../../../../controller/sign_in_controller.dart';
 import '../../inputDecoration.dart';
 
@@ -24,7 +25,7 @@ class SignInForm extends StatelessWidget {
                 hintText: "Enter your email",
                 iconData: Icons.email_outlined),
           ),
-          const SizedBox(height: 30),
+          SizedBox(height: size.height * .03),
           TextFormField(
             decoration: inputDecoration(
                 labelText: "Password",
@@ -32,7 +33,7 @@ class SignInForm extends StatelessWidget {
                 iconData: Icons.lock_outline),
             obscureText: true,
           ),
-          const SizedBox(height: 30),
+          SizedBox(height: size.height * .02),
           isSmallScreen
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
