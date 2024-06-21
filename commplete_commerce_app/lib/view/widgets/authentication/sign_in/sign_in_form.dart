@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/constant/constants.dart';
 import '../../../../controller/sign_in_controller.dart';
-import '../../inputDecoration.dart';
+import '../../input_decoration.dart';
 
 class SignInForm extends StatelessWidget {
   SignInForm({

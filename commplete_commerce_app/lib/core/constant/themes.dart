@@ -16,7 +16,7 @@ ThemeData themes() {
 ColorScheme colorScheme() {
   return ColorScheme.fromSeed(
     seedColor: Colors.deepPurple,
-    background: AppColor.backgroundColor,
+    surface: AppColor.backgroundColor,
   );
 }
 
