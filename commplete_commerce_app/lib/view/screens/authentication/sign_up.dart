@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constant/constants.dart';
 import '../../widgets/authentication/account_prompt.dart';
-import '../../widgets/authentication/sign_in/sign_in_form.dart';
+import '../../widgets/authentication/sign_up/sign_up_form.dart';
 import '../../../core/constant/color.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/authentication/social_icon.dart';
+import '../../widgets/authentication/social_icons.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -44,36 +44,19 @@ class SignUp extends StatelessWidget {
                       .copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: size.height * .07),
-                SignInForm(),
-                SizedBox(height: size.height * .03),
+                SizedBox(height: size.height * .04),
+                SignUpFrom(),
+                SizedBox(height: size.height * .02),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
-                  text: 'Continue',
+                  text: 'Sign Up',
                   press: () {},
+                  widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .03),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SocialIcon(
-                      icon: 'assets/icons/facebook-2.svg',
-                      press: () {},
-                    ),
-                    const SizedBox(width: 10),
-                    SocialIcon(
-                      icon: 'assets/icons/google-icon.svg',
-                      press: () {},
-                    ),
-                    const SizedBox(width: 10),
-                    SocialIcon(
-                      icon: 'assets/icons/twitter.svg',
-                      press: () {},
-                    ),
-                  ],
-                ),
-                SizedBox(height: size.height * .03),
+                const SocialIcons(),
+                SizedBox(height: size.height * .02),
                 AccountPrompt(
                   promptText: 'Have an account? ',
                   actionText: 'Sign In',

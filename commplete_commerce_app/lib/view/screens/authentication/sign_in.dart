@@ -64,8 +64,9 @@ class LogIn extends StatelessWidget {
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
-                  text: 'Continue',
+                  text: 'Sign In',
                   press: () {},
+                  widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .03),
                 const SocialIcons(),
