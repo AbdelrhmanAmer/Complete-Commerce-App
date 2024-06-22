@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../controller/sign_up_controller.dart';
 import '../../../core/constant/constants.dart';
+import '../../../core/constant/color.dart';
 import '../../widgets/authentication/account_prompt.dart';
 import '../../widgets/authentication/sign_up/sign_up_form.dart';
-import '../../../core/constant/color.dart';
-import '../../widgets/custom_button.dart';
 import '../../widgets/authentication/social_icons.dart';
+import '../../widgets/custom_button.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -45,7 +49,7 @@ class SignUp extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * .04),
-                SignUpFrom(),
+                SignUpFrom(controller: controller),
                 SizedBox(height: size.height * .02),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
@@ -60,7 +64,7 @@ class SignUp extends StatelessWidget {
                 AccountPrompt(
                   promptText: 'Have an account? ',
                   actionText: 'Sign In',
-                  onActionPressed: () {},
+                  onActionPressed: controller.goToSignIn,
                 ),
                 SizedBox(height: size.height * .01),
               ],

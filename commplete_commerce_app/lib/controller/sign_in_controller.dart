@@ -13,7 +13,7 @@ class SignInController extends GetxController{
 
   }
   goToSignUp(){
-    Get.toNamed(Routes.signUp);
+    Get.offNamed(Routes.signUp);
   }
 
   @override

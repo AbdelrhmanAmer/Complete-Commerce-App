@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/constant/constants.dart';
 import '../../../../controller/sign_in_controller.dart';
@@ -8,11 +7,12 @@ import 'forgot_password.dart';
 import 'remeber_me_row.dart';
 
 class SignInForm extends StatelessWidget {
-  SignInForm({
+  const SignInForm({
     super.key,
+    required this.controller,
   });
 
-  final controller = Get.put(SignInController());
+  final SignInController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-
 import '../../../../core/constant/constants.dart';
-import '../../../../controller/sign_in_controller.dart';
+import '../../../../controller/sign_up_controller.dart';
 import '../../input_decoration.dart';
 
 class SignUpFrom extends StatelessWidget {
-  SignUpFrom({
+  const SignUpFrom({
     super.key,
+    required this.controller,
   });
 
-  final signInController = Get.put(SignInController());
+  final SignUpController controller;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -23,6 +22,7 @@ class SignUpFrom extends StatelessWidget {
               hintText: "Enter your username",
               iconData: Icons.person_2_outlined,
             ),
+            controller: controller.username,
             keyboardType: TextInputType.text,
           ),
           SizedBox(height: size.height * .03),
@@ -32,6 +32,7 @@ class SignUpFrom extends StatelessWidget {
               hintText: "Enter your email",
               iconData: Icons.email_outlined,
             ),
+            controller: controller.email,
             keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: size.height * .03),
@@ -41,6 +42,7 @@ class SignUpFrom extends StatelessWidget {
               hintText: "Enter your phone",
               iconData: Icons.local_phone_outlined,
             ),
+            controller: controller.phone,
             keyboardType: TextInputType.phone,
           ),
           SizedBox(height: size.height * .03),
@@ -49,6 +51,7 @@ class SignUpFrom extends StatelessWidget {
                 labelText: "Password",
                 hintText: "Enter your password",
                 iconData: Icons.lock_outline),
+            controller: controller.password,
             obscureText: true,
           ),
           SizedBox(height: size.height * .03),

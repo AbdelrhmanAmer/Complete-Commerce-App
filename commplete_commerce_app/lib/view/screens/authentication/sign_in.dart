@@ -9,8 +9,8 @@ import '../../widgets/authentication/sign_in/sign_in_form.dart';
 import '../../widgets/authentication/account_prompt.dart';
 import '../../widgets/authentication/social_icons.dart';
 
-class LogIn extends StatelessWidget {
-  const LogIn({super.key});
+class SignIn extends StatelessWidget {
+  const SignIn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class LogIn extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * .03),
-                SignInForm(),
+                SignInForm(controller: controller),
                 SizedBox(height: size.height * .03),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
@@ -70,7 +70,7 @@ class LogIn extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * .03),
                 const SocialIcons(),
-                SizedBox(height: size.height * .03),
+                SizedBox(height: size.height * .01),
                 AccountPrompt(
                   promptText: 'Don\'t have an account? ',
                   actionText: 'Sign Up',

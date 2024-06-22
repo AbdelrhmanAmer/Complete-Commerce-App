@@ -6,7 +6,7 @@ import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
-  Routes.login: (context) => const LogIn(),
+  Routes.signIn: (context) => const SignIn(),
   Routes.onBoarding: (context) => const OnBoarding(),
   Routes.signUp: (context) => const SignUp(),
 };

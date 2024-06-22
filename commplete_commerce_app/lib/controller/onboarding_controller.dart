@@ -43,6 +43,6 @@ class OnBoardingControllerImp extends OnBoardingController {
   
   @override
   skip() {
-    Get.offAllNamed(Routes.login);
+    Get.offAllNamed(Routes.signIn);
   }
 }
