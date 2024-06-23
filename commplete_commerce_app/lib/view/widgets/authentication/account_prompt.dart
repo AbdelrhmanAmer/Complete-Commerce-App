@@ -8,11 +8,15 @@ class AccountPrompt extends StatelessWidget {
     required this.promptText,
     required this.actionText,
     required this.onActionPressed,
+    this.buttonTextColor = AppColor.primaryColor,
+    this.textDecoration = TextDecoration.none,
   });
 
   final String promptText;
   final String actionText;
+  final Color buttonTextColor;
   final VoidCallback onActionPressed;
+  final TextDecoration textDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +28,10 @@ class AccountPrompt extends StatelessWidget {
           onPressed: onActionPressed,
           child: Text(
             actionText,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
-              color: AppColor.primaryColor,
+              decoration: textDecoration,
+              color: buttonTextColor,
             ),
           ),
         )

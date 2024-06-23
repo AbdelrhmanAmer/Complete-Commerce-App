@@ -8,8 +8,8 @@ import '../../widgets/authentication/account_prompt.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/input_decoration.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ForgotPassword extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           title: Text(
-            'Forgot Passwword',
+            'Reset Password',
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
@@ -37,12 +37,12 @@ class ForgotPassword extends StatelessWidget {
               children: [
                 SizedBox(height: size.height * .05),
                 Text(
-                  'Forgot Password',
+                  'Reset Password',
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
-                  'Please enter you email and we will send\n you a link to reutrn your account',
+                  'Please enter your new password and confirm it\n',
                   style: Theme.of(context)
                       .textTheme
                       .labelSmall!
@@ -65,7 +65,7 @@ class ForgotPassword extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.goToOtp,
+                  press: () {},
                   widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .04),

@@ -5,12 +5,14 @@ import '../core/constant/app_routes.dart';
  
 
 class ForgotPasswordController extends GetxController{
-  var remember = false.obs;
 
   late TextEditingController email;
 
-  goToVerfyCode(){
-
+  checkEmail(){
+    
+  }
+  goToOtp(){
+    Get.toNamed(Routes.otp);
   }
   goToSignUp(){
     Get.offNamed(Routes.signUp);
