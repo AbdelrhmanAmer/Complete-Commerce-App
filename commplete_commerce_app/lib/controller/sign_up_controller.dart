@@ -6,7 +6,9 @@ import '../core/constant/app_routes.dart';
 class SignUpController extends GetxController {
   late TextEditingController username, email, phone, password;
 
-  login() {}
+  signUp() {
+    
+  }
   goToSignIn() {
     Get.offNamed(Routes.signIn);
   }

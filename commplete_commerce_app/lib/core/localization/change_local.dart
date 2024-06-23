@@ -1,6 +1,7 @@
-import 'package:commplete_commerce_app/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../services/services.dart';
 
 class LocaleController extends GetxController{
   Locale? intialLanguage;

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({
+import '../../../../controller/sign_in_controller.dart';
+
+class ForgotPasswordWidget extends StatelessWidget {
+  const ForgotPasswordWidget({
     super.key,
+    required this.controller,
   });
+  final SignInController controller;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: controller.goToForgotPassword,
       child: const Text(
         "Forgot Password",
         style: TextStyle(

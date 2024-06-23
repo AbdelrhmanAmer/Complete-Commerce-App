@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../controller/sign_in_controller.dart';
 import '../../input_decoration.dart';
-import 'forgot_password.dart';
+import 'forgot_password_widget.dart';
 import 'remeber_me_row.dart';
 
 class SignInForm extends StatelessWidget {
@@ -45,14 +45,14 @@ class SignInForm extends StatelessWidget {
                   children: [
                     RemeberMeRow(signInController: controller),
                     const SizedBox(height: 3),
-                    const ForgotPassword()
+                    ForgotPasswordWidget(controller: controller)
                   ],
                 )
               : Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     RemeberMeRow(signInController: controller),
-                    const ForgotPassword()
+                    ForgotPasswordWidget(controller: controller)
                   ],
                 ),
         ],

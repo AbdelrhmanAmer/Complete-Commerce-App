@@ -4,9 +4,11 @@ import 'core/constant/app_routes.dart';
 import 'view/screens/onboarding.dart';
 import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
+import 'view/screens/authentication/forgot_password.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   Routes.signIn: (context) => const SignIn(),
   Routes.onBoarding: (context) => const OnBoarding(),
   Routes.signUp: (context) => const SignUp(),
+  Routes.forgotPassword: (context) => const ForgotPassword(),
 };
