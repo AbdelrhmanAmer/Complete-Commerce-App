@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/forgot_password_controller.dart';
+import '../../../controller/reset_password_controller.dart';
 import '../../../core/constant/constants.dart';
 import '../../../core/constant/color.dart';
-import '../../widgets/authentication/account_prompt.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/input_decoration.dart';
 
@@ -13,7 +12,7 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ForgotPasswordController());
+    var controller = Get.put(ResetPasswordController());
 
     return SafeArea(
       child: Scaffold(
@@ -49,15 +48,29 @@ class ResetPassword extends StatelessWidget {
                       .copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: size.height * .19),
+                SizedBox(height: size.height * .09),
                 Form(
-                  child: TextFormField(
-                    decoration: inputDecoration(
-                      labelText: "Email",
-                      hintText: "Enter your email",
-                      iconData: Icons.email_outlined,
-                    ),
-                    controller: controller.email,
+                  child: Column(
+                    children: [
+                      SizedBox(height: size.height * .03),
+                      TextFormField(
+                        decoration: inputDecoration(
+                            labelText: "Password",
+                            hintText: "Enter your password",
+                            iconData: Icons.lock_outline),
+                        controller: controller.password,
+                        obscureText: true,
+                      ),
+                      SizedBox(height: size.height * .03),
+                      TextFormField(
+                        decoration: inputDecoration(
+                            labelText: "Confirm Password",
+                            hintText: "Re-Enter your password",
+                            iconData: Icons.lock_outline),
+                        controller: controller.repassword,
+                        obscureText: true,
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: size.height * .22),
@@ -65,14 +78,8 @@ class ResetPassword extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: () {},
-                  widthRatio: .85,
-                ),
-                SizedBox(height: size.height * .04),
-                AccountPrompt(
-                  promptText: 'Don\'t have an account?',
-                  actionText: 'Sign Up',
-                  onActionPressed: controller.goToSignUp,
+                  press: controller.goToSuccess,
+                  widthRatio: .75,
                 ),
                 SizedBox(height: size.height * .01),
               ],

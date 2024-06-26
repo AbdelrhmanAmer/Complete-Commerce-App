@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'core/constant/app_routes.dart';
 import 'view/screens/onboarding.dart';
+import 'view/screens/authentication/success_reset_password.dart';
+import 'view/screens/authentication/success_sign_up.dart';
 import 'view/screens/authentication/reset_password.dart';
 import 'view/screens/authentication/otp.dart';
 import 'view/screens/authentication/sign_in.dart';
@@ -18,4 +20,6 @@ Map<String, Widget Function(BuildContext)> routes = {
   Routes.forgotPassword: (context) => const ForgotPassword(),
   Routes.otp: (context) => const OTP(),
   Routes.resetPassword: (context) => const ResetPassword(),
+  Routes.successSignUp: (context) => const SuccessSignUp(),
+  Routes.successResetPassword: (context) => const SuccessResetPassword(),
 };
