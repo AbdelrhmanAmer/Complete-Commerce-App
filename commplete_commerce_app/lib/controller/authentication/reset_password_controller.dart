@@ -1,14 +1,14 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../core/constant/app_routes.dart';
+import '../../core/constant/app_routes.dart';
 
 class ResetPasswordController extends GetxController{
 
   late TextEditingController password;
   late TextEditingController repassword;
 
-  goToSuccess(){
+  goToSuccessResetPassword(){
     Get.offNamed(Routes.successResetPassword);
   }
 

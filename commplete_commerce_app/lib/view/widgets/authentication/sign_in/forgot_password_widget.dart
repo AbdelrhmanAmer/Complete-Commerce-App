@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../controller/sign_in_controller.dart';
+import '../../../../controller/authentication/sign_in_controller.dart';
 
 class ForgotPasswordWidget extends StatelessWidget {
   const ForgotPasswordWidget({

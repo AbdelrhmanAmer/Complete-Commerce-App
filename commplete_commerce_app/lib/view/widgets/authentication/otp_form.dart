@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../controller/otp_controller.dart';
+import '../../../controller/authentication/otp_controller.dart';
 
 class OTPForm extends StatelessWidget {
   const OTPForm({

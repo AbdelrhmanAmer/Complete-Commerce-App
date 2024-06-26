@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constant/constants.dart';
-import '../../../../controller/sign_in_controller.dart';
+import '../../../../controller/authentication/sign_in_controller.dart';
 import '../../input_decoration.dart';
 import 'forgot_password_widget.dart';
 import 'remeber_me_row.dart';

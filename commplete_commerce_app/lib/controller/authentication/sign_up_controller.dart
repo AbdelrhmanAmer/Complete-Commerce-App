@@ -1,13 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../core/constant/app_routes.dart';
+import '../../core/constant/app_routes.dart';
 
 class SignUpController extends GetxController {
   late TextEditingController username, email, phone, password;
 
   signUp() {
-    
+    Get.offNamed(Routes.checkEmail); 
   }
   goToSignIn() {
     Get.offNamed(Routes.signIn);

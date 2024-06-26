@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/authentication/sign_up_controller.dart';
-import '../../../core/constant/constants.dart';
-import '../../../core/constant/color.dart';
-import '../../widgets/authentication/account_prompt.dart';
-import '../../widgets/authentication/sign_up/sign_up_form.dart';
-import '../../widgets/authentication/social_icons.dart';
-import '../../widgets/custom_button.dart';
+import '../../../../controller/authentication/forgot_password_controller.dart';
+import '../../../../core/constant/constants.dart';
+import '../../../../core/constant/color.dart';
+import '../../../widgets/authentication/account_prompt.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/input_decoration.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class ForgotPassword extends StatelessWidget {
+  const ForgotPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SignUpController());
+    var controller = Get.put(ForgotPasswordController());
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
           title: Text(
-            'Sign Up',
+            'Forgot Passwword',
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
@@ -37,34 +36,43 @@ class SignUp extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: size.height * .05),
-                Text('Register Account',
-                    style: Theme.of(context).textTheme.displayLarge),
+                Text(
+                  'Forgot Password',
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
                 SizedBox(height: size.height * .03),
                 Text(
-                  'Complete your details or continue\nwith social media',
+                  'Please enter you email and we will send\n you a OTP to reutrn your account',
                   style: Theme.of(context)
                       .textTheme
                       .labelSmall!
                       .copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: size.height * .04),
-                SignUpFrom(controller: controller),
-                SizedBox(height: size.height * .02),
+                SizedBox(height: size.height * .19),
+                Form(
+                  child: TextFormField(
+                    decoration: inputDecoration(
+                      labelText: "Email",
+                      hintText: "Enter your email",
+                      iconData: Icons.email_outlined,
+                    ),
+                    controller: controller.email,
+                  ),
+                ),
+                SizedBox(height: size.height * .22),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.signUp,
+                  press: controller.goToOtp,
                   widthRatio: .85,
                 ),
-                SizedBox(height: size.height * .03),
-                const SocialIcons(),
-                SizedBox(height: size.height * .02),
+                SizedBox(height: size.height * .04),
                 AccountPrompt(
-                  promptText: 'Have an account? ',
-                  actionText: 'Sign In',
-                  onActionPressed: controller.goToSignIn,
+                  promptText: 'Don\'t have an account?',
+                  actionText: 'Sign Up',
+                  onActionPressed: controller.goToSignUp,
                 ),
                 SizedBox(height: size.height * .01),
               ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/sign_in_controller.dart';
+import '../../../controller/authentication/sign_in_controller.dart';
 import '../../../core/constant/constants.dart';
 import '../../../core/constant/color.dart';
 import '../../widgets/custom_button.dart';

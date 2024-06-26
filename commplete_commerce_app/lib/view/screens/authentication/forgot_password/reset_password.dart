@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/reset_password_controller.dart';
-import '../../../core/constant/constants.dart';
-import '../../../core/constant/color.dart';
-import '../../widgets/custom_button.dart';
-import '../../widgets/input_decoration.dart';
+import '../../../../controller/authentication/reset_password_controller.dart';
+import '../../../../core/constant/constants.dart';
+import '../../../../core/constant/color.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/input_decoration.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -78,7 +78,7 @@ class ResetPassword extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.goToSuccess,
+                  press: controller.goToSuccessResetPassword,
                   widthRatio: .75,
                 ),
                 SizedBox(height: size.height * .01),

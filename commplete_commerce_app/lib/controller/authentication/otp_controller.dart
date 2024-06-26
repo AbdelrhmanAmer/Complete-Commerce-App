@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../core/constant/app_routes.dart';
+import '../../core/constant/app_routes.dart';
 
 class OtpController extends GetxController {
   late String otpCode = '';

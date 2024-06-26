@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/constant/constants.dart';
-import '../../../core/constant/color.dart';
-import '../../../controller/otp_controller.dart';
-import '../../widgets/authentication/account_prompt.dart';
-import '../../widgets/authentication/otp_form.dart';
-import '../../widgets/custom_button.dart';
+import '../../../../core/constant/constants.dart';
+import '../../../../core/constant/color.dart';
+import '../../../../controller/authentication/otp_controller.dart';
+import '../../../widgets/authentication/account_prompt.dart';
+import '../../../widgets/authentication/otp_form.dart';
+import '../../../widgets/custom_button.dart';
 
 class OTP extends StatelessWidget {
   const OTP({super.key});

@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/forgot_password_controller.dart';
-import '../../../core/constant/constants.dart';
-import '../../../core/constant/color.dart';
-import '../../widgets/authentication/account_prompt.dart';
+import '../../../controller/authentication/check_email_controller.dart';
+import '../../../../core/constant/constants.dart';
+import '../../../../core/constant/color.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/input_decoration.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class CheckEmail extends StatelessWidget {
+  const CheckEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ForgotPasswordController());
+    var controller = Get.put(CheckEmailController());
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
           title: Text(
-            'Forgot Passwword',
+            'Check Email',
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
@@ -37,12 +36,12 @@ class ForgotPassword extends StatelessWidget {
               children: [
                 SizedBox(height: size.height * .05),
                 Text(
-                  'Forgot Password',
+                  'Check Email',
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
-                  'Please enter you email and we will send\n you a link to reutrn your account',
+                  'Please enter you email and we will send\n you a to reutrn your account',
                   style: Theme.of(context)
                       .textTheme
                       .labelSmall!
@@ -65,14 +64,8 @@ class ForgotPassword extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.goToOtp,
+                  press: controller.goToSuccessSignUp,
                   widthRatio: .85,
-                ),
-                SizedBox(height: size.height * .04),
-                AccountPrompt(
-                  promptText: 'Don\'t have an account?',
-                  actionText: 'Sign Up',
-                  onActionPressed: controller.goToSignUp,
                 ),
                 SizedBox(height: size.height * .01),
               ],

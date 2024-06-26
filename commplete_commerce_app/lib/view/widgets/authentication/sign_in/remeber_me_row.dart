@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constant/color.dart';
-import '../../../../controller/sign_in_controller.dart';
+import '../../../../controller/authentication/sign_in_controller.dart';
 
 class RemeberMeRow extends StatelessWidget {
   const RemeberMeRow({
