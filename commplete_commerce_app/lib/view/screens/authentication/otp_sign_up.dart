@@ -2,25 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constant/constants.dart';
+import '../../../controller/authentication/otp_sign_up.dart';
 import '../../../../core/constant/color.dart';
-import '../../../../controller/authentication/otp_controller.dart';
-import '../../../widgets/authentication/account_prompt.dart';
-import '../../../widgets/authentication/otp_form.dart';
-import '../../../widgets/custom_button.dart';
+import '../../widgets/authentication/account_prompt.dart';
+import '../../widgets/authentication/otp_form.dart';
+import '../../widgets/authentication/timer.dart';
+import '../../widgets/custom_button.dart';
 
-class OTP extends StatelessWidget {
-  const OTP({super.key});
+class OTPSignUp extends StatelessWidget {
+  const OTPSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(OtpController());
+    var controller = Get.put(OtpSignUpController());
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
           title: Text(
-            'OTP Verification',
+            'OTP Sign Up Verification',
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
@@ -37,7 +38,7 @@ class OTP extends StatelessWidget {
               children: [
                 SizedBox(height: size.height * .05),
                 Text(
-                  'OTP Verification',
+                  'OTP Sign Up Verification',
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
@@ -49,28 +50,10 @@ class OTP extends StatelessWidget {
                       .copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'The Code will expired in ',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelSmall!
-                          .copyWith(height: 1.5),
-                    ),
-                    TweenAnimationBuilder(
-                        tween: Tween(begin: 60, end: 0.0),
-                        duration: const Duration(seconds: 60),
-                        builder: (_, value, child) {
-                          return Text(
-                            '00:${value.toInt()}',
-                            style: const TextStyle(
-                                fontSize: 14, color: AppColor.primaryColor),
-                          );
-                        })
-                  ],
+                const Timer(
+                  begin: 60,
+                  end: 0,
+                  duration: 60,
                 ),
                 SizedBox(height: size.height * .19),
                 OTPForm(controller: controller),
@@ -79,7 +62,7 @@ class OTP extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.goToResetPassword,
+                  press: controller.goToSuccessSignUp,
                   widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .04),
@@ -88,7 +71,7 @@ class OTP extends StatelessWidget {
                   actionText: 'Resend OTP Code',
                   buttonTextColor: AppColor.grey.withOpacity(.6),
                   textDecoration: TextDecoration.underline,
-                  onActionPressed: controller.checkOtp,
+                  onActionPressed: controller.resendOtp,
                 ),
                 SizedBox(height: size.height * .01),
               ],

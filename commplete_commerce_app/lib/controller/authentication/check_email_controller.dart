@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 class CheckEmailController extends GetxController {
   late TextEditingController email;
 
-  goToSuccessSignUp() {
-    Get.offNamed(Routes.successSignUp);
+  goToOtpSignUp() {
+    Get.offNamed(Routes.otpSignUp);
   }
 
   @override

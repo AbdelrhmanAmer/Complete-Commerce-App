@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'dart:math';
 
+import '../../../controller/authentication/success_sign_up_controller.dart';
 import '../../../core/constant/color.dart';
 import '../../widgets/custom_button.dart';
 
@@ -10,6 +12,7 @@ class SuccessSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    SuccessSignUpController controller = Get.put(SuccessSignUpController());
 
     return Scaffold(
       appBar: AppBar(
@@ -51,7 +54,7 @@ class SuccessSignUp extends StatelessWidget {
               backgroundColor: AppColor.primaryColor,
               foregroundColor: Colors.white,
               text: 'Continue',
-              press: () {},
+              press: controller.goToSignIn,
               widthRatio: .5,
             ),
           ],
@@ -64,8 +67,7 @@ class SuccessSignUp extends StatelessWidget {
     final List<Widget> dots = [];
     final random = Random();
 
-    // Define the area occupied by the success icon
-    final double iconSize = 200;
+    const double iconSize = 200;
     final double iconTop = (size.height * .5 - iconSize) / 2;
     final double iconLeft = (size.width - iconSize) / 2;
     final double iconBottom = iconTop + iconSize;
@@ -76,11 +78,13 @@ class SuccessSignUp extends StatelessWidget {
       double top;
       double left;
 
-      // Ensure the dots are not placed within the area occupied by the icon
       do {
         top = random.nextDouble() * size.height;
         left = random.nextDouble() * size.width;
-      } while (top > iconTop && top < iconBottom && left > iconLeft && left < iconRight);
+      } while (top > iconTop &&
+          top < iconBottom &&
+          left > iconLeft &&
+          left < iconRight);
 
       dots.add(Positioned(
         top: top,

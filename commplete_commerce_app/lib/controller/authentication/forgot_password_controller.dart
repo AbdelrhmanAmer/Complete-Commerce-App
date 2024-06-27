@@ -12,7 +12,7 @@ class ForgotPasswordController extends GetxController{
     
   }
   goToOtp(){
-    Get.toNamed(Routes.otp);
+    Get.toNamed(Routes.otpResetPassword);
   }
   goToSignUp(){
     Get.offNamed(Routes.signUp);

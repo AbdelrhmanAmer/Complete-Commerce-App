@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../controller/authentication/otp_controller.dart';
 
 class OTPForm extends StatelessWidget {
   const OTPForm({
@@ -8,7 +7,7 @@ class OTPForm extends StatelessWidget {
     required this.controller,
     this.cellWidth = 50,
   });
-  final OtpController controller;
+  final dynamic controller;
   final double cellWidth;
 
   @override

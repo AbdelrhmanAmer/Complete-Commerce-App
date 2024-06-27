@@ -64,7 +64,7 @@ class CheckEmail extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.goToSuccessSignUp,
+                  press: controller.goToOtpSignUp,
                   widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .01),
