@@ -11,8 +11,9 @@ class CheckEmailController extends GetxController {
 
   @override
   void onInit() {
-    email = TextEditingController();
     super.onInit();
+    final emailArg = Get.arguments is Map ? Get.arguments['email'] as String : '';
+    email = TextEditingController(text: emailArg);
   }
 
   @override
