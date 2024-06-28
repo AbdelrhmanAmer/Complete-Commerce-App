@@ -7,8 +7,9 @@ class SignUpController extends GetxController {
   late TextEditingController username, email, phone, password;
 
   signUp() {
-    Get.offNamed(Routes.checkEmail); 
+    Get.offNamed(Routes.checkEmail, arguments: {'email': email.text});
   }
+
   goToSignIn() {
     Get.offNamed(Routes.signIn);
   }
