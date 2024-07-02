@@ -65,7 +65,7 @@ class SignIn extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Sign In',
-                  press: () {},
+                  press: controller.signIn,
                   widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .03),

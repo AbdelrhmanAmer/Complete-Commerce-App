@@ -21,7 +21,7 @@ class OtpSignUpController extends GetxController {
   resendOtp() {}
 
   goToSuccessSignUp() {
-    Get.offNamed(Routes.successSignUp);
+    Get.offAllNamed(Routes.successSignUp);
   }
 
   @override

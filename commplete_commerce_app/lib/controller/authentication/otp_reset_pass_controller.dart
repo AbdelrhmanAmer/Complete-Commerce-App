@@ -20,7 +20,7 @@ class OtpController extends GetxController {
   }
 
   goToResetPassword() {
-    Get.offNamed(Routes.resetPassword);
+    Get.offAllNamed(Routes.resetPassword);
   }
 
   resendOtp() {}

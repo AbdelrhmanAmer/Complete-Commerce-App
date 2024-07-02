@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/functions/validate_input.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../controller/authentication/sign_in_controller.dart';
 import '../../input_decoration.dart';
@@ -20,6 +21,7 @@ class SignInForm extends StatelessWidget {
     bool isSmallScreen = screenWidth < 280; // Adjust the threshold as needed
 
     return Form(
+      key: controller.formState,
       child: Column(
         children: [
           TextFormField(
@@ -28,6 +30,7 @@ class SignInForm extends StatelessWidget {
                 hintText: "Enter your email",
                 iconData: Icons.email_outlined),
             controller: controller.email,
+            validator: (value) => validateInput(value!, 'email'),
           ),
           SizedBox(height: size.height * .03),
           TextFormField(
@@ -35,6 +38,8 @@ class SignInForm extends StatelessWidget {
                 labelText: "Password",
                 hintText: "Enter your password",
                 iconData: Icons.lock_outline),
+            validator: (value) =>
+                validateInput(value!, 'password', min: 6, max: 50),
             controller: controller.password,
             obscureText: true,
           ),
