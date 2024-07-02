@@ -5,9 +5,15 @@ import '../../core/constant/app_routes.dart';
 
 class SignUpController extends GetxController {
   late TextEditingController username, email, phone, password;
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   signUp() {
-    Get.offNamed(Routes.checkEmail, arguments: {'email': email.text});
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      Get.toNamed(Routes.checkEmail, arguments: {'email': email.text});
+    } else {
+      return "Not Valid Inputs";
+    }
   }
 
   goToSignIn() {

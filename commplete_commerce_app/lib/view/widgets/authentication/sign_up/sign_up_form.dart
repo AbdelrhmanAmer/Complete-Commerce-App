@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/functions/validate_input.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../controller/authentication/sign_up_controller.dart';
 import '../../input_decoration.dart';
@@ -11,9 +12,11 @@ class SignUpFrom extends StatelessWidget {
   });
 
   final SignUpController controller;
+  
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: controller.formState,
       child: Column(
         children: [
           TextFormField(
@@ -22,6 +25,9 @@ class SignUpFrom extends StatelessWidget {
               hintText: "Enter your username",
               iconData: Icons.person_2_outlined,
             ),
+            validator: (val) {
+              return validateInput(val!, 'username', min: 8);
+            },
             controller: controller.username,
             keyboardType: TextInputType.text,
           ),
@@ -32,6 +38,9 @@ class SignUpFrom extends StatelessWidget {
               hintText: "Enter your email",
               iconData: Icons.email_outlined,
             ),
+            validator: (val) {
+              return validateInput(val!, 'email');
+            },
             controller: controller.email,
             keyboardType: TextInputType.emailAddress,
           ),
@@ -42,6 +51,9 @@ class SignUpFrom extends StatelessWidget {
               hintText: "Enter your phone",
               iconData: Icons.local_phone_outlined,
             ),
+            validator: (val) {
+              return validateInput(val!, 'phone');
+            },
             controller: controller.phone,
             keyboardType: TextInputType.phone,
           ),
@@ -51,6 +63,9 @@ class SignUpFrom extends StatelessWidget {
                 labelText: "Password",
                 hintText: "Enter your password",
                 iconData: Icons.lock_outline),
+            validator: (val) {
+              return validateInput(val!, 'password', min: 6, max: 50);
+            },
             controller: controller.password,
             obscureText: true,
           ),

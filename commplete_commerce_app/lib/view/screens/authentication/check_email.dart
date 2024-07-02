@@ -13,6 +13,7 @@ class CheckEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(CheckEmailController());
+    controller.updateEmail();
 
     return SafeArea(
       child: Scaffold(
