@@ -16,14 +16,23 @@
 </p>
 
 ![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/ee8f7cc5-a22c-427a-bf1b-5d5880925f25) <!-- Language -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/5fe5b5cc-4118-4240-b7f9-85575ad6d742) <!-- onboarding 1 -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/74627f05-65f0-4730-b6d3-65b3fd3f52c2) <!-- onboarding 2 -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/8db8dda0-01fc-4d4d-95e6-9bf9cca98814) <!-- onboarding 3 -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/deb1d676-102b-473a-bfa0-a7aee481af39) <!-- sign in -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/39305b8b-eccb-43dc-b8b6-e8ff3a90240d) <!-- forgot password -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/ab8b01ef-fabe-4e28-bd45-f4c6928de777) <!-- sign up --> 
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/5fe5b5cc-4118-4240-b7f9-85575ad6d742) <!-- Onboarding 1 -->
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/74627f05-65f0-4730-b6d3-65b3fd3f52c2) <!-- Onboarding 2 -->
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/8db8dda0-01fc-4d4d-95e6-9bf9cca98814) <!-- Onboarding 3 -->
+
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/deb1d676-102b-473a-bfa0-a7aee481af39) <!-- Sign In -->
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/39305b8b-eccb-43dc-b8b6-e8ff3a90240d) <!-- Forgot Password -->
 ![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/8a2bb6f9-7f26-44ee-8f81-fdc22be728d6) <!-- OTP -->
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/4cf50c2c-b3b1-41b3-bdc7-b9d3d329a476) <!-- Sign Up Successful-->
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/18fba2fa-586f-413d-9e37-1b445e0f643e) <!-- Reset Password --> 
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/16606dcf-119f-4b7a-bd5e-71f59ce27aa5) <!-- Successful Reset Password -->
+
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/ab8b01ef-fabe-4e28-bd45-f4c6928de777) <!-- Sign Up --> 
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/f80b59a1-e240-4bab-b6cb-b7171020b6b3) <!-- Check Email --> 
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/1bc8b392-c3b1-44e1-8d32-0f07d470a3a3) <!-- OTP Sign Up Verfication -->
+![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/33f4a720-8255-466f-9143-a6cb78aa907c) <!-- Successful Sign Up -->
+   
+
+
 
 
 
