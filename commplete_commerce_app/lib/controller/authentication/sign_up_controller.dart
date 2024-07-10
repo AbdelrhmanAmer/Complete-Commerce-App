@@ -8,7 +8,7 @@ class SignUpController extends GetxController {
   RxBool hiddenPassword = true.obs;
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-  
+
   togglePasswordVisibility() {
     hiddenPassword.value = !hiddenPassword.value;
   }
@@ -16,7 +16,7 @@ class SignUpController extends GetxController {
   signUp() {
     var formData = formState.currentState;
     if (formData!.validate()) {
-      Get.toNamed(Routes.checkEmail, arguments: {'email': email.text});
+      Get.toNamed(Routes.otpSignUp);
     } else {
       return "Not Valid Inputs";
     }

@@ -87,9 +87,9 @@ class OTPForm extends StatelessWidget {
 
   InputDecoration otpInputDecoration() {
     var outlineInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(13),
+      borderRadius: BorderRadius.circular(20),
       gapPadding: 0,
-      borderSide: const BorderSide(color: Colors.black38),
+      borderSide: const BorderSide(color: Colors.black26),
     );
     return InputDecoration(
       border: outlineInputBorder,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constant/constants.dart';
-import '../../../controller/authentication/otp_sign_up.dart';
+import '../../../controller/authentication/otp_sign_up_controller.dart';
 import '../../../../core/constant/color.dart';
 import '../../widgets/authentication/account_prompt.dart';
 import '../../widgets/authentication/otp_form.dart';
@@ -51,13 +51,13 @@ class OTPSignUp extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const Timer(
-                  begin: 60,
+                  begin: 120,
                   end: 0,
-                  duration: 60,
+                  duration: 120,
                 ),
-                SizedBox(height: size.height * .19),
+                SizedBox(height: size.height * .03),
                 OTPForm(controller: controller),
-                SizedBox(height: size.height * .20),
+                SizedBox(height: size.height * .30),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,

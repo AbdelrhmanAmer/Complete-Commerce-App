@@ -7,6 +7,5 @@ class Routes {
   static const String resetPassword = '/resetPassword';
   static const String successSignUp = '/successSignUp';
   static const String successResetPassword = '/successResetPassword';
-  static const String checkEmail = '/checkEmail';
   static const String otpSignUp = '/otpSignUp';
 }

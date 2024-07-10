@@ -1,7 +1,9 @@
-import 'package:commplete_commerce_app/core/constant/app_routes.dart';
-import 'package:commplete_commerce_app/data/data_source/static/static.dart';
+import 'package:commplete_commerce_app/core/services/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+
+import '../data/data_source/static/static.dart';
+import '../core/constant/app_routes.dart';
 
 abstract class OnBoardingController extends GetxController {
   next();
@@ -11,6 +13,7 @@ abstract class OnBoardingController extends GetxController {
 
 class OnBoardingControllerImp extends OnBoardingController {
   int currentPage = 0;
+  MyServices myServices = Get.find();
 
   late PageController pageController;
 
@@ -43,6 +46,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   
   @override
   skip() {
+    myServices.sharedPreferences.setString('onboarding', '1');
     Get.offAllNamed(Routes.signIn);
   }
 }

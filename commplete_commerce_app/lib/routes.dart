@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
 import 'view/screens/onboarding.dart';
@@ -7,23 +7,21 @@ import 'view/screens/authentication/forgot_password/reset_password.dart';
 import 'view/screens/authentication/forgot_password/otp_reset_pass.dart';
 import 'view/screens/authentication/forgot_password/forgot_password.dart';
 import 'view/screens/authentication/success_sign_up.dart';
-import 'view/screens/authentication/check_email.dart';
 import 'view/screens/authentication/otp_sign_up.dart';
 import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
 
-Map<String, Widget Function(BuildContext)> routes = {
+List<GetPage<dynamic>>? routes = [
   // Onboarding
-  Routes.onBoarding: (context) => const OnBoarding(),
+  GetPage(name: Routes.onBoarding, page: () => const OnBoarding()),
 
   // Authentication
-  Routes.signIn: (context) => const SignIn(),
-  Routes.signUp: (context) => const SignUp(),
-  Routes.forgotPassword: (context) => const ForgotPassword(),
-  Routes.otpResetPassword: (context) => const OTPResetPassword(),
-  Routes.resetPassword: (context) => const ResetPassword(),
-  Routes.successSignUp: (context) => const SuccessSignUp(),
-  Routes.successResetPassword: (context) => const SuccessResetPassword(),
-  Routes.checkEmail: (context) => const CheckEmail(),
-  Routes.otpSignUp: (context) => const OTPSignUp(),
-};
+  GetPage(name: Routes.signIn, page: () => const SignIn()),
+  GetPage(name: Routes.signUp, page: () => const SignUp()),
+  GetPage(name: Routes.forgotPassword, page: () => const ForgotPassword()),
+  GetPage(name: Routes.otpResetPassword, page: () => const OTPResetPassword()),
+  GetPage(name: Routes.otpSignUp, page: () => const OTPSignUp()),
+  GetPage(name: Routes.resetPassword, page: () => const ResetPassword()),
+  GetPage(name: Routes.successResetPassword, page: () => const SuccessResetPassword()),
+  GetPage(name: Routes.successSignUp, page: () => const SuccessSignUp()),
+];

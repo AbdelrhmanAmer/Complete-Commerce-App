@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: themes(),
       home: const Language(),
-      routes: routes,
+      getPages: routes,
     );
   }
 }
