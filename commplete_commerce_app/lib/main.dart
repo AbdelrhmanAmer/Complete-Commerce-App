@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/themes.dart';
-import 'view/screens/language.dart';
 import 'core/localization/change_local.dart';
 import 'core/localization/translation.dart';
 import 'core/services/services.dart';
@@ -27,7 +26,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: themes(),
-      home: const Language(),
       getPages: routes,
     );
   }
