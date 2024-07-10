@@ -36,7 +36,7 @@ class SignIn extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: size.height * .02),
+                SizedBox(height: size.height * .01),
                 SizedBox(
                   height: size.height * .2,
                   child: AspectRatio(
@@ -60,7 +60,7 @@ class SignIn extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * .03),
                 SignInForm(controller: controller),
-                SizedBox(height: size.height * .03),
+                SizedBox(height: size.height * .02),
                 CustomButton(
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
@@ -68,7 +68,7 @@ class SignIn extends StatelessWidget {
                   press: controller.signIn,
                   widthRatio: .85,
                 ),
-                SizedBox(height: size.height * .03),
+                SizedBox(height: size.height * .02),
                 const SocialIcons(),
                 SizedBox(height: size.height * .01),
                 AccountPrompt(

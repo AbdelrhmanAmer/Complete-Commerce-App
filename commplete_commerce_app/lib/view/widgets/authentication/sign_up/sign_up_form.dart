@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/functions/validate_input.dart';
 import '../../../../core/constant/constants.dart';
@@ -12,7 +14,7 @@ class SignUpFrom extends StatelessWidget {
   });
 
   final SignUpController controller;
-  
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -58,16 +60,23 @@ class SignUpFrom extends StatelessWidget {
             keyboardType: TextInputType.phone,
           ),
           SizedBox(height: size.height * .03),
-          TextFormField(
-            decoration: inputDecoration(
+          Obx(
+            () => TextFormField(
+              decoration: inputDecoration(
                 labelText: "Password",
                 hintText: "Enter your password",
-                iconData: Icons.lock_outline),
-            validator: (val) {
-              return validateInput(val!, 'password', min: 6, max: 50);
-            },
-            controller: controller.password,
-            obscureText: true,
+                onpressed: controller.togglePasswordVisibility,
+                pressed: true,
+                iconData: controller.hiddenPassword.value
+                    ? CupertinoIcons.eye
+                    : CupertinoIcons.eye_slash,
+              ),
+              validator: (val) {
+                return validateInput(val!, 'password', min: 6, max: 50);
+              },
+              controller: controller.password,
+              obscureText: controller.hiddenPassword.value,
+            ),
           ),
           SizedBox(height: size.height * .03),
         ],
