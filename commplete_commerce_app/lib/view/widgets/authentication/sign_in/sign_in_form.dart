@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/functions/validate_input.dart';
 import '../../../../core/constant/constants.dart';
@@ -26,22 +28,32 @@ class SignInForm extends StatelessWidget {
         children: [
           TextFormField(
             decoration: inputDecoration(
-                labelText: "Email",
-                hintText: "Enter your email",
-                iconData: Icons.email_outlined),
+              labelText: "Email",
+              hintText: "Enter your email",
+              iconData: Icons.email_outlined,
+            ),
             controller: controller.email,
             validator: (value) => validateInput(value!, 'email'),
+            keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: size.height * .03),
-          TextFormField(
-            decoration: inputDecoration(
+          Obx(
+            () => TextFormField(
+              decoration: inputDecoration(
                 labelText: "Password",
                 hintText: "Enter your password",
-                iconData: Icons.lock_outline),
-            validator: (value) =>
-                validateInput(value!, 'password', min: 6, max: 50),
-            controller: controller.password,
-            obscureText: true,
+                iconData: controller.hiddenPassword.value
+                    ? CupertinoIcons.eye
+                    : CupertinoIcons.eye_slash,
+                onpressed: controller.togglePasswordVisibility,
+                pressed: true,
+              ),
+              validator: (value) =>
+                  validateInput(value!, 'password', min: 6, max: 50),
+              keyboardType: TextInputType.text,
+              controller: controller.password,
+              obscureText: controller.hiddenPassword.value,
+            ),
           ),
           SizedBox(height: size.height * .02),
           isSmallScreen
