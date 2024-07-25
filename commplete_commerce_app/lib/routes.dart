@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/test.dart';
 import 'package:get/get.dart';
 
 import 'core/middleware/my_middleware.dart';
@@ -22,6 +23,7 @@ List<GetPage<dynamic>>? routes = [
       MyMiddleware(),
     ],
   ),
+  // GetPage(name: '/', page: ()=>const Test()),
 
   // Onboarding
   GetPage(name: Routes.onBoarding, page: () => const OnBoarding()),
