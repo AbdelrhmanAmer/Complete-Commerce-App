@@ -27,7 +27,6 @@
 ![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/16606dcf-119f-4b7a-bd5e-71f59ce27aa5) <!-- Successful Reset Password -->
 
 ![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/ab8b01ef-fabe-4e28-bd45-f4c6928de777) <!-- Sign Up --> 
-![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/f80b59a1-e240-4bab-b6cb-b7171020b6b3) <!-- Check Email --> 
 ![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/1bc8b392-c3b1-44e1-8d32-0f07d470a3a3) <!-- OTP Sign Up Verfication -->
 ![image](https://github.com/AbdelrhmanAmer/Complete-Commerce-App/assets/93345509/33f4a720-8255-466f-9143-a6cb78aa907c) <!-- Successful Sign Up -->
    
