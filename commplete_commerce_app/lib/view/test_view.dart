@@ -23,7 +23,9 @@ class TestView extends StatelessWidget {
             return const Center(child: Text('Offline Failure'));
           } else if (controller.statusRequest == StatusRequest.serverFailure) {
             return const Center(child: Text('Server Failure'));
-          } else {
+          }else if (controller.statusRequest == StatusRequest.failure) {
+            return const Center(child: Text('Failure'));
+          }  else {
             return ListView.builder(
               itemCount: controller.data.length,
               itemBuilder: (ctx, index) {

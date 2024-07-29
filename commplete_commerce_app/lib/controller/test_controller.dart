@@ -13,7 +13,6 @@ class TestController extends GetxController {
 
   getData() async {
     statusRequest = StatusRequest.loading;
-    update();
 
     var response = await testData.getData();
 
@@ -22,12 +21,8 @@ class TestController extends GetxController {
     if (statusRequest == StatusRequest.success) {
       if (response.containsKey('data')) {
         data.addAll(response['data']);
-      } else {
-        statusRequest = StatusRequest.failure;
       }
-    } else {
-      statusRequest = StatusRequest.failure;
-    }
+    } 
 
     update();
   }
