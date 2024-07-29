@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'initial_bindings.dart';
 import 'core/constant/themes.dart';
 import 'core/localization/change_local.dart';
 import 'core/localization/translation.dart';
@@ -27,6 +28,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: themes(),
       getPages: routes,
+    
+      initialBinding: InitialBindings(),
     );
   }
 }
