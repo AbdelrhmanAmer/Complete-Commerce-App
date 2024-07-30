@@ -19,12 +19,11 @@ class Crud {
         dio.interceptors.add(CookieManager(cookieJar));
         dio.options.headers['accept'] = 'application/json';
         dio.options.headers['Content-Type'] = 'application/json';
-        dio.options.headers['Authorization'] = 'Basic${base64Encode(utf8.encode('if0_36908677:uj351fAzCV2'))}';
         
         var response = await dio.get(AppLinks.test);
           
         print('Response Body (before decode) $response');
-        if(response.statusCode == 200 || response == 201){
+        if(response.statusCode == 200 || response.statusCode == 201){
           Map<String, dynamic> responseBody = jsonDecode(response.data);
           print('\n response Body: $responseBody');
           return Right(responseBody);

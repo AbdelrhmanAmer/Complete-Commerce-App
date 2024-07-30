@@ -19,8 +19,10 @@ class TestController extends GetxController {
     statusRequest = handleData(response);
 
     if (statusRequest == StatusRequest.success) {
-      if (response.containsKey('data')) {
+      if (response.containsKey('data') && response['status'] == 'success') {
         data.addAll(response['data']);
+      }else{
+        statusRequest = StatusRequest.noData;
       }
     } 
 
