@@ -15,13 +15,19 @@ class DataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
-        ? const Center(child: Text('Loading'))
+        ? const Center(child: Text('Loading', style: TextStyle(fontSize: 30)))
         : statusRequest == StatusRequest.internetFailure
-            ? const Center(child: Text('Offline Failure'))
+            ? const Center(
+                child: Text('Internet Failure', style: TextStyle(fontSize: 30)))
             : statusRequest == StatusRequest.serverFailure
-                ? const Center(child: Text('Server Failure'))
+                ? const Center(
+                    child: Center(
+                        child: Text('Server Failure', style: TextStyle(fontSize: 30))))
                 : statusRequest == StatusRequest.noData
-                    ? const Center(child: Text('Failure: No Data'))
+                    ? const Center(
+                        child: Center(
+                            child: Text('No Data!',
+                                style: TextStyle(fontSize: 30))))
                     : widget;
   }
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../core/class/DataView.dart';
+import '../core/constant/color.dart';
+import '../core/class/data_view.dart';
 import '../controller/test_controller.dart';
 
 class TestView extends StatelessWidget {
@@ -13,6 +14,8 @@ class TestView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Test'),
+        backgroundColor: AppColor.primaryColor,
+        centerTitle: true,
       ),
       body: GetBuilder<TestController>(
         builder: (controller) {
