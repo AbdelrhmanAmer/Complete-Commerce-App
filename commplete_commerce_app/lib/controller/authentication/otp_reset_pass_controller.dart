@@ -10,6 +10,7 @@ class OtpController extends GetxController {
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
   FocusNode? pin5FocusNode;
+  FocusNode? pin6FocusNode;
 
   checkOtp() {}
   nextField(String value, FocusNode focusNode) {
@@ -31,6 +32,7 @@ class OtpController extends GetxController {
     pin3FocusNode = FocusNode();
     pin4FocusNode = FocusNode();
     pin5FocusNode = FocusNode();
+    pin6FocusNode = FocusNode();
     super.onInit();
   }
 
@@ -40,6 +42,7 @@ class OtpController extends GetxController {
     pin3FocusNode!.dispose();
     pin4FocusNode!.dispose();
     pin5FocusNode!.dispose();
+    pin6FocusNode!.dispose();
 
     super.dispose();
   }

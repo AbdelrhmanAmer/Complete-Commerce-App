@@ -19,7 +19,7 @@ class DataView extends StatelessWidget {
         : statusRequest == StatusRequest.internetFailure
             ? const Center(
                 child: Text('Internet Failure', style: TextStyle(fontSize: 30)))
-            : statusRequest == StatusRequest.serverFailure
+            : statusRequest == StatusRequest.serverException
                 ? const Center(
                     child: Center(
                         child: Text('Server Failure', style: TextStyle(fontSize: 30))))

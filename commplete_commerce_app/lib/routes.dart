@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
-import 'view/test_view.dart';
+import 'core/middleware/my_middleware.dart';
+import 'view/screens/language.dart';
 import 'view/screens/onboarding.dart';
 import 'view/screens/authentication/forgot_password/success_reset_password.dart';
 import 'view/screens/authentication/forgot_password/reset_password.dart';
@@ -14,14 +15,14 @@ import 'view/screens/authentication/sign_up.dart';
 
 List<GetPage<dynamic>>? routes = [
   // // Language
-  // GetPage(
-  //   name: '/',
-  //   page: () => const Language(),
-  //   middlewares: [
-  //     MyMiddleware(),
-  //   ],
-  // ),
-  GetPage(name: '/', page: ()=> const TestView()),
+  GetPage(
+    name: '/',
+    page: () => const Language(),
+    middlewares: [
+      MyMiddleware(),
+    ],
+  ),
+  // GetPage(name: '/', page: ()=> const TestView()),
 
   // Onboarding
   GetPage(name: Routes.onBoarding, page: () => const OnBoarding()),

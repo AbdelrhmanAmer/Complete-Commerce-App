@@ -25,7 +25,6 @@ class TestController extends GetxController {
         statusRequest = StatusRequest.noData;
       }
     } 
-
     update();
   }
 
