@@ -7,11 +7,23 @@ class Timer extends StatelessWidget {
     super.key,
     required this.begin,
     required this.end,
-    required this.duration,
+    required this.duration, // Duration in seconds
   });
   final double begin;
   final double end;
   final int duration;
+
+  String _formatTime(double value) {
+    int totalSeconds = value.toInt();
+    int minutes = totalSeconds ~/ 60; // Calculate minutes
+    int seconds = totalSeconds % 60; // Calculate remaining seconds
+
+    // Format minutes and seconds as two digits
+    String minutesStr = minutes.toString().padLeft(2, '0');
+    String secondsStr = seconds.toString().padLeft(2, '0');
+
+    return '$minutesStr:$secondsStr';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +32,7 @@ class Timer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'The Code will expired in ',
+          'The code will expire in ',
           style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
         ),
         TweenAnimationBuilder(
@@ -28,7 +40,7 @@ class Timer extends StatelessWidget {
             duration: Duration(seconds: duration),
             builder: (_, value, child) {
               return Text(
-                '00:${value.toInt()}',
+                _formatTime(value),
                 style:
                     const TextStyle(fontSize: 14, color: AppColor.primaryColor),
               );

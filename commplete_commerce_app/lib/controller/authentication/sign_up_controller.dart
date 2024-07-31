@@ -12,7 +12,7 @@ class SignUpController extends GetxController {
   late TextEditingController password;
   late TextEditingController phone;
 
-  Rx<StatusRequest> statusRequest = StatusRequest.loading.obs;
+  Rx<StatusRequest> statusRequest = StatusRequest.noData.obs;
   RxBool hiddenPassword = true.obs;
 
   SignUpData signUpData = SignUpData(Get.find());
