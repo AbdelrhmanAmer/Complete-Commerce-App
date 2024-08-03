@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,8 +28,8 @@ class OtpSignUpController extends GetxController {
     var response = await otpSignUpData.postData(email!, otpCode.join(''));
 
     statusRequest = handleResponseStatus(response);
-    print('OtpSignUpController.dart: Controller $response');
-    print('OtpSignUpController.dart: StatusRequest= $statusRequest ');
+    log('OtpSignUpController.dart: Controller ${response.toString()}');
+    log('OtpSignUpController.dart: StatusRequest= ${statusRequest.toString()} ');
 
     if (statusRequest == StatusRequest.success) {
       if (response is Map) {

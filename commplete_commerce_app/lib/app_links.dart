@@ -1,9 +1,8 @@
 class AppLinks {
-  static const String server = 'http://localhost/Complete-Ecommerce';
-  static const String test = '$server/test.php';
+  // Server
+  static const String server = 'http://10.0.2.2/Complete-Ecommerce';
 
   // Auth
-  static const String signUp =
-      'http://localhost/Complete-Ecommerce/auth/sign_up.php';
-  static const String otp = 'http://localhost/Complete-Ecommerce/auth/otp.php';
+  static const String signUp = '$server/auth/sign_up.php';
+  static const String otp = '$server/auth/otp.php';
 }

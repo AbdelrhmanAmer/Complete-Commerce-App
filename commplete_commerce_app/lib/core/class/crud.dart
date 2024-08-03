@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:dio/dio.dart';
 import '../functions/check_internet.dart';
 
@@ -9,9 +10,9 @@ class Crud {
       if (await checkInternet()) {
         final dio = Dio();
         final response = await dio.post(url, data: FormData.fromMap(data));
-        print('--------------------------------------------------------');
-        print('Crud.dart: dio Response ${response.data}  ');
-        print('Crud.dart: response.statusCode ${response.statusCode} ');
+        log('--------------------------------------------------------');
+        log('Crud.dart: dio Response ${response.data.toString()}');
+        log('Crud.dart: response.statusCode ${response.statusCode.toString()}');
 
         Map<String, dynamic>? responseBody;
 
@@ -21,7 +22,7 @@ class Crud {
           responseBody = response.data as Map<String, dynamic>;
         }
 
-        print('Crud.dart: response.body $responseBody ');
+        log('Crud.dart: response.body ${responseBody.toString()}');
 
         return responseBody!;
       } else {
@@ -31,7 +32,7 @@ class Crud {
         };
       }
     } catch (e) {
-      print('Crud.dart: Error: $e');
+      log('Crud.dart: Error: ${e as String}');
       return {
         'status': 'Failure',
         'message': '404, Server Failure',

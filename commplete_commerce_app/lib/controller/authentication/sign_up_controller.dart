@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -34,8 +36,8 @@ class SignUpController extends GetxController {
           username.text, password.text, email.text, phone.text);
 
       statusRequest.value = handleResponseStatus(response);
-      print('SignUpController.dart: Controller $response');
-      print('SignUpController.dart: StatusRequest= ${statusRequest.value} ');
+      log('SignUpController.dart: Controller ${{response.toString()}}');
+      log('SignUpController.dart: StatusRequest= ${statusRequest.value.toString()} ');
 
       if (statusRequest.value == StatusRequest.success) {
         if (response is Map) {
