@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 import '../class/status_request.dart';
 
-StatusRequest handleData(response) {
+StatusRequest handleResponseStatus(response) {
   if (response['status'] == 'Success') {
     return StatusRequest.success;
   } else {

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../data/data_source/remote/auth/otp_sign_up_data.dart';
 import '../../core/class/status_request.dart';
 import '../../core/constant/app_routes.dart';
-import '../../core/functions/handle_data.dart';
+import '../../core/functions/handle_response_status.dart';
 
 class OtpSignUpController extends GetxController {
   late List<String> otpCode = List.filled(5, '');
@@ -25,7 +25,7 @@ class OtpSignUpController extends GetxController {
 
     var response = await otpSignUpData.postData(email!, otpCode.join(''));
 
-    statusRequest = handleData(response);
+    statusRequest = handleResponseStatus(response);
     print('OtpSignUpController.dart: Controller $response');
     print('OtpSignUpController.dart: StatusRequest= $statusRequest ');
 

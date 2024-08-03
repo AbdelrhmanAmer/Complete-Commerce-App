@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../../core/functions/handle_data.dart';
+import '../../core/functions/handle_response_status.dart';
 import '../../data/data_source/remote/auth/sign_up_data.dart';
 import '../../core/class/status_request.dart';
 import '../../core/constant/app_routes.dart';
@@ -33,7 +33,7 @@ class SignUpController extends GetxController {
       var response = await signUpData.postData(
           username.text, password.text, email.text, phone.text);
 
-      statusRequest.value = handleData(response);
+      statusRequest.value = handleResponseStatus(response);
       print('SignUpController.dart: Controller $response');
       print('SignUpController.dart: StatusRequest= ${statusRequest.value} ');
 

@@ -9,7 +9,7 @@ class Crud {
       if (await checkInternet()) {
         final dio = Dio();
         final response = await dio.post(url, data: FormData.fromMap(data));
-        print('-------------------------------------');
+        print('--------------------------------------------------------');
         print('Crud.dart: dio Response ${response.data}  ');
         print('Crud.dart: response.statusCode ${response.statusCode} ');
 
@@ -34,7 +34,7 @@ class Crud {
       print('Crud.dart: Error: $e');
       return {
         'status': 'Failure',
-        'message': '404, Server Failure $e',
+        'message': '404, Server Failure',
       };
     }
   }
