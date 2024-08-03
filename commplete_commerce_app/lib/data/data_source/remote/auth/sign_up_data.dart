@@ -13,6 +13,6 @@ class SignUpData {
       'email': email,
       'phone': phone,
     });
-    return response.fold((left) => left, (right) => right);
+    return response;
   }
 }

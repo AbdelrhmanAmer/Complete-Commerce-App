@@ -62,7 +62,7 @@ class OTPSignUp extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: controller.goToSuccessSignUp,
+                  press: ()=>controller.checkOtp(),
                   widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .04),

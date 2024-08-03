@@ -14,7 +14,7 @@ import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // // Language
+  // Language
   GetPage(
     name: '/',
     page: () => const Language(),
@@ -22,7 +22,6 @@ List<GetPage<dynamic>>? routes = [
       MyMiddleware(),
     ],
   ),
-  // GetPage(name: '/', page: ()=> const TestView()),
 
   // Onboarding
   GetPage(name: Routes.onBoarding, page: () => const OnBoarding()),

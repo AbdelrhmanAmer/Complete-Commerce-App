@@ -8,6 +8,6 @@ class TestData {
 
   getData() async {
     var response = await crud.postData(AppLinks.test, {});
-    return response.fold((left) => left, (right) => right);
+    return response;
   }
 }

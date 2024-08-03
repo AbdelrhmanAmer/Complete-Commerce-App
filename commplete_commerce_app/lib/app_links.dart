@@ -5,4 +5,5 @@ class AppLinks {
   // Auth
   static const String signUp =
       'http://localhost/Complete-Ecommerce/auth/sign_up.php';
+  static const String otp = 'http://localhost/Complete-Ecommerce/auth/otp.php';
 }

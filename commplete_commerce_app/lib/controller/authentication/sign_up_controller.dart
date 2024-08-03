@@ -12,7 +12,7 @@ class SignUpController extends GetxController {
   late TextEditingController password;
   late TextEditingController phone;
 
-  Rx<StatusRequest> statusRequest = StatusRequest.noData.obs;
+  Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
   RxBool hiddenPassword = true.obs;
 
   SignUpData signUpData = SignUpData(Get.find());
@@ -35,12 +35,13 @@ class SignUpController extends GetxController {
 
       statusRequest.value = handleData(response);
       print('SignUpController.dart: Controller $response');
-      print(
-          'SignUpController.dart: StatusRequest= ${statusRequest.value} ');
-      
+      print('SignUpController.dart: StatusRequest= ${statusRequest.value} ');
+
       if (statusRequest.value == StatusRequest.success) {
         if (response is Map) {
-          Get.offNamed(Routes.otpSignUp);
+          Get.offNamed(Routes.otpSignUp, arguments: {
+            'email': email.text,
+          });
         }
       }
       update();

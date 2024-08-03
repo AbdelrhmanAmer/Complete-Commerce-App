@@ -1,11 +1,7 @@
 enum StatusRequest{
   loading,
   success,
-  successInsertFailedSending,
-  insertFailure,
-  noData,
-  serverException,
-  internetFailure,
+  error,
+  exists,
   failure,
-  emailOrPhoneExists,
 }
