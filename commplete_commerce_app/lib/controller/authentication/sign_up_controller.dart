@@ -41,7 +41,7 @@ class SignUpController extends GetxController {
 
       if (statusRequest.value == StatusRequest.success) {
         if (response is Map) {
-          Get.offNamed(Routes.otpSignUp, arguments: {
+          Get.offAllNamed(Routes.otpSignUp, arguments: {
             'email': email.text,
           });
         }

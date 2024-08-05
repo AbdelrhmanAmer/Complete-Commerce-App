@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/core/functions/show_custom_snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -15,12 +16,7 @@ class SignInController extends GetxController {
     hiddenPassword.value = !hiddenPassword.value;
   }
   signIn(){
-    var formData = formState.currentState;
-    if(formData!.validate()){
-
-    }else{
-      return "Not Valid Sign In";
-    }
+    showCustomSnackbar(title: 'Success', content: 'You have sign in Successfully.');
   }
   goToSignUp(){
     Get.offNamed(Routes.signUp);

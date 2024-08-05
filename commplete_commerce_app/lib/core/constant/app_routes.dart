@@ -4,8 +4,7 @@ class Routes {
   static const String signUp = '/signUp';
   static const String forgotPassword = '/forgotPassword';
   static const String otpResetPassword = '/otpResetPassword';
-  static const String resetPassword = '/resetPassword';
-  static const String successSignUp = '/successSignUp';
-  static const String successResetPassword = '/successResetPassword';
   static const String otpSignUp = '/otpSignUp';
+  static const String resetPassword = '/resetPassword';
+  static const String successResetPassword = '/successResetPassword';
 }

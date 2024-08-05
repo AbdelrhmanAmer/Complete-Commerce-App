@@ -43,7 +43,7 @@ class OTPSignUp extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
-                  'We have sent code to abdo@gmail.com',
+                  'We have sent code to ${controller.email}',
                   style: Theme.of(context)
                       .textTheme
                       .labelSmall!

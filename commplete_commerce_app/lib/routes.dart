@@ -8,7 +8,6 @@ import 'view/screens/authentication/forgot_password/success_reset_password.dart'
 import 'view/screens/authentication/forgot_password/reset_password.dart';
 import 'view/screens/authentication/forgot_password/otp_reset_pass.dart';
 import 'view/screens/authentication/forgot_password/forgot_password.dart';
-import 'view/screens/authentication/success_sign_up.dart';
 import 'view/screens/authentication/otp_sign_up.dart';
 import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
@@ -36,5 +35,4 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: Routes.successResetPassword,
       page: () => const SuccessResetPassword()),
-  GetPage(name: Routes.successSignUp, page: () => const SuccessSignUp()),
 ];
