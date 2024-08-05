@@ -2,17 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../constant/app_strings.dart';
+
 void showCustomDialog({required String title, String? message = ''}) {
   Color? color = title == 'Success'
       ? Colors.green
       : title == 'Failure' || title == 'Error'
           ? Colors.red
           : Colors.amber;
+
   IconData iconData = title == 'Success'
       ? Icons.check_circle
-      : title == 'Failure' || title == 'Error'
-          ? CupertinoIcons.clear_thick_circled
-          : Icons.error;
+      : title == 'Failure' && message == AppStrings.internetFailure
+          ? CupertinoIcons.wifi_slash
+          : title == 'Exists'
+              ? Icons.error
+              : CupertinoIcons.xmark_circle_fill;
 
   Get.defaultDialog(
     title: title,

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:dio/dio.dart';
+
+import '../constant/app_strings.dart';
 import '../functions/check_internet.dart';
 
 class Crud {
@@ -28,7 +30,7 @@ class Crud {
       } else {
         return {
           'status': 'Failure',
-          'message': 'Can\'t connect to internet',
+          'message': AppStrings.internetFailure,
         };
       }
     } catch (e) {
