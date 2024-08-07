@@ -15,9 +15,11 @@ void showCustomDialog({required String title, String? message = ''}) {
       ? Icons.check_circle
       : title == 'Failure' && message == AppStrings.internetFailure
           ? CupertinoIcons.wifi_slash
-          : title == 'Exists'
-              ? Icons.error
-              : CupertinoIcons.xmark_circle_fill;
+          : title == 'Failure' && message == AppStrings.emailFailure
+              ? Icons.cancel_schedule_send
+              : title == 'Exists'
+                  ? Icons.error
+                  : CupertinoIcons.xmark_circle_fill;
 
   Get.defaultDialog(
     title: title,

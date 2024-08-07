@@ -34,7 +34,6 @@ class Crud {
         };
       }
     } catch (e) {
-      log('Crud.dart: Error: ${e as String}');
       return {
         'status': 'Failure',
         'message': '404, Server Failure',

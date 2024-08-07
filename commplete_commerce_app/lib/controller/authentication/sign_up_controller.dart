@@ -36,7 +36,9 @@ class SignUpController extends GetxController {
           username.text, password.text, email.text, phone.text);
 
       statusRequest.value = handleResponseStatus(response);
-      log('SignUpController.dart: Controller ${{response.toString()}}');
+      update();
+
+      log('SignUpController.dart: Controller ${response.toString()}');
       log('SignUpController.dart: StatusRequest= ${statusRequest.value.toString()} ');
 
       if (statusRequest.value == StatusRequest.success) {
@@ -46,9 +48,6 @@ class SignUpController extends GetxController {
           });
         }
       }
-      update();
-    } else {
-      return "Not Valid Inputs";
     }
   }
 
