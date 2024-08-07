@@ -1,7 +1,10 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../constant/themes.dart';
-
-void toggleTheme(){
-  Get.changeTheme(Get.isDarkMode ? darkTheme() : lightTheme());
+void toggleThemeMode() {
+  final isDarkMode = Get.isDarkMode;
+  log('Current theme mode: ${Get.isDarkMode}'); // Debugging line
+  Get.changeThemeMode(isDarkMode ? ThemeMode.light : ThemeMode.dark);
 }

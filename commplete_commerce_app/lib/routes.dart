@@ -23,6 +23,8 @@ List<GetPage<dynamic>>? routes = [
     ],
   ),
 
+  // GetPage(name: '/', page: ()=>const Home()),
+
   // Onboarding
   GetPage(name: Routes.onBoarding, page: () => const OnBoarding()),
 

@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     LocaleController controller = Get.put(LocaleController());
+    Get.put(ThemeController());
 
     return GetMaterialApp(
       translations: MyTranslation(),
