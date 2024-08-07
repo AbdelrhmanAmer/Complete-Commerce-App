@@ -37,7 +37,7 @@ class SuccessResetPassword extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
             Text('Password Reset Successful',
-                style: Get.textTheme.displayLarge),
+                style: Theme.of(context).textTheme.displayLarge),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
             CustomButton(
               backgroundColor: AppColor.primaryColor,

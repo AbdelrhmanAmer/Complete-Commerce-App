@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'initial_bindings.dart';
 import 'core/constant/themes.dart';
+import 'initial_bindings.dart';
 import 'core/localization/change_local.dart';
 import 'core/localization/translation.dart';
 import 'core/services/services.dart';
@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
       locale: controller.intialLanguage,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: themes(isDarkMode: true),
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
+      themeMode: ThemeMode.system,
       getPages: routes,
       initialBinding: InitialBindings(),
     );

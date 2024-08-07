@@ -27,12 +27,12 @@ class ForgotPassword extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'Forgot Password',
-                  style: Get.textTheme.displayLarge,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'Please enter you email and we will send\n you a OTP to reutrn your account',
-                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
+                  style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * .19),

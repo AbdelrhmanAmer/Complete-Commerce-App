@@ -24,7 +24,7 @@ class AccountPrompt extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(promptText, style: Get.textTheme.bodyMedium),
+        Text(promptText, style: Theme.of(context).textTheme.bodyMedium),
         TextButton(
           onPressed: onActionPressed,
           child: Text(

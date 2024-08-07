@@ -27,12 +27,12 @@ class OTPResetPassword extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'OTP Verification',
-                  style: Get.textTheme.displayLarge,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'We have sent code to abdo@gmail.com',
-                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
+                  style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 Row(
@@ -41,7 +41,7 @@ class OTPResetPassword extends StatelessWidget {
                   children: [
                     Text(
                       'The Code will expired in ',
-                      style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
                     ),
                     TweenAnimationBuilder(
                         tween: Tween(begin: 60, end: 0.0),

@@ -31,12 +31,14 @@ class SignUp extends StatelessWidget {
                       children: [
                         SizedBox(height: size.height * .05),
                         Text('Register Account',
-                            style: Get.textTheme.displayLarge),
+                            style: Theme.of(context).textTheme.displayLarge),
                         SizedBox(height: size.height * .03),
                         Text(
                           'Complete your details or continue\nwith social media',
-                          style:
-                              Get.textTheme.labelSmall!.copyWith(height: 1.5),
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelSmall!
+                              .copyWith(height: 1.5),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: size.height * .04),

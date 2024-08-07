@@ -28,12 +28,12 @@ class OTPSignUp extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'OTP Sign Up Verification',
-                  style: Get.textTheme.displayLarge,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'We have sent code to ${controller.email}',
-                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
+                  style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 const Timer(

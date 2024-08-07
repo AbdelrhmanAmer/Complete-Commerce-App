@@ -3,27 +3,39 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'color.dart';
 
-ThemeData themes({required bool isDarkMode}) {
-  final baseTheme = isDarkMode
-      ? ThemeData.dark(useMaterial3: true)
-      : ThemeData.light(useMaterial3: true);
-  final colorScheme = _colorScheme(isDarkMode);
-  final textTheme = _textTheme(isDarkMode, colorScheme);
+ThemeData lightTheme() {
+  final baseTheme = ThemeData.light(useMaterial3: true);
+  final colorScheme = _colorScheme(false);
+  final textTheme = _textTheme(false, colorScheme);
 
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
-    inputDecorationTheme:
-        _inputDecorationTheme(textTheme, isDarkMode: isDarkMode),
-    appBarTheme: _appBarTheme(textTheme),
+    inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: false),
+    appBarTheme: _appBarTheme(textTheme, false),
   );
 }
 
-AppBarTheme _appBarTheme(TextTheme textTheme) {
+ThemeData darkTheme() {
+  final baseTheme = ThemeData.dark(useMaterial3: true);
+  final colorScheme = _colorScheme(true);
+  final textTheme = _textTheme(true, colorScheme);
+
+  return baseTheme.copyWith(
+    colorScheme: colorScheme,
+    textTheme: textTheme,
+    inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: true),
+    appBarTheme: _appBarTheme(textTheme, true),
+  );
+}
+
+AppBarTheme _appBarTheme(TextTheme textTheme, bool isDarkMode) {
   return AppBarTheme(
     centerTitle: true,
-    titleTextStyle:
-        textTheme.headlineSmall!.copyWith(color: Colors.black.withOpacity(.7)),
+    titleTextStyle: textTheme.headlineSmall!.copyWith(
+        color: isDarkMode
+            ? AppColor.lightWhite.withOpacity(.7)
+            : Colors.black.withOpacity(.7)),
     backgroundColor: Colors.transparent,
     elevation: 0,
   );
@@ -42,8 +54,6 @@ ColorScheme _colorScheme(bool isDarkMode) {
     onPrimary: AppColor.lightWhite,
     secondary: AppColor.darkGrey,
     onSecondary: AppColor.lightWhite,
-    tertiary: AppColor.lightSuccessColor,
-    tertiaryContainer: AppColor.darkSuccessColor,
   );
 }
 
@@ -70,12 +80,12 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
 }
 
 InputDecorationTheme _inputDecorationTheme(TextTheme textTheme,
-    {required bool? isDarkMode}) {
+    {required bool isDarkMode}) {
   var outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(30),
     gapPadding: 10,
     borderSide: BorderSide(
-        color: isDarkMode! ? AppColor.lightWhite : AppColor.lightBlack),
+        color: isDarkMode ? AppColor.lightWhite : AppColor.lightBlack),
   );
   return InputDecorationTheme(
     hintStyle: textTheme.labelSmall,

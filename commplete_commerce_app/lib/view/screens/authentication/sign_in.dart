@@ -41,7 +41,7 @@ class SignIn extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: size.height * .02),
-                      Text('Welcome Back', style: Get.textTheme.displayLarge),
+                      Text('Welcome Back', style: Theme.of(context).textTheme.displayLarge),
                       SizedBox(height: size.height * .02),
                       Text(
                         'Sign in with your email and password\n or continue with social media',

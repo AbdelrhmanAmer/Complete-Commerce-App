@@ -26,12 +26,12 @@ class ResetPassword extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'Reset Password',
-                  style: Get.textTheme.displayLarge,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'Please enter your new password and confirm it\n',
-                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
+                  style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * .09),
