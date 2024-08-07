@@ -11,6 +11,7 @@ import 'view/screens/authentication/forgot_password/forgot_password.dart';
 import 'view/screens/authentication/otp_sign_up.dart';
 import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
+import 'view/screens/home.dart';
 
 List<GetPage<dynamic>>? routes = [
   // Language
@@ -35,4 +36,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: Routes.successResetPassword,
       page: () => const SuccessResetPassword()),
+
+  GetPage(name: Routes.home, page: () => const Home()),
 ];
