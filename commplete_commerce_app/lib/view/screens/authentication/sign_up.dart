@@ -19,18 +19,7 @@ class SignUp extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: Text(
-            'Sign Up',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: Colors.black.withOpacity(.7)),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: AppBar(title: const Text('Sign Up')),
         body: GetBuilder<SignUpController>(builder: (controller) {
           return controller.statusRequest.value == StatusRequest.loading
               ? const Center(child: CircularProgressIndicator())
@@ -42,14 +31,12 @@ class SignUp extends StatelessWidget {
                       children: [
                         SizedBox(height: size.height * .05),
                         Text('Register Account',
-                            style: Theme.of(context).textTheme.displayLarge),
+                            style: Get.textTheme.displayLarge),
                         SizedBox(height: size.height * .03),
                         Text(
                           'Complete your details or continue\nwith social media',
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall!
-                              .copyWith(height: 1.5),
+                          style:
+                              Get.textTheme.labelSmall!.copyWith(height: 1.5),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: size.height * .04),

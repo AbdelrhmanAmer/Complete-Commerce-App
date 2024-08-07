@@ -16,18 +16,7 @@ class ResetPassword extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: Text(
-            'Reset Password',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: Colors.black.withOpacity(.7)),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: AppBar(title: const Text('Reset Password')),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
@@ -37,15 +26,12 @@ class ResetPassword extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'Reset Password',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: Get.textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'Please enter your new password and confirm it\n',
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall!
-                      .copyWith(height: 1.5),
+                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * .09),

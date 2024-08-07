@@ -18,18 +18,7 @@ class OTPSignUp extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: Text(
-            'OTP Sign Up Verification',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: Colors.black.withOpacity(.7)),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: AppBar(title: const Text('OTP Sign Up Verification')),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
@@ -39,15 +28,12 @@ class OTPSignUp extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'OTP Sign Up Verification',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: Get.textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'We have sent code to ${controller.email}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall!
-                      .copyWith(height: 1.5),
+                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 const Timer(
@@ -62,7 +48,7 @@ class OTPSignUp extends StatelessWidget {
                   backgroundColor: AppColor.primaryColor,
                   foregroundColor: Colors.white,
                   text: 'Continue',
-                  press: ()=>controller.checkOtp(),
+                  press: () => controller.checkOtp(),
                   widthRatio: .85,
                 ),
                 SizedBox(height: size.height * .04),

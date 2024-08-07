@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
 
@@ -23,7 +24,7 @@ class AccountPrompt extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(promptText),
+        Text(promptText, style: Get.textTheme.bodyMedium),
         TextButton(
           onPressed: onActionPressed,
           child: Text(

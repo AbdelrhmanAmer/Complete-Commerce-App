@@ -15,20 +15,11 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(SignInController());
+
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Sign In',
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Colors.black.withOpacity(.7)),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: AppBar(title: const Text('Sign In')),
       body: GetBuilder<SignInController>(builder: (controller) {
         return controller.statusRequest.value == StatusRequest.loading
             ? const Center(child: CircularProgressIndicator())
@@ -50,15 +41,11 @@ class SignIn extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: size.height * .02),
-                      Text('Welcome Back',
-                          style: Theme.of(context).textTheme.displayLarge),
+                      Text('Welcome Back', style: Get.textTheme.displayLarge),
                       SizedBox(height: size.height * .02),
                       Text(
                         'Sign in with your email and password\n or continue with social media',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall!
-                            .copyWith(height: 1.5),
+                        style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: size.height * .03),

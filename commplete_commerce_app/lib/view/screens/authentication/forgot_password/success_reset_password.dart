@@ -15,18 +15,7 @@ class SuccessResetPassword extends StatelessWidget {
     SuccessResetPassConroller controller = Get.put(SuccessResetPassConroller());
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Success',
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Colors.black.withOpacity(.7)),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: AppBar(title: const Text('Success')),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,7 +37,7 @@ class SuccessResetPassword extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
             Text('Password Reset Successful',
-                style: Theme.of(context).textTheme.displayLarge),
+                style: Get.textTheme.displayLarge),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
             CustomButton(
               backgroundColor: AppColor.primaryColor,

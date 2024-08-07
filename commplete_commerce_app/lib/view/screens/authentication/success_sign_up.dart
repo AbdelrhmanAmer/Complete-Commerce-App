@@ -15,18 +15,7 @@ class SuccessSignUp extends StatelessWidget {
     SuccessSignUpController controller = Get.put(SuccessSignUpController());
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Success',
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Colors.black.withOpacity(.7)),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: AppBar(title: const Text('Success')),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -47,8 +36,7 @@ class SuccessSignUp extends StatelessWidget {
               ],
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
-            Text('Sign Up Successful',
-                style: Theme.of(context).textTheme.displayLarge),
+            Text('Sign Up Successful', style: Get.textTheme.displayLarge),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
             CustomButton(
               backgroundColor: AppColor.primaryColor,

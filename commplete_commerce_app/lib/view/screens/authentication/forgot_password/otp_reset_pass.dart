@@ -17,18 +17,7 @@ class OTPResetPassword extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: Text(
-            'OTP Verification',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: Colors.black.withOpacity(.7)),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: AppBar(title: const Text('OTP Verification')),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
@@ -38,15 +27,12 @@ class OTPResetPassword extends StatelessWidget {
                 SizedBox(height: size.height * .05),
                 Text(
                   'OTP Verification',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: Get.textTheme.displayLarge,
                 ),
                 SizedBox(height: size.height * .03),
                 Text(
                   'We have sent code to abdo@gmail.com',
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall!
-                      .copyWith(height: 1.5),
+                  style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 Row(
@@ -55,10 +41,7 @@ class OTPResetPassword extends StatelessWidget {
                   children: [
                     Text(
                       'The Code will expired in ',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelSmall!
-                          .copyWith(height: 1.5),
+                      style: Get.textTheme.labelSmall!.copyWith(height: 1.5),
                     ),
                     TweenAnimationBuilder(
                         tween: Tween(begin: 60, end: 0.0),

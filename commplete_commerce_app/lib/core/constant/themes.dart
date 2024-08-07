@@ -5,42 +5,60 @@ import 'package:google_fonts/google_fonts.dart';
 import 'color.dart';
 
 ThemeData themes() {
-  return ThemeData(
-    colorScheme: colorScheme(),
-    textTheme: textTheme(),
-    inputDecorationTheme: inputDecorationTheme(),
-    useMaterial3: true,
+  final baseTheme = ThemeData.light(useMaterial3: true);
+  final textTheme = _textTheme();
+  final colorScheme = _colorScheme();
+
+  return baseTheme.copyWith(
+    colorScheme: colorScheme,
+    textTheme: textTheme,
+    inputDecorationTheme: _inputDecorationTheme(textTheme),
+    appBarTheme: _appBarTheme(textTheme),
   );
 }
 
-ColorScheme colorScheme() {
+AppBarTheme _appBarTheme(TextTheme textTheme) {
+  return AppBarTheme(
+      centerTitle: true,
+      titleTextStyle: textTheme.headlineSmall!
+          .copyWith(color: Colors.black.withOpacity(.7)),
+      backgroundColor: Colors.transparent,
+      elevation: 0);
+}
+
+ColorScheme _colorScheme() {
   return ColorScheme.fromSeed(
     seedColor: Colors.deepPurple,
     surface: AppColor.backgroundColor,
   );
 }
 
-TextTheme textTheme() {
+TextTheme _textTheme() {
   return TextTheme(
-    headlineSmall: GoogleFonts.poppins(fontSize: 20),
-    displayLarge:
-        GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22),
-    bodyLarge: GoogleFonts.poppins(color: AppColor.grey, fontSize: 14),
-    labelLarge: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 19),
-    labelMedium: GoogleFonts.poppins(fontSize: 17),
-    labelSmall: GoogleFonts.poppins(fontSize: 12),
+    headlineSmall:
+        GoogleFonts.poppins(color: AppColor.lightBlack, fontSize: 20),
+    displayLarge: GoogleFonts.poppins(
+        color: AppColor.lightBlack, fontWeight: FontWeight.w600, fontSize: 22),
+    bodyLarge: GoogleFonts.poppins(color: AppColor.grey, fontSize: 15),
+    bodyMedium: GoogleFonts.poppins(color: AppColor.grey, fontSize: 13),
+    labelLarge: GoogleFonts.poppins(
+        color: AppColor.lightBlack, fontWeight: FontWeight.w600, fontSize: 19),
+    labelMedium: GoogleFonts.poppins(
+        color: Get.isDarkMode ? AppColor.lightWhite : AppColor.lightBlack,
+        fontSize: 17),
+    labelSmall: GoogleFonts.poppins(color: AppColor.lightBlack, fontSize: 12),
   );
 }
 
-InputDecorationTheme inputDecorationTheme() {
+InputDecorationTheme _inputDecorationTheme(TextTheme textTheme) {
   var outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(30),
     gapPadding: 10,
     borderSide: const BorderSide(color: Colors.black54),
   );
   return InputDecorationTheme(
-    hintStyle: Get.textTheme.labelSmall,
-    labelStyle: Get.textTheme.labelMedium,
+    hintStyle: textTheme.labelSmall,
+    labelStyle: textTheme.labelMedium,
     floatingLabelAlignment: FloatingLabelAlignment.start,
     floatingLabelBehavior: FloatingLabelBehavior.always,
     border: outlineInputBorder,
