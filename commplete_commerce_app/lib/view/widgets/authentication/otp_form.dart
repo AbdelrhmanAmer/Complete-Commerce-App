@@ -1,5 +1,7 @@
+import 'package:commplete_commerce_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class OTPForm extends StatelessWidget {
   const OTPForm({
@@ -12,6 +14,11 @@ class OTPForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var outlineInputBorder = OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        gapPadding: 0,
+        borderSide: BorderSide(
+            color: Get.isDarkMode ? AppColor.lightWhite : AppColor.lightBlack));
     return Form(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -23,9 +30,15 @@ class OTPForm extends StatelessWidget {
                 autofocus: index == 0,
                 focusNode: index == 0 ? null : controller.focusNodes[index - 1],
                 keyboardType: TextInputType.number,
-                style: const TextStyle(fontSize: 24),
+                style: Get.textTheme.labelLarge,
+                decoration: InputDecoration(
+                  border: outlineInputBorder,
+                  enabledBorder: outlineInputBorder,
+                  focusedBorder: outlineInputBorder,
+                  disabledBorder: outlineInputBorder,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                ),
                 textAlign: TextAlign.center,
-                decoration: otpInputDecoration(),
                 onChanged: (value) {
                   if (index < 4) {
                     controller.nextField(value, controller.focusNodes[index]);
@@ -40,21 +53,6 @@ class OTPForm extends StatelessWidget {
           }),
         ],
       ),
-    );
-  }
-
-  InputDecoration otpInputDecoration() {
-    var outlineInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      gapPadding: 0,
-      borderSide: const BorderSide(color: Colors.black26),
-    );
-    return InputDecoration(
-      border: outlineInputBorder,
-      enabledBorder: outlineInputBorder,
-      focusedBorder: outlineInputBorder,
-      disabledBorder: outlineInputBorder,
-      contentPadding: const EdgeInsets.symmetric(vertical: 15),
     );
   }
 }

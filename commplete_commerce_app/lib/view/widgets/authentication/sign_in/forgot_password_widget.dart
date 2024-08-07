@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../controller/authentication/sign_in_controller.dart';
 
@@ -13,13 +14,9 @@ class ForgotPasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: controller.goToForgotPassword,
-      child: const Text(
-        "Forgot Password",
-        style: TextStyle(
-          decoration: TextDecoration.underline,
-          color: Colors.black54,
-        ),
-      ),
+      child: Text("Forgot Password",
+          style: Get.textTheme.bodyMedium!
+              .copyWith(decoration: TextDecoration.underline)),
     );
   }
 }

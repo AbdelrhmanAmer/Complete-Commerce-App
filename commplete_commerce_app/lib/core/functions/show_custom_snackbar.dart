@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../constant/color.dart';
+
 showCustomSnackbar({required String title, String content = ''}) {
   Color? backgroundColor = title == 'Success'
-      ? Colors.green
+      ? Get.isDarkMode
+          ? AppColor.lightSuccessColor
+          : AppColor.darkSuccessColor
       : title == 'Failure' || title == 'Error'
           ? Colors.red
           : Colors.amber;
-  Color? textColor =
-      backgroundColor == Colors.green || backgroundColor == Colors.amber
-          ? Colors.black
-          : Colors.white;
+  Color? textColor = Colors.white;
 
   Get.snackbar(title, content,
       snackPosition: SnackPosition.BOTTOM,

@@ -26,9 +26,8 @@ class MyApp extends StatelessWidget {
       locale: controller.intialLanguage,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: themes(),
+      theme: themes(isDarkMode: true),
       getPages: routes,
-    
       initialBinding: InitialBindings(),
     );
   }

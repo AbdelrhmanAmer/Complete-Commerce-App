@@ -69,7 +69,7 @@ class OTPResetPassword extends StatelessWidget {
                 AccountPrompt(
                   promptText: '',
                   actionText: 'Resend OTP Code',
-                  buttonTextColor: AppColor.grey.withOpacity(.6),
+                  buttonTextColor: AppColor.lightGrey.withOpacity(.6),
                   textDecoration: TextDecoration.underline,
                   onActionPressed: controller.resendOtp,
                 ),

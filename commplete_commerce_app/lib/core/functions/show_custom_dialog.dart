@@ -29,7 +29,6 @@ void showCustomDialog({required String title, String? message = ''}) {
       color: color.withOpacity(.8),
     ),
     middleText: message!,
-    middleTextStyle: const TextStyle(fontSize: 18, color: Colors.black87),
     backgroundColor: Colors.white,
     radius: 10,
     content: Padding(
@@ -42,7 +41,10 @@ void showCustomDialog({required String title, String? message = ''}) {
             size: 100,
           ),
           const SizedBox(height: 10),
-          Text(message),
+          Text(
+            message,
+            style: const TextStyle(color: Colors.black87),
+          ),
         ],
       ),
     ),
