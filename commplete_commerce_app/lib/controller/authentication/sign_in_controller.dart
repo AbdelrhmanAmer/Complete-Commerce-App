@@ -20,10 +20,6 @@ class SignInController extends GetxController {
 
   late TextEditingController email, password;
 
-  togglePasswordVisibility() {
-    hiddenPassword.value = !hiddenPassword.value;
-  }
-
   signIn() async {
     FormState? formData = formState.currentState;
     if (formData!.validate()) {
@@ -43,6 +39,10 @@ class SignInController extends GetxController {
             title: response['status'], content: response['message']);
       }
     }
+  }
+
+  togglePasswordVisibility() {
+    hiddenPassword.value = !hiddenPassword.value;
   }
 
   goToSignUp() {

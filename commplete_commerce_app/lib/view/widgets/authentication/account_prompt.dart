@@ -9,12 +9,14 @@ class AccountPrompt extends StatelessWidget {
     required this.actionText,
     required this.onActionPressed,
     this.buttonTextColor = AppColor.primaryColor,
+    this.textStyle,
     this.textDecoration = TextDecoration.none,
   });
 
   final String promptText;
   final String actionText;
   final Color buttonTextColor;
+  final TextStyle? textStyle;
   final VoidCallback onActionPressed;
   final TextDecoration textDecoration;
 
@@ -23,7 +25,8 @@ class AccountPrompt extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(promptText, style: Theme.of(context).textTheme.bodyMedium),
+        Text(promptText,
+            style: textStyle ?? Theme.of(context).textTheme.bodyMedium),
         TextButton(
           onPressed: onActionPressed,
           child: Text(

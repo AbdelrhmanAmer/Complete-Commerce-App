@@ -6,4 +6,6 @@ class AppLinks {
   static const String signUp = '$server/auth/sign_up.php';
   static const String signIn = '$server/auth/sign_in.php';
   static const String otp = '$server/auth/otp.php';
+  static const String checkEmail = '$server/auth/forgotPassword/check_email.php';
+  
 }
