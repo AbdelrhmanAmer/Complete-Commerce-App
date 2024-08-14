@@ -6,6 +6,6 @@ class Routes {
   static const String otpResetPassword = '/otpResetPassword';
   static const String otpSignUp = '/otpSignUp';
   static const String resetPassword = '/resetPassword';
-  static const String successResetPassword = '/successResetPassword';
+  
   static const String home = '/home';
 }

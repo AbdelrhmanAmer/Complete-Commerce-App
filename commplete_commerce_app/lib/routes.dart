@@ -4,7 +4,6 @@ import 'core/constant/app_routes.dart';
 import 'core/middleware/my_middleware.dart';
 import 'view/screens/language.dart';
 import 'view/screens/onboarding.dart';
-import 'view/screens/authentication/forgot_password/success_reset_password.dart';
 import 'view/screens/authentication/forgot_password/reset_password.dart';
 import 'view/screens/authentication/forgot_password/otp_reset_pass.dart';
 import 'view/screens/authentication/forgot_password/forgot_password.dart';
@@ -35,9 +34,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.otpResetPassword, page: () => const OTPResetPassword()),
   GetPage(name: Routes.otpSignUp, page: () => const OTPSignUp()),
   GetPage(name: Routes.resetPassword, page: () => const ResetPassword()),
-  GetPage(
-      name: Routes.successResetPassword,
-      page: () => const SuccessResetPassword()),
 
   GetPage(name: Routes.home, page: () => const Home()),
 ];

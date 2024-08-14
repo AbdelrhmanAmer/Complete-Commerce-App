@@ -28,4 +28,12 @@ validateInput(String val, String type, {int min = 6, int max = 100}) {
   if (val.length > max) {
     return "Value cannot exceed $max characters.";
   }
+
+}
+
+String? validatePasswordMatch(String password, String confirmPassword) {
+  if (password != confirmPassword) {
+    return "Passwords do not match";
+  }
+  return null;
 }

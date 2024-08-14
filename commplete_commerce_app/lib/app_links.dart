@@ -10,5 +10,6 @@ class AppLinks {
   // forgot password
   static const String checkEmail = '$server/auth/forgotPassword/check_email.php';
   static const String otpResetPassword = '$server/auth/forgotPassword/otp_reset_password.php';
+  static const String resetPassword = '$server/auth/forgotPassword/reset_password.php';
   
 }

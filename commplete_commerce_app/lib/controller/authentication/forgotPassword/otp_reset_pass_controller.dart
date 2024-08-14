@@ -37,7 +37,7 @@ class OtpResetPasswordController extends GetxController {
 
     if (statusRequest.value == StatusRequest.success) {
       if (response is Map) {
-        Get.offAllNamed(Routes.resetPassword);
+        Get.offAllNamed(Routes.resetPassword, arguments: {'email': email});
       }
     }
   }
