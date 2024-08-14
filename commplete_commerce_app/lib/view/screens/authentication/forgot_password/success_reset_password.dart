@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:math';
 
-import '../../../../controller/authentication/success_reset_pass_conroller.dart';
+import '../../../../controller/authentication/forgotPassword/success_reset_pass_conroller.dart';
 import '../../../../core/constant/color.dart';
 import '../../../widgets/custom_button.dart';
 

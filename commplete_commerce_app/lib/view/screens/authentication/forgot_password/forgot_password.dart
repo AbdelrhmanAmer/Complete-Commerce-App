@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/authentication/forgot_password_controller.dart';
+import '../../../../controller/authentication/forgotPassword/forgot_password_controller.dart';
 import '../../../../core/functions/validate_input.dart';
 import '../../../../core/class/status_request.dart';
 import '../../../../core/constant/constants.dart';
@@ -21,7 +21,7 @@ class ForgotPassword extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(title: const Text('Forgot Passwword')),
         body: GetBuilder<ForgotPasswordController>(builder: (controller) {
-          return controller.statusRequest == StatusRequest.loading
+          return controller.statusRequest.value == StatusRequest.loading
               ? const Center(child: CircularProgressIndicator())
               : Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),

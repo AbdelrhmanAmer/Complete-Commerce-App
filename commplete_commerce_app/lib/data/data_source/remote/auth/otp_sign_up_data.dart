@@ -6,7 +6,7 @@ class OtpSignUpData {
 
   OtpSignUpData(this.crud);
 
-  postData(String email, otp) async {
+  postData(String email, String otp) async {
     var response = await crud.postData(AppLinks.otp, {
       'email': email,
       'otp': otp,

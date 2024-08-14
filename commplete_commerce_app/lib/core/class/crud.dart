@@ -36,7 +36,7 @@ class Crud {
     } catch (e) {
       return {
         'status': 'Failure',
-        'message': '404, Server Failure',
+        'message': '404, Server Failure $e',
       };
     }
   }

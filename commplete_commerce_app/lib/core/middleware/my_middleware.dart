@@ -1,6 +1,6 @@
 import 'package:commplete_commerce_app/core/constant/app_routes.dart';
 import 'package:commplete_commerce_app/core/services/services.dart';
-import 'package:flutter/src/widgets/navigator.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class MyMiddleware extends GetMiddleware {
