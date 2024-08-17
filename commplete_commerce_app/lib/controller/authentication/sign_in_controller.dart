@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../core/functions/show_custom_snackbar.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handle_response_status.dart';
+import '../../core/services/services.dart';
 import '../../data/data_source/remote/auth/sign_in_data.dart';
 import '../../core/constant/app_routes.dart';
 
@@ -17,6 +18,7 @@ class SignInController extends GetxController {
   SignInData signInData = SignInData(Get.find());
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  MyServices myServices = Get.find();
 
   late TextEditingController email, password;
 
@@ -34,6 +36,14 @@ class SignInController extends GetxController {
       log('SignInController.dart: Controller ${response.toString()}');
       log('SignInController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
+
+        myServices.sharedPreferences.setString('id', response['data']['user_id'].toString());
+        myServices.sharedPreferences.setString('email', response['data']['email']);
+        myServices.sharedPreferences.setString('phone', response['data']['phone']);
+        myServices.sharedPreferences.setString('username', response['data']['username']);
+        myServices.sharedPreferences.setString('step', '2');
+        
+
         Get.offAllNamed(Routes.home);
         showCustomSnackbar(
             title: response['status'], content: response['message']);
@@ -55,6 +65,7 @@ class SignInController extends GetxController {
 
   @override
   void onInit() {
+
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

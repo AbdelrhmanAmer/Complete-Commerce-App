@@ -1,7 +1,7 @@
-import 'package:commplete_commerce_app/controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'controller/theme_controller.dart';
 import 'core/constant/themes.dart';
 import 'initial_bindings.dart';
 import 'core/localization/change_local.dart';

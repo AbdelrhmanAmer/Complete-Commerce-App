@@ -46,7 +46,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   
   @override
   skip() {
-    myServices.sharedPreferences.setString('onboarding', '1');
+    myServices.sharedPreferences.setString('step', '1');
     Get.offAllNamed(Routes.signIn);
   }
 }
