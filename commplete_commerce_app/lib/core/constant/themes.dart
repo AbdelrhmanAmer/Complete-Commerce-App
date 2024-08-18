@@ -69,7 +69,7 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
     ),
     bodyLarge: GoogleFonts.poppins(
         color: colorScheme.onSurface, fontSize: 15),
-    bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 13),
+    bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
     bodySmall: GoogleFonts.poppins(color: colorScheme.surfaceContainerHighest, fontSize: 12, fontWeight: FontWeight.bold),
     labelLarge: GoogleFonts.poppins(
         color: colorScheme.onSurface,

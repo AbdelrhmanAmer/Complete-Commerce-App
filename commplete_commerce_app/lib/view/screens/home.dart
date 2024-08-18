@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../controller/home_controller.dart';
 import '../widgets/custom_appbar.dart';
+import '../widgets/search_field.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -19,7 +20,10 @@ class Home extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 8),
-                CustomAppBar(controller: controller)
+                CustomAppBar(controller: controller),
+                const SizedBox(height: 20),
+                const SearchField(),
+
               ],
             ),
           ),
