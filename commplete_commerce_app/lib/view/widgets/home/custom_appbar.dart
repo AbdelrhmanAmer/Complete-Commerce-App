@@ -31,14 +31,14 @@ class CustomAppBar extends StatelessWidget {
           children: [
             Text(
               'Delivery address',
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 11),
             ),
             Text(
               '${controller.address}',
               style: Theme.of(context)
                   .textTheme
-                  .bodyLarge!
-                  .copyWith(fontWeight: FontWeight.bold),
+                  .bodyMedium!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
             )
           ],
         ),

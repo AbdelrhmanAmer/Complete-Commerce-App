@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../controller/home_controller.dart';
 import '../widgets/home/custom_appbar.dart';
+import '../widgets/home/discount_bar.dart';
 import '../widgets/home/search_field.dart';
 
 class Home extends StatelessWidget {
@@ -23,7 +24,9 @@ class Home extends StatelessWidget {
                 CustomAppBar(controller: controller),
                 const SizedBox(height: 20),
                 const SearchField(),
-
+                const SizedBox(height: 15),
+                const DiscountBar(discountPercentage: 50),
+                const SizedBox(height: 20),
               ],
             ),
           ),

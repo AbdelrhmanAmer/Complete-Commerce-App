@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
 
-
 class SearchField extends StatelessWidget {
   const SearchField({
     super.key,
@@ -18,7 +17,7 @@ class SearchField extends StatelessWidget {
       decoration: InputDecoration(
           prefixIcon: const Padding(
             padding: EdgeInsets.only(
-                left: 20.0, right: 20), // Adjust padding as needed
+                left: 20.0, right: 10), // Adjust padding as needed
             child: Icon(CupertinoIcons.search),
           ),
           hintText: 'Search the entire shop',
