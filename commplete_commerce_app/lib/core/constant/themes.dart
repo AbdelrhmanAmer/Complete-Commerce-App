@@ -11,7 +11,7 @@ ThemeData lightTheme() {
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: AppColor.lightwhiteBackground,
     inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: false),
     appBarTheme: _appBarTheme(textTheme, false),
   );
@@ -25,6 +25,7 @@ ThemeData darkTheme() {
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
+    scaffoldBackgroundColor: AppColor.lightDarkBackground,
     inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: true),
     appBarTheme: _appBarTheme(textTheme, true),
   );
@@ -50,7 +51,7 @@ ColorScheme _colorScheme(bool isDarkMode) {
     onSurface: isDarkMode ? AppColor.whiteText : AppColor.darkText,
     brightness: isDarkMode ? Brightness.dark : Brightness.light,
     surfaceContainerHighest:
-        isDarkMode  ? AppColor.lightDarkText : AppColor.lightWhiteText,
+        isDarkMode ? AppColor.lightDarkText : AppColor.lightWhiteText,
     primary: AppColor.primaryColor,
     onPrimary: AppColor.lightWhite,
     secondary: AppColor.darkText,
@@ -67,17 +68,19 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
       fontWeight: FontWeight.w600,
       fontSize: 22,
     ),
-    bodyLarge: GoogleFonts.poppins(
-        color: colorScheme.onSurface, fontSize: 15),
+    bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
-    bodySmall: GoogleFonts.poppins(color: colorScheme.surfaceContainerHighest, fontSize: 12, fontWeight: FontWeight.bold),
+    bodySmall: GoogleFonts.poppins(
+        color: colorScheme.surfaceContainerHighest,
+        fontSize: 13,
+        fontWeight: FontWeight.bold),
     labelLarge: GoogleFonts.poppins(
         color: colorScheme.onSurface,
         fontWeight: FontWeight.w600,
         fontSize: 19),
     labelMedium:
         GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 17),
-    labelSmall: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 12),
+    labelSmall: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 13),
   );
 }
 
