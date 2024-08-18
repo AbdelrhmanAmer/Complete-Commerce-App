@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/home_controller.dart';
-import '../widgets/custom_appbar.dart';
-import '../widgets/search_field.dart';
+import '../widgets/home/custom_appbar.dart';
+import '../widgets/home/search_field.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

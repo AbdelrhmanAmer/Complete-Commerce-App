@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../controller/authentication/forgotPassword/reset_password_controller.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../core/functions/validate_input.dart';
-import '../../input_decoration.dart';
+import '../input_decoration.dart';
 
 class ResetPasswordForm extends StatelessWidget {
   const ResetPasswordForm({

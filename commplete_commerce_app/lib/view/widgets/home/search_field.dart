@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/constant/color.dart';
+import '../../../core/constant/color.dart';
 
 
 class SearchField extends StatelessWidget {

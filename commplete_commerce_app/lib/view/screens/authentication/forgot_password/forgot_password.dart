@@ -8,7 +8,7 @@ import '../../../../core/constant/constants.dart';
 import '../../../../core/constant/color.dart';
 import '../../../widgets/authentication/account_prompt.dart';
 import '../../../widgets/custom_button.dart';
-import '../../../widgets/input_decoration.dart';
+import '../../../widgets/authentication/input_decoration.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});

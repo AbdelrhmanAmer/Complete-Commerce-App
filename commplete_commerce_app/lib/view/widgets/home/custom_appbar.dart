@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/home_controller.dart';
-import '../../controller/theme_controller.dart';
-import '../../core/constant/color.dart';
+import '../../../controller/home_controller.dart';
+import '../../../controller/theme_controller.dart';
+import '../../../core/constant/color.dart';
 import 'custom_icon_button.dart';
 
 class CustomAppBar extends StatelessWidget {
