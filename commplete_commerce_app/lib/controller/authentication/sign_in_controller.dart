@@ -41,6 +41,7 @@ class SignInController extends GetxController {
         myServices.sharedPreferences.setString('email', response['data']['email']);
         myServices.sharedPreferences.setString('phone', response['data']['phone']);
         myServices.sharedPreferences.setString('username', response['data']['username']);
+        myServices.sharedPreferences.setString('address', response['data']['address']);
         myServices.sharedPreferences.setString('step', '2');
         
 

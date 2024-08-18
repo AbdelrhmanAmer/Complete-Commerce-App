@@ -8,6 +8,7 @@ class HomeController extends GetxController{
   String? id;
   String? phone;
   String? email;
+  String? address;
 
   @override
   void onInit() {
@@ -15,6 +16,7 @@ class HomeController extends GetxController{
     id = myServices.sharedPreferences.getString('id');
     email = myServices.sharedPreferences.getString('email');
     phone = myServices.sharedPreferences.getString('phone');
+    address = myServices.sharedPreferences.getString('address');
     super.onInit();
   }
 }

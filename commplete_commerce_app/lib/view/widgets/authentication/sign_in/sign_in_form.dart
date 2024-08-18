@@ -27,6 +27,7 @@ class SignInForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
+            style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
               labelText: "Email",
               hintText: "Enter your email",
@@ -39,6 +40,7 @@ class SignInForm extends StatelessWidget {
           SizedBox(height: size.height * .03),
           Obx(
             () => TextFormField(
+              style: Get.textTheme.bodyMedium,
               decoration: inputDecoration(
                 labelText: "Password",
                 hintText: "Enter your password",

@@ -13,6 +13,7 @@ class SignUpController extends GetxController {
   late TextEditingController email;
   late TextEditingController password;
   late TextEditingController phone;
+  late TextEditingController address;
 
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
   RxBool hiddenPassword = true.obs;
@@ -33,7 +34,7 @@ class SignUpController extends GetxController {
       update();
 
       var response = await signUpData.postData(
-          username.text, password.text, email.text, phone.text);
+          username.text, password.text, email.text, phone.text, address.text);
 
       statusRequest.value = handleResponseStatus(response);
       update();
@@ -59,6 +60,7 @@ class SignUpController extends GetxController {
     phone = TextEditingController();
     email = TextEditingController();
     password = TextEditingController();
+    address = TextEditingController();
     super.onInit();
   }
 
@@ -68,6 +70,7 @@ class SignUpController extends GetxController {
     phone.dispose();
     email.dispose();
     password.dispose();
+    address.dispose();
 
     super.dispose();
   }

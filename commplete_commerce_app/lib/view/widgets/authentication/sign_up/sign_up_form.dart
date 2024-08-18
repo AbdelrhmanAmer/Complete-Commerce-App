@@ -22,6 +22,7 @@ class SignUpFrom extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
+            style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
               labelText: "Username",
               hintText: "Enter your username",
@@ -35,6 +36,7 @@ class SignUpFrom extends StatelessWidget {
           ),
           SizedBox(height: size.height * .03),
           TextFormField(
+            style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
               labelText: "Email",
               hintText: "Enter your email",
@@ -48,6 +50,7 @@ class SignUpFrom extends StatelessWidget {
           ),
           SizedBox(height: size.height * .03),
           TextFormField(
+            style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
               labelText: "Phone",
               hintText: "Enter your phone",
@@ -60,8 +63,20 @@ class SignUpFrom extends StatelessWidget {
             keyboardType: TextInputType.phone,
           ),
           SizedBox(height: size.height * .03),
+          TextFormField(
+            style: Get.textTheme.bodyMedium,
+            decoration: inputDecoration(
+              labelText: "Address",
+              hintText: "Enter your address",
+              iconData: Icons.map,
+            ),
+            controller: controller.address,
+            keyboardType: TextInputType.text,
+          ),
+          SizedBox(height: size.height * .03),
           Obx(
             () => TextFormField(
+              style: Get.textTheme.bodyMedium,
               decoration: inputDecoration(
                 labelText: "Password",
                 hintText: "Enter your password",

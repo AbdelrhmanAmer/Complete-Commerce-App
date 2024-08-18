@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeController themeController = Get.put(ThemeController());
     LocaleController controller = Get.put(LocaleController());
-    Get.put(ThemeController());
 
     return GetMaterialApp(
       translations: MyTranslation(),
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: lightTheme(),
       darkTheme: darkTheme(),
-      themeMode: ThemeMode.system,
+      themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
       getPages: routes,
       initialBinding: InitialBindings(),
     );

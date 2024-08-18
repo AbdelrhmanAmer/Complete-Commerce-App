@@ -11,6 +11,7 @@ ThemeData lightTheme() {
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
+    scaffoldBackgroundColor: Colors.white,
     inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: false),
     appBarTheme: _appBarTheme(textTheme, false),
   );
@@ -46,14 +47,14 @@ ColorScheme _colorScheme(bool isDarkMode) {
     seedColor: AppColor.primaryColor,
     surface:
         isDarkMode ? AppColor.darkBackgroundColor : AppColor.backgroundColor,
-    onSurface: isDarkMode ? AppColor.lightWhite : AppColor.lightBlack,
+    onSurface: isDarkMode ? AppColor.whiteText : AppColor.darkText,
     brightness: isDarkMode ? Brightness.dark : Brightness.light,
     surfaceContainerHighest:
-        isDarkMode ? AppColor.lightGrey : AppColor.darkGrey,
+        isDarkMode  ? AppColor.lightDarkText : AppColor.lightWhiteText,
     primary: AppColor.primaryColor,
     onPrimary: AppColor.lightWhite,
-    secondary: AppColor.darkGrey,
-    onSecondary: AppColor.lightWhite,
+    secondary: AppColor.darkText,
+    onSecondary: AppColor.lightDarkText,
   );
 }
 
@@ -67,8 +68,9 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
       fontSize: 22,
     ),
     bodyLarge: GoogleFonts.poppins(
-        color: colorScheme.surfaceContainerHighest, fontSize: 15),
+        color: colorScheme.onSurface, fontSize: 15),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 13),
+    bodySmall: GoogleFonts.poppins(color: colorScheme.surfaceContainerHighest, fontSize: 12, fontWeight: FontWeight.bold),
     labelLarge: GoogleFonts.poppins(
         color: colorScheme.onSurface,
         fontWeight: FontWeight.w600,
