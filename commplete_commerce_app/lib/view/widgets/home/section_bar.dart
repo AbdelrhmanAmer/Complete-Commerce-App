@@ -9,8 +9,10 @@ class SectionBar extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPress,
+    this.titleSize = 18
   });
   final String title;
+  final double titleSize;
   final Function() onPress;
 
   @override
@@ -21,7 +23,7 @@ class SectionBar extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-              fontSize: 21,
+              fontSize: titleSize,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.onSurface),
         ),

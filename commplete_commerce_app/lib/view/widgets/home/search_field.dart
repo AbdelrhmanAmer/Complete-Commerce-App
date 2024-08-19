@@ -30,7 +30,9 @@ class SearchField extends StatelessWidget {
           border: outlineInputBorder,
           enabledBorder: outlineInputBorder,
           disabledBorder: outlineInputBorder,
-          focusedBorder: outlineInputBorder,
+          focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: AppColor.primaryColor),
+              borderRadius: BorderRadius.circular(12)),
           filled: true,
           fillColor: Get.isDarkMode
               ? AppColor.lightDarkBackground

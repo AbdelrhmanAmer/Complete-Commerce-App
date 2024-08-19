@@ -56,6 +56,7 @@ ColorScheme _colorScheme(bool isDarkMode) {
     onPrimary: AppColor.lightWhite,
     secondary: AppColor.darkText,
     onSecondary: AppColor.lightDarkText,
+    surfaceContainerHigh: isDarkMode ? AppColor.lightDarkBackground : AppColor.lightwhiteBackground
   );
 }
 

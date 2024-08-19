@@ -11,7 +11,7 @@ class AppColor {
   static const Color darkText = Color(0XFF111111);
 
   static const Color backgroundColor = Color(0xFFf8f9fe);
-  static const Color lightwhiteBackground = Color(0xFFf0f1f2);
+  static const Color lightwhiteBackground = Color(0xFFeff0f1);
   static const Color darkBackgroundColor = Color(0xFF121212);
   static const Color lightDarkBackground = Color.fromARGB(101, 103, 103, 103);
 
