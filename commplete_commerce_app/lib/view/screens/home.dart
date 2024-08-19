@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/view/widgets/authentication/timer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -64,8 +65,22 @@ class Home extends StatelessWidget {
                                 SectionBar(title: 'Categories', onPress: () {}),
                                 const SizedBox(height: 10),
                                 CategoriesList(
-                                    listLength: controller.categories.length,
-                                    categories: controller.categories)
+                                  listLength: controller.categories.length,
+                                  categories: controller.categories,
+                                  onPress: () {},
+                                ),
+                                SectionBar(
+                                  title: 'Flash Sale',
+                                  onPress: () {},
+                                  enableTimer: true,
+                                  timer: const Timer(
+                                    hours: 2,
+                                    minutes: 0,
+                                    seconds: 0,
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                  ),
+                                ),
                               ],
                             ),
                           ),

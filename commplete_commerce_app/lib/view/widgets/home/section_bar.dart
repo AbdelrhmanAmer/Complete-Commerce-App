@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../authentication/timer.dart';
 import '../../../core/constant/color.dart';
 import 'custom_icon_button.dart';
 
@@ -9,10 +10,14 @@ class SectionBar extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPress,
-    this.titleSize = 18
+    this.titleSize = 18,
+    this.enableTimer = false,
+    this.timer,
   });
   final String title;
   final double titleSize;
+  final bool enableTimer;
+  final Timer? timer;
   final Function() onPress;
 
   @override
@@ -20,12 +25,28 @@ class SectionBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: titleSize,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onSurface),
+        Row(
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: titleSize,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.onSurface),
+            ),
+            const SizedBox(width: 15),
+            enableTimer
+                ? Container(
+                    height: 25,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: AppColor.primaryColor.withOpacity(.8),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: timer ?? Container(),
+                  )
+                : Container()
+          ],
         ),
         Row(
           children: [

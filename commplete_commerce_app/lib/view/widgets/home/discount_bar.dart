@@ -1,8 +1,8 @@
+import 'package:commplete_commerce_app/view/widgets/authentication/timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/constant/color.dart';
-
 
 class DiscountBar extends StatelessWidget {
   const DiscountBar({
@@ -44,20 +44,7 @@ class DiscountBar extends StatelessWidget {
                     .labelSmall!
                     .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
               ),
-              Container(
-                height: 21,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                padding:
-                    const EdgeInsets.only(left: 5, right: 3, top: 3, bottom: 3),
-                child: Text('${discountPercentage.toInt()}% ',
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 11)),
-              ),
+              SmallContainer(object: discountPercentage.toInt().toString()),
               Text(
                 ' cheaper',
                 style: Theme.of(context)
@@ -77,6 +64,40 @@ class DiscountBar extends StatelessWidget {
               )),
         ],
       ),
+    );
+  }
+}
+
+class SmallContainer extends StatelessWidget {
+  const SmallContainer({
+    super.key,
+    required this.object,
+    this.foregroundColor = Colors.black,
+    this.backgroundColor = Colors.white,
+    this.fontSize = 11,
+  });
+
+  final object;
+  final Color foregroundColor;
+  final Color backgroundColor;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 21,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      padding: const EdgeInsets.only(left: 5, right: 3, top: 3, bottom: 3),
+      child: object is Timer
+          ? object
+          : Text(object,
+              style: TextStyle(
+                  color: foregroundColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: fontSize)),
     );
   }
 }

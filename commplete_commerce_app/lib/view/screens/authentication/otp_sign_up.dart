@@ -45,9 +45,9 @@ class OTPSignUp extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             const Timer(
-                              begin: 120,
-                              end: 0,
-                              duration: 120,
+                              hours: 0,
+                              minutes: 2,
+                              seconds: 0,
                             ),
                             SizedBox(height: size.height * .03),
                             OTPForm(controller: controller),

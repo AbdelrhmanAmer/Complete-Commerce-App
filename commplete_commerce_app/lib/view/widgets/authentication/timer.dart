@@ -5,47 +5,49 @@ import '../../../core/constant/color.dart';
 class Timer extends StatelessWidget {
   const Timer({
     super.key,
-    required this.begin,
-    required this.end,
-    required this.duration, // Duration in seconds
+    required this.hours,
+    required this.minutes,
+    required this.seconds,
+    this.fontSize = 14,
+    this.color = AppColor.primaryColor,
   });
-  final double begin;
-  final double end;
-  final int duration;
 
-  String _formatTime(double value) {
-    int totalSeconds = value.toInt();
-    int minutes = totalSeconds ~/ 60; // Calculate minutes
+  final int hours;
+  final int minutes;
+  final int seconds;
+  final double fontSize;
+  final Color color;
+
+  String _formatTime(int totalSeconds) {
+    int hours = totalSeconds ~/ 3600; // Calculate hours
+    int minutes = (totalSeconds % 3600) ~/ 60; // Calculate minutes
     int seconds = totalSeconds % 60; // Calculate remaining seconds
 
-    // Format minutes and seconds as two digits
+    // Format hours, minutes, and seconds as two digits
+    String hoursStr = hours.toString().padLeft(2, '0');
     String minutesStr = minutes.toString().padLeft(2, '0');
     String secondsStr = seconds.toString().padLeft(2, '0');
 
-    return '$minutesStr:$secondsStr';
+    return '$hoursStr:$minutesStr:$secondsStr';
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'The code will expire in ',
-          style: Theme.of(context).textTheme.labelSmall!.copyWith(height: 1.5),
-        ),
-        TweenAnimationBuilder(
-            tween: Tween(begin: begin, end: end),
-            duration: Duration(seconds: duration),
-            builder: (_, value, child) {
-              return Text(
-                _formatTime(value),
-                style:
-                    const TextStyle(fontSize: 14, color: AppColor.primaryColor),
-              );
-            })
-      ],
+    int totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+    return TweenAnimationBuilder(
+      tween: Tween(begin: totalSeconds.toDouble(), end: 0.0),
+      duration: Duration(seconds: totalSeconds),
+      builder: (_, value, child) {
+        return Text(
+          _formatTime(value.toInt()),
+          style: TextStyle(
+            fontSize: fontSize,
+            color: color,
+            fontWeight: FontWeight.bold,
+          ),
+        );
+      },
     );
   }
 }
