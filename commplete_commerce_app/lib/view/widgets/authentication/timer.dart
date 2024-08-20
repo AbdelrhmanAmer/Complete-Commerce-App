@@ -21,9 +21,8 @@ class Timer extends StatelessWidget {
   String _formatTime(int totalSeconds) {
     int hours = totalSeconds ~/ 3600; // Calculate hours
     int minutes = (totalSeconds % 3600) ~/ 60; // Calculate minutes
-    int seconds = totalSeconds % 60; // Calculate remaining seconds
+    int seconds = totalSeconds % 60; 
 
-    // Format hours, minutes, and seconds as two digits
     String hoursStr = hours.toString().padLeft(2, '0');
     String minutesStr = minutes.toString().padLeft(2, '0');
     String secondsStr = seconds.toString().padLeft(2, '0');

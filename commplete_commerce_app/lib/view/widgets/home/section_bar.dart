@@ -38,7 +38,7 @@ class SectionBar extends StatelessWidget {
             enableTimer
                 ? Container(
                     height: 25,
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                       color: AppColor.primaryColor.withOpacity(.8),
                       borderRadius: BorderRadius.circular(8),

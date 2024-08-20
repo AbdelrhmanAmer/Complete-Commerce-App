@@ -1,9 +1,9 @@
-import 'package:commplete_commerce_app/core/class/status_request.dart';
-import 'package:commplete_commerce_app/core/functions/handle_response_status.dart';
-import 'package:commplete_commerce_app/data/data_source/remote/home_data.dart';
 import 'package:get/get.dart';
 
+import '../core/class/status_request.dart';
+import '../core/functions/handle_response_status.dart';
 import '../core/services/services.dart';
+import '../data/data_source/remote/home_data.dart';
 
 class HomeController extends GetxController {
   MyServices myServices = Get.find();
@@ -13,6 +13,7 @@ class HomeController extends GetxController {
   List categories = [];
   List ratedItems = [];
   List items = [];
+
   String? username;
   String? id;
   String? phone;
@@ -27,6 +28,7 @@ class HomeController extends GetxController {
     statusRequest.value = handleResponseStatus(response);
     if (statusRequest.value == StatusRequest.success) {
       categories.addAll(response['categories']);
+      items.addAll(response['items']);
     } else {
       statusRequest.value = StatusRequest.failure;
     }

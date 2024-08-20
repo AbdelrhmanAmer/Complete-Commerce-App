@@ -5,11 +5,9 @@ import 'package:flutter_svg/svg.dart';
 class CategoriesList extends StatelessWidget {
   const CategoriesList({
     super.key,
-    required this.listLength,
     required this.categories,
     required this.onPress,
   });
-  final int listLength;
   final List categories;
   final Function() onPress;
 
@@ -19,7 +17,7 @@ class CategoriesList extends StatelessWidget {
       height: 105,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: listLength,
+          itemCount: categories.length,
           itemBuilder: (ctx, index) {
             return InkWell(
               onTap: onPress,

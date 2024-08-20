@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../core/class/status_request.dart';
 import '../../controller/home_controller.dart';
+import '../../core/constant/color.dart';
 import '../widgets/home/categories_list.dart';
 import '../widgets/home/custom_appbar.dart';
 import '../widgets/home/discount_bar.dart';
@@ -65,9 +66,8 @@ class Home extends StatelessWidget {
                                 SectionBar(title: 'Categories', onPress: () {}),
                                 const SizedBox(height: 10),
                                 CategoriesList(
-                                  listLength: controller.categories.length,
                                   categories: controller.categories,
-                                  onPress: () {},
+                                  onPress: () {}
                                 ),
                                 SectionBar(
                                   title: 'Flash Sale',
@@ -81,6 +81,28 @@ class Home extends StatelessWidget {
                                     color: Colors.black,
                                   ),
                                 ),
+                                const SizedBox(height: 15),
+                                Container(
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: AppColor.primaryColor),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 120,
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .surfaceContainerHigh,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text(controller.items[0]['name']),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           ),
