@@ -1,13 +1,13 @@
-import 'package:commplete_commerce_app/view/widgets/authentication/timer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widgets/authentication/timer.dart';
 import '../../core/class/status_request.dart';
 import '../../controller/home_controller.dart';
-import '../../core/constant/color.dart';
 import '../widgets/home/categories_list.dart';
 import '../widgets/home/custom_appbar.dart';
 import '../widgets/home/discount_bar.dart';
+import '../widgets/home/item_card.dart';
 import '../widgets/home/search_field.dart';
 import '../widgets/home/section_bar.dart';
 
@@ -66,9 +66,8 @@ class Home extends StatelessWidget {
                                 SectionBar(title: 'Categories', onPress: () {}),
                                 const SizedBox(height: 10),
                                 CategoriesList(
-                                  categories: controller.categories,
-                                  onPress: () {}
-                                ),
+                                    categories: controller.categories,
+                                    onPress: () {}),
                                 SectionBar(
                                   title: 'Flash Sale',
                                   onPress: () {},
@@ -81,28 +80,18 @@ class Home extends StatelessWidget {
                                     color: Colors.black,
                                   ),
                                 ),
-                                const SizedBox(height: 15),
-                                Container(
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: AppColor.primaryColor),
+                                const SizedBox(height: 5),
+                                SizedBox(
+                                  height: 240,
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: controller.items.length,
+                                    itemBuilder: (_, index) => ItemCard(
+                                      item: controller.items[index],
+                                      onPress: () {},
+                                    ),
                                   ),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .surfaceContainerHigh,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Text(controller.items[0]['name']),
-                                    ],
-                                  ),
-                                )
+                                ),
                               ],
                             ),
                           ),

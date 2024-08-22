@@ -45,19 +45,20 @@ AppBarTheme _appBarTheme(TextTheme textTheme, bool isDarkMode) {
 
 ColorScheme _colorScheme(bool isDarkMode) {
   return ColorScheme.fromSeed(
-    seedColor: AppColor.primaryColor,
-    surface:
-        isDarkMode ? AppColor.darkBackgroundColor : AppColor.backgroundColor,
-    onSurface: isDarkMode ? AppColor.whiteText : AppColor.darkText,
-    brightness: isDarkMode ? Brightness.dark : Brightness.light,
-    surfaceContainerHighest:
-        isDarkMode ? AppColor.lightDarkText : AppColor.lightWhiteText,
-    primary: AppColor.primaryColor,
-    onPrimary: AppColor.lightWhite,
-    secondary: AppColor.darkText,
-    onSecondary: AppColor.lightDarkText,
-    surfaceContainerHigh: isDarkMode ? AppColor.lightDarkBackground : AppColor.lightwhiteBackground
-  );
+      seedColor: AppColor.primaryColor,
+      surface:
+          isDarkMode ? AppColor.darkBackgroundColor : AppColor.backgroundColor,
+      onSurface: isDarkMode ? AppColor.whiteText : AppColor.darkText,
+      brightness: isDarkMode ? Brightness.dark : Brightness.light,
+      surfaceContainerHighest:
+          isDarkMode ? AppColor.lightDarkText : AppColor.lightWhiteText,
+      primary: AppColor.primaryColor,
+      onPrimary: AppColor.lightWhite,
+      secondary: AppColor.darkText,
+      onSecondary: AppColor.lightDarkText,
+      surfaceContainerHigh: isDarkMode
+          ? AppColor.lightDarkBackground
+          : AppColor.lightwhiteBackground);
 }
 
 TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
@@ -72,9 +73,7 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
     bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
     bodySmall: GoogleFonts.poppins(
-        color: colorScheme.surfaceContainerHighest,
-        fontSize: 13,
-        fontWeight: FontWeight.bold),
+        color: colorScheme.surfaceContainerHighest, fontSize: 13),
     labelLarge: GoogleFonts.poppins(
         color: colorScheme.onSurface,
         fontWeight: FontWeight.w600,
