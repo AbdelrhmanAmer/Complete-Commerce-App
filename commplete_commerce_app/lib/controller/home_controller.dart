@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 
 import '../data/data_source/remote/home_data.dart';
@@ -34,7 +32,6 @@ class HomeController extends GetxController {
       for(Map<String, dynamic> item in response['items']){
         items.add(Item.fromJson(item));
       }
-      log('HomeController: items = ${items.toString()} ');
     } else {
       statusRequest.value = StatusRequest.failure;
     }

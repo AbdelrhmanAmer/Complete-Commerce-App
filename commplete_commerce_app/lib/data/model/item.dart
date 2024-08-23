@@ -1,3 +1,6 @@
+
+import 'package:get/get.dart';
+
 class Item {
   int? id;
   String? name;
@@ -11,6 +14,7 @@ class Item {
   int? discount;
   String? datetime;
   int? categoryId;
+  RxBool? isFavorite = false.obs;
 
   Item(
       {this.id,
@@ -24,7 +28,8 @@ class Item {
       this.price,
       this.discount,
       this.datetime,
-      this.categoryId});
+      this.categoryId,
+      this.isFavorite});
 
   Item.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -56,5 +61,9 @@ class Item {
     data['datetime'] = datetime;
     data['category_id'] = categoryId;
     return data;
+  }
+
+  toggleFavorite() {
+    isFavorite!.value = !isFavorite!.value;
   }
 }
