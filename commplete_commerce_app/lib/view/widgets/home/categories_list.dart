@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../data/model/category.dart';
 
 class CategoriesList extends StatelessWidget {
   const CategoriesList({
@@ -8,7 +9,7 @@ class CategoriesList extends StatelessWidget {
     required this.categories,
     required this.onPress,
   });
-  final List categories;
+  final List<Category> categories;
   final Function() onPress;
 
   @override
@@ -30,18 +31,24 @@ class CategoriesList extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).colorScheme.surfaceContainerHigh,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .surfaceContainerHigh,
                           shape: BoxShape.circle),
                       child: SvgPicture.asset(
-                        'assets/svgs/${categories[index]['image']}',
+                        'assets/svgs/${categories[index].categoryImage}',
                         height: 30,
                         width: 30,
+                        colorFilter: ColorFilter.mode(
+                            Theme.of(context)
+                                .colorScheme
+                                .onSurface,
+                            BlendMode.srcIn),
                       ),
                     ),
                     const SizedBox(height: 7),
                     Text(
-                      '${categories[index]['name']}',
+                      '${categories[index].categoryName}',
                       style: Theme.of(context).textTheme.labelSmall,
                       textAlign: TextAlign.center,
                       softWrap: true,

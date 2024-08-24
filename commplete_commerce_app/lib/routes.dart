@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/view/screens/root_screen.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
@@ -10,7 +11,6 @@ import 'view/screens/authentication/forgot_password/forgot_password.dart';
 import 'view/screens/authentication/otp_sign_up.dart';
 import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
-import 'view/screens/home.dart';
 
 List<GetPage<dynamic>>? routes = [
   // Language
@@ -35,5 +35,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.otpSignUp, page: () => const OTPSignUp()),
   GetPage(name: Routes.resetPassword, page: () => const ResetPassword()),
 
-  GetPage(name: Routes.home, page: () => const Home()),
+  GetPage(name: Routes.home, page: () => const RootScreen()),
 ];

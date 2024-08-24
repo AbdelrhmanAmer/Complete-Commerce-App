@@ -17,14 +17,14 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool hasDicount = item.discount! <= 0.0 ? false : true;
+    bool hasDicount = item.itemDiscount! <= 0.0 ? false : true;
 
     return InkWell(
       onTap: onPress,
       child: Stack(
         children: [
           Container(
-            margin: const EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 3),
             width: 150,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 3),
@@ -48,13 +48,13 @@ class ItemCard extends StatelessWidget {
                             padding: const EdgeInsets.all(10),
                             child: Image.asset(
                                 fit: BoxFit.fitWidth,
-                                'assets/images/${item.image}'),
+                                'assets/images/${item.itemImage}'),
                           ),
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        item.name!,
+                        item.itemName!,
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.bold, fontSize: 13),
                       ),
@@ -67,7 +67,7 @@ class ItemCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$${NumberFormat('#,##0').format(item.price! * (1 - item.discount! / 100))}',
+                          '\$${NumberFormat('#,##0').format(item.itemPrice! * (1 - item.itemDiscount! / 100))}',
                           style: GoogleFonts.oswald(
                               color: Theme.of(context).colorScheme.onSurface,
                               fontSize: 15,
@@ -75,7 +75,7 @@ class ItemCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         hasDicount
-                            ? Text('\$${item.price}',
+                            ? Text('\$${NumberFormat('#,##0').format(item.itemPrice)}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!

@@ -1,28 +1,32 @@
 class Category {
-  int? id;
-  String? name;
-  String? arabicName;
-  String? image;
-  String? datetime;
+  int? categoryId;
+  String? categoryName;
+  String? categoryArabicName;
+  String? categoryImage;
+  String? categoryDatetime;
 
   Category(
-      {this.id, this.name, this.arabicName, this.image, this.datetime});
+      {this.categoryId,
+      this.categoryName,
+      this.categoryArabicName,
+      this.categoryImage,
+      this.categoryDatetime});
 
   Category.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    arabicName = json['arabic_name'];
-    image = json['image'];
-    datetime = json['datetime'];
+    categoryId = json['category_id'];
+    categoryName = json['category_name'];
+    categoryArabicName = json['category_arabic_name'];
+    categoryImage = json['category_image'];
+    categoryDatetime = json['category_datetime'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['arabic_name'] = arabicName;
-    data['image'] = image;
-    data['datetime'] = datetime;
+    data['category_id'] = categoryId;
+    data['category_name'] = categoryName;
+    data['category_arabic_name'] = categoryArabicName;
+    data['category_image'] = categoryImage;
+    data['category_datetime'] = categoryDatetime;
     return data;
   }
 }
