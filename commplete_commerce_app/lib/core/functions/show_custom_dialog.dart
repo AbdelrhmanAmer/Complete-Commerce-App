@@ -44,6 +44,7 @@ void showCustomDialog({required String title, String? message = ''}) {
           Text(
             message,
             style: const TextStyle(color: Colors.black87),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

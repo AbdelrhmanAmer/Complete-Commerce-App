@@ -36,15 +36,13 @@ class SignInController extends GetxController {
       log('SignInController.dart: Controller ${response.toString()}');
       log('SignInController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
-
-        myServices.sharedPreferences.setString('id', response['data']['user_id'].toString());
+        myServices.sharedPreferences.setString('id', response['data']['id'].toString());
         myServices.sharedPreferences.setString('email', response['data']['email']);
         myServices.sharedPreferences.setString('phone', response['data']['phone']);
-        myServices.sharedPreferences.setString('username', response['data']['username']);
+        myServices.sharedPreferences.setString('username', response['data']['name']);
         myServices.sharedPreferences.setString('address', response['data']['address']);
         myServices.sharedPreferences.setString('step', '2');
         
-
         Get.offAllNamed(Routes.home);
         showCustomSnackbar(
             title: response['status'], content: response['message']);

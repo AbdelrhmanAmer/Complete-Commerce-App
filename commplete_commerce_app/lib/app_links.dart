@@ -1,6 +1,6 @@
 class AppLinks {
   // Server
-  static const String server = 'http://10.0.2.2/Complete-Ecommerce';
+  static const String server = 'http://127.0.0.1/ecommerce-app-backend';
 
   // Authentication
   static const String signIn = '$server/auth/sign_in.php';

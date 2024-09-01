@@ -37,7 +37,9 @@ class OtpSignUpController extends GetxController {
     if (statusRequest.value == StatusRequest.success) {
       if (response is Map) {
         showCustomSnackbar(
-            title: response['status'], content: response['message']);
+            title: response['status'],
+            content: response['message'],
+            textColor: Get.isDarkMode ? Colors.white : Colors.black);
         Get.offAllNamed(Routes.signIn);
       }
     }
