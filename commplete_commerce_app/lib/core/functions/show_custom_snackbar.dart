@@ -3,7 +3,11 @@ import 'package:get/get.dart';
 
 import '../constant/color.dart';
 
-showCustomSnackbar({required String title, String content = '', Color? textColor}) {
+showCustomSnackbar({
+  required String title,
+  String content = '',
+}) {
+  
   Color? backgroundColor = title == 'Success'
       ? Get.isDarkMode
           ? AppColor.lightSuccessColor
@@ -11,7 +15,7 @@ showCustomSnackbar({required String title, String content = '', Color? textColor
       : title == 'Failure' || title == 'Error'
           ? Colors.red
           : Colors.amber;
-  Color? color = textColor ?? Colors.grey;
+  Color? color = Get.isDarkMode ? Colors.white : Colors.black ;
 
   Get.snackbar(title, content,
       snackPosition: SnackPosition.BOTTOM,
