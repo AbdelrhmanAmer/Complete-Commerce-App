@@ -9,11 +9,13 @@ import '../../core/functions/handle_response_status.dart';
 import '../../core/services/services.dart';
 import '../../data/data_source/remote/auth/sign_in_data.dart';
 import '../../core/constant/app_routes.dart';
+import '../../data/model/user.dart';
 
 class SignInController extends GetxController {
   RxBool remember = false.obs;
   RxBool hiddenPassword = true.obs;
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
+  User user = User();
 
   SignInData signInData = SignInData(Get.find());
 
@@ -36,18 +38,28 @@ class SignInController extends GetxController {
       log('SignInController.dart: Controller ${response.toString()}');
       log('SignInController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
-        myServices.sharedPreferences.setString('id', response['data']['id'].toString());
-        myServices.sharedPreferences.setString('email', response['data']['email']);
-        myServices.sharedPreferences.setString('phone', response['data']['phone']);
-        myServices.sharedPreferences.setString('username', response['data']['name']);
-        myServices.sharedPreferences.setString('address', response['data']['address']);
-        myServices.sharedPreferences.setString('step', '2');
-        
+        user.id = response['data']['id'];
+        user.email = response['data']['email'];
+        user.phone = response['data']['phone'];
+        user.username = response['data']['name'];
+        user.address = response['data']['address'];
+
+        _setSharedUser();
+
         Get.offAllNamed(Routes.home);
         showCustomSnackbar(
             title: response['status'], content: response['message']);
       }
     }
+  }
+
+  void _setSharedUser() {
+    myServices.sharedPreferences.setString('id', user.id.toString());
+    myServices.sharedPreferences.setString('email', user.email!);
+    myServices.sharedPreferences.setString('phone', user.phone!);
+    myServices.sharedPreferences.setString('username', user.username!);
+    myServices.sharedPreferences.setString('address', user.address!);
+    myServices.sharedPreferences.setString('step', '2');
   }
 
   togglePasswordVisibility() {
@@ -64,7 +76,6 @@ class SignInController extends GetxController {
 
   @override
   void onInit() {
-
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

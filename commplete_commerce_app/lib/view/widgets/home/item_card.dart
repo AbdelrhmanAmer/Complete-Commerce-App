@@ -27,39 +27,39 @@ class ItemCard extends StatelessWidget {
             margin: const EdgeInsets.only(right: 3),
             width: 150,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 3),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 130,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .surfaceContainerHigh,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Image.asset(
-                                fit: BoxFit.fitWidth,
-                                'assets/images/${item.itemImage}'),
-                          ),
-                        ),
+                  // image
+                  Container(
+                    height: 130,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surfaceContainerHigh,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Image.asset(
+                          fit: BoxFit.fitWidth,
+                            'assets/images/${item.itemImage}',width: 100,),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        item.itemName!,
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 13),
-                      ),
-                    ],
+                    ),
                   ),
+                  const SizedBox(height: 5),
+                  const Spacer(flex: 1),
+                  // Item name
+                  Text(
+                    item.itemName!,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
+                  ),
+                  const SizedBox(height: 5),
+                  const Spacer(flex: 3),
+                  // Item price
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Row(
@@ -75,7 +75,8 @@ class ItemCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         hasDicount
-                            ? Text('\$${NumberFormat('#,##0').format(item.itemPrice)}',
+                            ? Text(
+                                '\$${NumberFormat('#,##0').format(item.itemPrice)}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!

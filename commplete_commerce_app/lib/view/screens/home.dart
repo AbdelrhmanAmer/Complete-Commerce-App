@@ -81,7 +81,7 @@ class Home extends StatelessWidget {
                               ),
                               const SizedBox(height: 5),
                               SizedBox(
-                                height: 245,
+                                height: 220,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemCount: controller.discountedItems.length,
