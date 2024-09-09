@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/view/screens/items.dart';
 import 'package:commplete_commerce_app/view/screens/root_screen.dart';
 import 'package:get/get.dart';
 
@@ -36,4 +37,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.resetPassword, page: () => const ResetPassword()),
 
   GetPage(name: Routes.home, page: () => const RootScreen()),
+  GetPage(name: Routes.items, page: () => const Items()),
 ];

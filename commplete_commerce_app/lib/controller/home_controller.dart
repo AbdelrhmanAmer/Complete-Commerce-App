@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/core/constant/app_routes.dart';
 import 'package:get/get.dart';
 
 import '../data/data_source/remote/home_data.dart';
@@ -45,6 +46,12 @@ class HomeController extends GetxController {
     update();
   }
 
+  goToItemsScreen(int categoryIndex){
+    Get.toNamed(Routes.items, arguments: {
+      'categories' : categories,
+      'selectedCategory' : categoryIndex,
+    });
+  }
   initiateData() {
     username = myServices.sharedPreferences.getString('username');
     id = myServices.sharedPreferences.getString('id');

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../authentication/timer.dart';
 import '../../../core/constant/color.dart';
-import 'custom_icon_button.dart';
+import '../custom_icon_button.dart';
 
 class SectionBar extends StatelessWidget {
   const SectionBar({

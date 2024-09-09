@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import '../widgets/authentication/timer.dart';
 import '../../core/class/status_request.dart';
 import '../../controller/home_controller.dart';
-import '../widgets/home/categories_list.dart';
-import '../widgets/home/custom_appbar.dart';
+import '../widgets/categories_list.dart';
+import '../widgets/home/home_appbar.dart';
 import '../widgets/home/discount_bar.dart';
 import '../widgets/home/item_card.dart';
-import '../widgets/home/search_field.dart';
+import '../widgets/search_field.dart';
 import '../widgets/home/section_bar.dart';
 
 class Home extends StatelessWidget {
@@ -42,7 +42,9 @@ class Home extends StatelessWidget {
                               const SizedBox(height: 8),
                               CustomAppBar(controller: controller),
                               const SizedBox(height: 20),
-                              const SearchField(),
+                              const SearchField(
+                                hintText: 'Search the entire shop',
+                              ),
                               const SizedBox(height: 15),
                               const DiscountBar(discountPercentage: 50),
                               const SizedBox(height: 20),
@@ -65,8 +67,11 @@ class Home extends StatelessWidget {
                               SectionBar(title: 'Categories', onPress: () {}),
                               const SizedBox(height: 10),
                               CategoriesList(
-                                  categories: controller.categories,
-                                  onPress: () {}),
+                                categories: controller.categories,
+                                onPress: (index) {
+                                  controller.goToItemsScreen(index);
+                                },
+                              ),
                               SectionBar(
                                 title: 'Flash Sale',
                                 onPress: () {},
