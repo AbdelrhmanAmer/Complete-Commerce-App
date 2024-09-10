@@ -50,6 +50,7 @@ class HomeController extends GetxController {
     Get.toNamed(Routes.items, arguments: {
       'categories' : categories,
       'selectedCategory' : categoryIndex,
+      'items' : items,
     });
   }
   initiateData() {

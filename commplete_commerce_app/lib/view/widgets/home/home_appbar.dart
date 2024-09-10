@@ -25,7 +25,6 @@ class CustomAppBar extends StatelessWidget {
         CustomIconButton(
           onPress: () {},
           iconData: CupertinoIcons.gear_big,
-          foregroundColor: Get.isDarkMode ? Colors.black : Colors.white,
         ),
         Column(
           children: [
@@ -50,10 +49,6 @@ class CustomAppBar extends StatelessWidget {
                 iconData: themeController.isDarkMode.value
                     ? CupertinoIcons.brightness_solid
                     : CupertinoIcons.moon,
-                foregroundColor: Get.isDarkMode ? Colors.white : Colors.black,
-                backgroundColor: Get.isDarkMode
-                    ? AppColor.lightDarkBackground
-                    : AppColor.lightwhiteBackground,
               ),
             ),
             const SizedBox(width: 6),
@@ -63,10 +58,6 @@ class CustomAppBar extends StatelessWidget {
                 CustomIconButton(
                   onPress: () {},
                   iconData: CupertinoIcons.bell,
-                  foregroundColor: Get.isDarkMode ? Colors.white : Colors.black,
-                  backgroundColor: Get.isDarkMode
-                      ? AppColor.lightDarkBackground
-                      : AppColor.lightwhiteBackground,
                 ),
                 Positioned(
                     right: 5,

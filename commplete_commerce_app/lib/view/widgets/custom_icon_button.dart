@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
 
@@ -7,16 +8,16 @@ class CustomIconButton extends StatelessWidget {
     super.key,
     required this.iconData,
     required this.onPress,
-    this.foregroundColor = AppColor.darkText,
-    this.backgroundColor = AppColor.primaryColor,
     this.radius = 50,
     this.width = 40,
     this.height = 40,
     this.iconSize = 20,
+    this.backgroundColor,
+    this.foregroundColor,
   });
   final IconData iconData;
-  final Color backgroundColor;
-  final Color foregroundColor;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   final double radius;
   final double width;
   final double height;
@@ -32,12 +33,19 @@ class CustomIconButton extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(radius),
-            color: backgroundColor),
+          borderRadius: BorderRadius.circular(radius),
+          color: backgroundColor ??
+              (Get.isDarkMode
+                  ? AppColor.lightDarkBackground
+                  : AppColor.lightwhiteBackground),
+        ),
         child: Center(
           child: Icon(
             iconData,
-            color: foregroundColor,
+            color: foregroundColor ??
+                (Get.isDarkMode
+                    ? AppColor.lightDarkText
+                    : AppColor.lightWhiteText),
             size: iconSize,
           ),
         ),
