@@ -13,27 +13,24 @@ class FavoriteIconButton extends StatelessWidget {
   final Function() onPress;
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      right: 15,
-      top: 15,
-      child: InkWell(
-        onTap: onPress,
-        child: Container(
-          height: 25,
-          width: 25,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Theme.of(context).colorScheme.surface,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(6),
-            child: Icon(
-              isFavorite ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-              size: 15,
-              color: isFavorite
-                  ? Colors.red
-                  : Theme.of(context).colorScheme.onSurface,
-            ),
+    return InkWell(
+      onTap: onPress,
+      borderRadius: BorderRadius.circular(50),
+      child: Container(
+        height: 25,
+        width: 25,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Theme.of(context).colorScheme.surface,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(6),
+          child: Icon(
+            isFavorite ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
+            size: 15,
+            color: isFavorite
+                ? Colors.red
+                : Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),

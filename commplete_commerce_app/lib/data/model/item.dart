@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../../core/services/services.dart';
+
 class Item {
   int? itemId;
   String? itemName;
@@ -18,27 +20,31 @@ class Item {
   String? categoryArabicName;
   String? categoryImage;
   String? categoryDatetime;
-  RxBool? isFavorite = false.obs;
+  RxBool isFavorite = false.obs; 
 
-  Item(
-      {this.itemId,
-      this.itemName,
-      this.itemArabicName,
-      this.itemDescription,
-      this.itemArabicDescription,
-      this.itemImage,
-      this.itemQuantity,
-      this.itemActive,
-      this.itemPrice,
-      this.itemDiscount,
-      this.itemDatetime,
-      this.itemCategoryId,
-      this.categoryId,
-      this.categoryName,
-      this.categoryArabicName,
-      this.categoryImage,
-      this.categoryDatetime,
-      this.isFavorite});
+  Item({
+    this.itemId,
+    this.itemName,
+    this.itemArabicName,
+    this.itemDescription,
+    this.itemArabicDescription,
+    this.itemImage,
+    this.itemQuantity,
+    this.itemActive,
+    this.itemPrice,
+    this.itemDiscount,
+    this.itemDatetime,
+    this.itemCategoryId,
+    this.categoryId,
+    this.categoryName,
+    this.categoryArabicName,
+    this.categoryImage,
+    this.categoryDatetime,
+  }) {
+    MyServices myServices = Get.find();
+    bool? favoriteStatus = myServices.sharedPreferences.getBool('favorite-$itemId');
+    isFavorite.value = favoriteStatus ?? false; 
+  }
 
   Item.fromJson(Map<String, dynamic> json) {
     itemId = json['item_id'];
@@ -82,7 +88,5 @@ class Item {
     return data;
   }
 
-  toggleFavorite() {
-    isFavorite!.value = !isFavorite!.value;
-  }
+
 }

@@ -6,10 +6,10 @@ class AppLinks {
   static const String signUp = '$server/auth/sign_up.php';
   static const String otp = '$server/auth/otp.php';
 
-  // forgot password
-  static const String checkEmail = '$server/auth/forgotPassword/check_email.php';
-  static const String otpResetPassword = '$server/auth/forgotPassword/otp_reset_password.php';
-  static const String resetPassword = '$server/auth/forgotPassword/reset_password.php';
+    // forgot password
+    static const String checkEmail = '$server/auth/forgotPassword/check_email.php';
+    static const String otpResetPassword = '$server/auth/forgotPassword/otp_reset_password.php';
+    static const String resetPassword = '$server/auth/forgotPassword/reset_password.php';
 
   // Images 
   static const String staticImages = '$server/upload'; 
@@ -18,4 +18,7 @@ class AppLinks {
 
   // Home
   static const String home = '$server/home.php';
+
+  // Items
+  static const String items = '$server/items/items.php';
 }

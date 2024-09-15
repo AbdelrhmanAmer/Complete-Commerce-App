@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/services/services.dart';
 import '../../../data/model/item.dart';
 import 'favorite_icon_button.dart';
 
@@ -18,6 +19,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool hasDicount = item.itemDiscount! <= 0.0 ? false : true;
+    MyServices myServices = Get.find();
 
     return InkWell(
       onTap: onPress,
@@ -43,7 +45,9 @@ class ItemCard extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: Image.asset(
                           fit: BoxFit.fitWidth,
-                            'assets/images/${item.itemImage}',width: 100,),
+                          'assets/images/${item.itemImage}',
+                          width: 100,
+                        ),
                       ),
                     ),
                   ),
@@ -91,11 +95,14 @@ class ItemCard extends StatelessWidget {
               ),
             ),
           ),
-          Obx(
-            () => FavoriteIconButton(
-              isFavorite: item.isFavorite!.value,
-              onPress: item.toggleFavorite,
-            ),
+          Positioned(
+            top: 15,
+            right: 15,
+            child: FavoriteIconButton(
+                isFavorite: myServices.sharedPreferences
+                        .getBool('favorite-${item.itemId}') ??
+                    false,
+                onPress: () {}),
           ),
         ],
       ),

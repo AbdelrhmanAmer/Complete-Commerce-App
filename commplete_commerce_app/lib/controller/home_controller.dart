@@ -1,6 +1,6 @@
-import 'package:commplete_commerce_app/core/constant/app_routes.dart';
 import 'package:get/get.dart';
 
+import '../core/constant/app_routes.dart';
 import '../data/data_source/remote/home_data.dart';
 import '../data/model/category.dart';
 import '../data/model/item.dart';
@@ -25,7 +25,6 @@ class HomeController extends GetxController {
 
   getData() async {
     statusRequest.value = StatusRequest.loading;
-    update();
 
     var response = await homeData.getData();
     statusRequest.value = handleResponseStatus(response);
@@ -50,7 +49,6 @@ class HomeController extends GetxController {
     Get.toNamed(Routes.items, arguments: {
       'categories' : categories,
       'selectedCategory' : categoryIndex,
-      'items' : items,
     });
   }
   initiateData() {
