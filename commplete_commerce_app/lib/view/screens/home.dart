@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/core/constant/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -91,9 +92,34 @@ class Home extends StatelessWidget {
                                   scrollDirection: Axis.horizontal,
                                   itemCount: controller.discountedItems.length,
                                   itemBuilder: (_, index) => ItemCard(
-                                    item: controller.discountedItems[index],
-                                    onPress: () {},
-                                  ),
+                                      item: controller.discountedItems[index],
+                                      onPress: () => Get.toNamed(
+                                              Routes.itemDetails,
+                                              arguments: {
+                                                'item': controller
+                                                    .discountedItems[index],
+                                              })),
+                                ),
+                              ),
+                              SectionBar(
+                                title: 'Products',
+                                onPress: () {},
+                                enableTimer: false,
+                              ),
+                              const SizedBox(height: 5),
+                              SizedBox(
+                                height: 220,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: controller.discountedItems.length,
+                                  itemBuilder: (_, index) => ItemCard(
+                                      item: controller.items[index],
+                                      onPress: () => Get.toNamed(
+                                              Routes.itemDetails,
+                                              arguments: {
+                                                'item': controller
+                                                    .items[index],
+                                              })),
                                 ),
                               ),
                             ],

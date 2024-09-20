@@ -59,7 +59,7 @@ class SignInController extends GetxController {
     myServices.sharedPreferences.setString('phone', user.phone!);
     myServices.sharedPreferences.setString('username', user.username!);
     myServices.sharedPreferences.setString('address', user.address!);
-    myServices.sharedPreferences.setString('step', '2');
+    myServices.sharedPreferences.setString('step', '3');
   }
 
   togglePasswordVisibility() {

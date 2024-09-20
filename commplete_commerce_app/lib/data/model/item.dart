@@ -14,6 +14,8 @@ class Item {
   int? itemPrice;
   int? itemDiscount;
   String? itemDatetime;
+  String? itemRate;
+  String? itemBrand;
   int? itemCategoryId;
   int? categoryId;
   String? categoryName;
@@ -33,6 +35,8 @@ class Item {
     this.itemActive,
     this.itemPrice,
     this.itemDiscount,
+    this.itemRate,
+    this.itemBrand,
     this.itemDatetime,
     this.itemCategoryId,
     this.categoryId,
@@ -57,6 +61,8 @@ class Item {
     itemActive = json['item_active'];
     itemPrice = json['item_price'];
     itemDiscount = json['item_discount'];
+    itemRate = json['item_rate'];
+    itemBrand = json['item_brand'];
     itemDatetime = json['item_datetime'];
     itemCategoryId = json['item_categoryId'];
     categoryId = json['category_id'];
@@ -77,6 +83,8 @@ class Item {
     data['item_quantity'] = itemQuantity;
     data['item_active'] = itemActive;
     data['item_price'] = itemPrice;
+    data['item_rate'] = itemRate;
+    data['item_brand'] = itemBrand;
     data['item_discount'] = itemDiscount;
     data['item_datetime'] = itemDatetime;
     data['item_categoryId'] = itemCategoryId;
