@@ -58,7 +58,7 @@ class SectionBar extends StatelessWidget {
               width: 23,
               height: 23,
               iconSize: 16,
-              backgroundColor: AppColor.lightwhiteBackground,
+              backgroundColor: AppColor.lightWhiteBackground,
             )
           ],
         )

@@ -11,7 +11,7 @@ class ItemPrice extends StatelessWidget {
     this.itemDiscount = 0,
   });
 
-  final int? itemPrice;
+  final double? itemPrice;
   final int? itemDiscount;
 
   @override

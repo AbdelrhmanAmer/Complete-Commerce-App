@@ -33,7 +33,7 @@ class HomeController extends GetxController {
         categories.add(Category.fromJson(category));
       }
       for (Map<String, dynamic> item in response['items']) {
-        if (item['item_discount'] != 0) {
+        if (int.tryParse(item['item_discount'])! > 0) {
           discountedItems.add(Item.fromJson(item));
         }
         items.add(Item.fromJson(item));

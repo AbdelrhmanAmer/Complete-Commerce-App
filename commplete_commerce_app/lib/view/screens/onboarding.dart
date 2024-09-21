@@ -14,6 +14,7 @@ class OnBoarding extends GetView<OnBoardingControllerImp> {
   Widget build(BuildContext context) {
     Get.lazyPut(()=>OnBoardingControllerImp(), fenix: true);
     return Scaffold(
+      backgroundColor: AppColor.onboardingColor,
         body: SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

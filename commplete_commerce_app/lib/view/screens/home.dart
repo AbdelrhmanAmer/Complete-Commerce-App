@@ -111,7 +111,7 @@ class Home extends StatelessWidget {
                                 height: 220,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: controller.discountedItems.length,
+                                  itemCount: controller.items.length,
                                   itemBuilder: (_, index) => ItemCard(
                                       item: controller.items[index],
                                       onPress: () => Get.toNamed(

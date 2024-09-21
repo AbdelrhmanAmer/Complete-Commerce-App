@@ -57,7 +57,7 @@ class SearchField extends StatelessWidget {
             filled: true,
             fillColor: Get.isDarkMode
                 ? AppColor.lightDarkBackground
-                : AppColor.lightwhiteBackground),
+                : AppColor.lightWhiteBackground),
       ),
     );
   }

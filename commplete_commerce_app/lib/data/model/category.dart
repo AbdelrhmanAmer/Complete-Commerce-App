@@ -13,7 +13,7 @@ class Category {
       this.categoryDatetime});
 
   Category.fromJson(Map<String, dynamic> json) {
-    categoryId = json['category_id'];
+    categoryId = int.tryParse(json['category_id']);
     categoryName = json['category_name'];
     categoryArabicName = json['category_arabic_name'];
     categoryImage = json['category_image'];

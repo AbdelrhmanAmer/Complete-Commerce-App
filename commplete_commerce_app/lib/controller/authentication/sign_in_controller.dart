@@ -38,7 +38,7 @@ class SignInController extends GetxController {
       log('SignInController.dart: Controller ${response.toString()}');
       log('SignInController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
-        user.id = response['data']['id'];
+        user.id = int.tryParse(response['data']['id'].toString());
         user.email = response['data']['email'];
         user.phone = response['data']['phone'];
         user.username = response['data']['name'];

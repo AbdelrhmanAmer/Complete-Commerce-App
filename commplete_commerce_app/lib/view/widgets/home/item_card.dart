@@ -18,7 +18,13 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool hasDicount = item.itemDiscount! <= 0.0 ? false : true;
+    // Safeguard for itemDiscount
+    int discount = item.itemDiscount ?? 0;
+    bool hasDiscount = discount > 0.0;
+    // Safeguard for itemPrice
+    double price = item.itemPrice ?? 0.0;
+    double discountedPrice = price * (1 - discount / 100);
+
     MyServices myServices = Get.find();
 
     return InkWell(
@@ -70,17 +76,18 @@ class ItemCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                       // Discounted Price
                         Text(
-                          '\$${NumberFormat('#,##0').format(item.itemPrice! * (1 - item.itemDiscount! / 100))}',
+                          '\$${NumberFormat('#,##0').format(discountedPrice)}',
                           style: GoogleFonts.oswald(
                               color: Theme.of(context).colorScheme.onSurface,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 8),
-                        hasDicount
+                        hasDiscount
                             ? Text(
-                                '\$${NumberFormat('#,##0').format(item.itemPrice)}',
+                                '\$${NumberFormat('#,##0').format(price)}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!

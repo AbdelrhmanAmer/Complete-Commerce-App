@@ -1,4 +1,4 @@
-import '../../model/on_boarding_model.dart';
+import '../../model/onboarding.dart';
 
 
 List<OnBoardingModel> onBoardingList = [

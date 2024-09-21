@@ -37,7 +37,7 @@ class CustomIconButton extends StatelessWidget {
           color: backgroundColor ??
               (Get.isDarkMode
                   ? AppColor.lightDarkBackground
-                  : AppColor.lightwhiteBackground),
+                  : AppColor.lightWhiteBackground),
         ),
         child: Center(
           child: Icon(

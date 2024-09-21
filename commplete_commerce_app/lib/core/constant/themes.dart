@@ -11,7 +11,7 @@ ThemeData lightTheme() {
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
-    scaffoldBackgroundColor: AppColor.lightwhiteBackground,
+    scaffoldBackgroundColor: AppColor.lightWhiteBackground,
     inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: false),
     appBarTheme: _appBarTheme(textTheme, false),
   );
@@ -59,7 +59,7 @@ ColorScheme _colorScheme(bool isDarkMode) {
       onSecondary: AppColor.lightDarkText,
       surfaceContainerHigh: isDarkMode
           ? AppColor.lightDarkBackground
-          : AppColor.lightwhiteBackground);
+          : AppColor.lightWhiteBackground);
 }
 
 TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {

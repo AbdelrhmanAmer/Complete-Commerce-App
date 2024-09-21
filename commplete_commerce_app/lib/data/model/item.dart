@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:get/get.dart';
 
 import '../../core/services/services.dart';
@@ -11,7 +13,7 @@ class Item {
   String? itemImage;
   int? itemQuantity;
   int? itemActive;
-  int? itemPrice;
+  double? itemPrice;
   int? itemDiscount;
   String? itemDatetime;
   String? itemRate;
@@ -51,21 +53,21 @@ class Item {
   }
 
   Item.fromJson(Map<String, dynamic> json) {
-    itemId = json['item_id'];
+    itemId = int.tryParse(json['item_id']);
     itemName = json['item_name'];
     itemArabicName = json['item_arabic_name'];
     itemDescription = json['item_description'];
     itemArabicDescription = json['item_arabic_description'];
     itemImage = json['item_image'];
-    itemQuantity = json['item_quantity'];
-    itemActive = json['item_active'];
-    itemPrice = json['item_price'];
-    itemDiscount = json['item_discount'];
+    itemQuantity = int.tryParse(json['item_quantity']);
+    itemActive = int.tryParse(json['item_active']);
+    itemPrice = double.tryParse(json['item_price']);
+    itemDiscount = int.tryParse(json['item_discount']);
     itemRate = json['item_rate'];
     itemBrand = json['item_brand'];
     itemDatetime = json['item_datetime'];
-    itemCategoryId = json['item_categoryId'];
-    categoryId = json['category_id'];
+    itemCategoryId = int.tryParse(json['item_categoryId']);
+    categoryId = int.tryParse(json['category_id']);
     categoryName = json['category_name'];
     categoryArabicName = json['category_arabic_name'];
     categoryImage = json['category_image'];
