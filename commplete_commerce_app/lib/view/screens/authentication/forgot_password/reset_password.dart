@@ -50,7 +50,7 @@ class ResetPassword extends StatelessWidget {
                               foregroundColor: Colors.white,
                               text: 'Continue',
                               press: controller.resetPassword,
-                              widthRatio: .75,
+                              width: .75,
                             ),
                             SizedBox(height: size.height * .01),
                           ],

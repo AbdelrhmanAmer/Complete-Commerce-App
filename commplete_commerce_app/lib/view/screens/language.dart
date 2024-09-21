@@ -27,7 +27,7 @@ class Language extends GetView<LocaleController> {
                 controller.changeLang("ar");
                 Get.toNamed(Routes.onBoarding);
               },
-              widthRatio: .45,
+              width: .45,
             ),
             const SizedBox(height: 20),
             CustomButton(
@@ -38,7 +38,7 @@ class Language extends GetView<LocaleController> {
                 controller.changeLang("en");
                 Get.toNamed(Routes.onBoarding);
               },
-              widthRatio: .45,
+              width: .45,
             ),
           ],
         ),

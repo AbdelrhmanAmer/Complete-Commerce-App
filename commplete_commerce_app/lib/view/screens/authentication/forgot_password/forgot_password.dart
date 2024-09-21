@@ -64,7 +64,7 @@ class ForgotPassword extends StatelessWidget {
                           foregroundColor: Colors.white,
                           text: 'Continue',
                           press: controller.checkEmail,
-                          widthRatio: .85,
+                          width: .85,
                         ),
                         SizedBox(height: size.height * .04),
                         AccountPrompt(

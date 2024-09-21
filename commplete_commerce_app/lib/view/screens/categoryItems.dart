@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/items_controller.dart';
-import '../widgets/items/item_tile.dart';
-import '../widgets/items/items_appbar.dart';
+import '../widgets/categoryItems/item_tile.dart';
+import '../widgets/categoryItems/items_appbar.dart';
 import '../widgets/categories_list.dart';
 
-class Items extends StatelessWidget {
-  const Items({super.key});
+class CategoryItems extends StatelessWidget {
+  const CategoryItems({super.key});
 
   @override
   Widget build(BuildContext context) {
