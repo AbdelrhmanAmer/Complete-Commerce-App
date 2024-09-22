@@ -19,7 +19,7 @@ class ItemDetails extends StatelessWidget {
           elevation: 0,
           actions: [
             FavoriteIconButton(
-              isFavorite: controller.item.isFavorite.value,
+              isFavorite: false,
               onPress: () {},
               iconSize: 22,
               height: 35,

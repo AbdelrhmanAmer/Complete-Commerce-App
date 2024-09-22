@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:dio/dio.dart';
 
 import '../constant/app_strings.dart';
@@ -11,8 +12,9 @@ class Crud {
       if (await checkInternet()) {
         final dio = Dio();
         final response = await dio.post(url, data: FormData.fromMap(data));
-        print('--------------------------------------------------------');
-        print('Crud.dart: response.statusCode ${response.statusCode.toString()}');
+        log('--------------------------------------------------------');
+        log('Crud.dart: response.statusCode ${response.statusCode.toString()}');
+        log('--------------------------------------------------------');
 
         Map<String, dynamic>? responseBody;
 
@@ -22,7 +24,7 @@ class Crud {
           responseBody = response.data as Map<String, dynamic>;
         }
 
-        print('Crud.dart: response.body ${responseBody.toString()}');
+        // print('Crud.dart: response.body ${responseBody.toString()}');
 
         return responseBody!;
       } else {

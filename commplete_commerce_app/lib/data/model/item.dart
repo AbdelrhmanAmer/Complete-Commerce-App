@@ -22,7 +22,7 @@ class Item {
   String? categoryArabicName;
   String? categoryImage;
   String? categoryDatetime;
-  RxBool isFavorite = false.obs; 
+  int? isFavorite = 0;
 
   Item({
     this.itemId,
@@ -44,11 +44,8 @@ class Item {
     this.categoryArabicName,
     this.categoryImage,
     this.categoryDatetime,
-  }) {
-    MyServices myServices = Get.find();
-    bool? favoriteStatus = myServices.sharedPreferences.getBool('favorite-$itemId');
-    isFavorite.value = favoriteStatus ?? false; 
-  }
+    this.isFavorite
+  });
 
   Item.fromJson(Map<String, dynamic> json) {
     itemId = int.tryParse(json['item_id']);
@@ -63,6 +60,7 @@ class Item {
     itemDiscount = int.tryParse(json['item_discount']);
     itemRate = json['item_rate'];
     itemBrand = json['item_brand'];
+    isFavorite = int.tryParse(json['favorite']);
     itemDatetime = json['item_datetime'];
     itemCategoryId = int.tryParse(json['item_categoryId']);
     categoryId = int.tryParse(json['category_id']);
@@ -93,6 +91,7 @@ class Item {
     data['category_arabic_name'] = categoryArabicName;
     data['category_image'] = categoryImage;
     data['category_datetime'] = categoryDatetime;
+    data['favorite'] = isFavorite;
     return data;
   }
 

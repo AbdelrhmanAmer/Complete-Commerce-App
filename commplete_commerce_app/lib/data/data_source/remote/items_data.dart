@@ -1,4 +1,3 @@
-
 import '../../../core/class/crud.dart';
 import '../../../app_links.dart';
 
@@ -7,8 +6,10 @@ class ItemsData {
 
   ItemsData(this.crud);
 
-  postData() async {
-    var response = await crud.postData(AppLinks.items, {});
+  postData(String userId) async {
+    var response = await crud.postData(AppLinks.items, {
+      'user_id': userId,
+    });
 
     return response;
   }

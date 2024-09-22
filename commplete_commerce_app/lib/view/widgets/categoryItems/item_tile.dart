@@ -61,7 +61,8 @@ class ItemTile extends GetView<ItemsController> {
                                   .textTheme
                                   .bodyMedium!
                                   .copyWith(
-                                      fontWeight: FontWeight.bold, fontSize: 13),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -80,14 +81,13 @@ class ItemTile extends GetView<ItemsController> {
                   tileColor: Theme.of(context).colorScheme.surfaceContainerHigh,
                 ),
           Positioned(
-            right: 5,
-            top: 3,
+            right: 7,
+            top: 6,
             child: FavoriteIconButton(
-              isFavorite: myServices.sharedPreferences
-                      .getBool('favorite-${item.itemId}') ??
-                  false,
-              onPress: () =>
-                  controller.toggleFavorite(myServices, item.itemId!),
+              isFavorite: item.isFavorite == 1 ? true : false,
+              onPress: () {},
+              iconSize: 18,
+              height: 28,
             ),
           )
         ],

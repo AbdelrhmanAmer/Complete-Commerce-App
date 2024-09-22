@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 
+import 'home_controller.dart';
 import '../core/class/status_request.dart';
 import '../core/functions/handle_response_status.dart';
-import '../core/services/services.dart';
 import '../data/data_source/remote/items_data.dart';
 import '../data/model/category.dart';
 import '../data/model/item.dart';
@@ -18,30 +20,34 @@ class ItemsController extends GetxController {
   RxList<Item> selectedCategoryItems = <Item>[].obs;
 
   @override
-  void onInit() async {
-    statusRequest.value = StatusRequest.loading;
-    await getItems();
-    categories.value =
-        Get.arguments != null && Get.arguments['categories'] != null
-            ? Get.arguments['categories']
-            : [];
-    selectedCategoryIndex.value =
-        Get.arguments != null && Get.arguments['categories'] != null
-            ? Get.arguments['selectedCategory']
-            : 0;
-    filterCategoryItems(selectedCategoryIndex.value);
-
+  void onInit() {
+    initializeController();
     super.onInit();
   }
 
+  void initializeController() async {
+    statusRequest.value = StatusRequest.loading;
+    await getItems();
+
+    if (Get.arguments != null) {
+      var args = Get.arguments;
+      if (args['categories'] != null) {
+        categories.value = Get.arguments['categories'];
+      }
+      if (args['selectedCategory'] != null) {
+        selectedCategoryIndex.value = Get.arguments['selectedCategory'];
+      }
+    }
+    filterCategoryItems(selectedCategoryIndex.value);
+  }
+
   getItems() async {
-    var response = await itemsData.postData();
+    var response = await itemsData.postData(HomeController.id!);
     statusRequest.value = handleResponseStatus(response);
 
     if (statusRequest.value == StatusRequest.success) {
-      for (Map<String, dynamic> item in response['data']) {
-        items.add(Item.fromJson(item));
-      }
+      List itemsList = response['items'] as List;
+      items.value = itemsList.map((item) => Item.fromJson(item)).toList();
     } else {
       statusRequest.value = StatusRequest.failure;
     }
@@ -57,13 +63,5 @@ class ItemsController extends GetxController {
     selectedCategoryItems.value = items
         .where((Item item) => item.itemCategoryId == selectedCategoryId)
         .toList();
-  }
-
-  void toggleFavorite(MyServices myServices, int itemId) {
-    bool currentValue =
-        myServices.sharedPreferences.getBool('favorite-$itemId') ?? false;
-    bool newValue = !currentValue;
-    myServices.sharedPreferences.setBool('favorite-$itemId', newValue);
-    update();
   }
 }

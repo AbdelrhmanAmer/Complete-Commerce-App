@@ -18,7 +18,7 @@ class HomeController extends GetxController {
   List<Item> items = [];
 
   String? username;
-  String? id;
+  static String? id;
   String? phone;
   String? email;
   String? address;
@@ -26,7 +26,7 @@ class HomeController extends GetxController {
   getData() async {
     statusRequest.value = StatusRequest.loading;
 
-    var response = await homeData.getData();
+    var response = await homeData.getData(id!);
     statusRequest.value = handleResponseStatus(response);
     if (statusRequest.value == StatusRequest.success) {
       for (Map<String, dynamic> category in response['categories']) {
@@ -45,12 +45,13 @@ class HomeController extends GetxController {
     update();
   }
 
-  goToItemsScreen(int categoryIndex){
+  goToItemsScreen(int categoryIndex) {
     Get.toNamed(Routes.items, arguments: {
-      'categories' : categories,
-      'selectedCategory' : categoryIndex,
+      'categories': categories,
+      'selectedCategory': categoryIndex,
     });
   }
+
   initiateData() {
     username = myServices.sharedPreferences.getString('username');
     id = myServices.sharedPreferences.getString('id');
