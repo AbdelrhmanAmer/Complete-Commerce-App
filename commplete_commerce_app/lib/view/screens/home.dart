@@ -1,7 +1,8 @@
-import 'package:commplete_commerce_app/core/constant/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controller/favorite_controller.dart';
+import '../../core/constant/app_routes.dart';
 import '../widgets/authentication/timer.dart';
 import '../../core/class/status_request.dart';
 import '../../controller/home_controller.dart';
@@ -18,6 +19,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
+    FavoriteController favoriteController = Get.put(FavoriteController());
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -101,6 +103,7 @@ class Home extends StatelessWidget {
                                               })),
                                 ),
                               ),
+                              const SizedBox(height: 15),
                               SectionBar(
                                 title: 'Products',
                                 onPress: () {},
@@ -112,16 +115,19 @@ class Home extends StatelessWidget {
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemCount: controller.items.length,
-                                  itemBuilder: (_, index) => ItemCard(
+                                  itemBuilder: (_, index) {
+                                    return ItemCard(
                                       item: controller.items[index],
                                       onPress: () => Get.toNamed(
-                                              Routes.itemDetails,
-                                              arguments: {
-                                                'item': controller
-                                                    .items[index],
-                                              })),
+                                        Routes.itemDetails,
+                                        arguments: {
+                                          'item': controller.items[index],
+                                        },
+                                      ),
+                                    );
+                                  },
                                 ),
-                              ),
+                              )
                             ],
                           ),
                         ),

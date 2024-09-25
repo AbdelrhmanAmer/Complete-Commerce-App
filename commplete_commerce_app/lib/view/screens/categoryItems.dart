@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/items_controller.dart';
+import '../../controller/favorite_controller.dart';
+import '../../controller/category_items_controller.dart';
 import '../widgets/categoryItems/item_tile.dart';
 import '../widgets/categoryItems/items_appbar.dart';
 import '../widgets/categories_list.dart';
@@ -11,7 +14,8 @@ class CategoryItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ItemsController controller = Get.put(ItemsController());
+    Get.put(CategoryItemsController());
+    FavoriteController favoriteController = Get.put(FavoriteController());
 
     return SafeArea(
         child: Scaffold(
@@ -23,23 +27,27 @@ class CategoryItems extends StatelessWidget {
             const SizedBox(height: 20),
             const ItemsAppbar(),
             const SizedBox(height: 10),
-            Obx(
-              () => CategoriesList(
+            GetBuilder<CategoryItemsController>(builder: (controller) {
+              return CategoriesList(
                 categories: controller.categories,
-                selectedCategoryIndex: controller.selectedCategoryIndex.value,
+                selectedCategoryIndex: controller.selectedIndex,
                 onPress: (index) {
                   controller.changeSelectedCategory(index);
                 },
                 hasImage: false,
-              ),
-            ),
+              );
+            }),
             Expanded(
-                child: Obx(() => ListView.builder(
-                    itemCount: controller.selectedCategoryItems.length,
-                    itemBuilder: (ctx, index) {
-                      return ItemTile(
-                          item: controller.selectedCategoryItems[index]);
-                    })))
+              child: GetBuilder<CategoryItemsController>(builder: (controller) {
+                return ListView.builder(
+                  itemCount: controller.selectedCategoryItems.length,
+                  itemBuilder: (ctx, index) {
+                    return ItemTile(
+                        item: controller.selectedCategoryItems[index]);
+                  },
+                );
+              }),
+            ),
           ],
         ),
       ),

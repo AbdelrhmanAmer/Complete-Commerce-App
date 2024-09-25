@@ -22,30 +22,29 @@ class Item {
   String? categoryArabicName;
   String? categoryImage;
   String? categoryDatetime;
-  int? isFavorite = 0;
+  bool? favorite;
 
-  Item({
-    this.itemId,
-    this.itemName,
-    this.itemArabicName,
-    this.itemDescription,
-    this.itemArabicDescription,
-    this.itemImage,
-    this.itemQuantity,
-    this.itemActive,
-    this.itemPrice,
-    this.itemDiscount,
-    this.itemRate,
-    this.itemBrand,
-    this.itemDatetime,
-    this.itemCategoryId,
-    this.categoryId,
-    this.categoryName,
-    this.categoryArabicName,
-    this.categoryImage,
-    this.categoryDatetime,
-    this.isFavorite
-  });
+  Item(
+      {this.itemId,
+      this.itemName,
+      this.itemArabicName,
+      this.itemDescription,
+      this.itemArabicDescription,
+      this.itemImage,
+      this.itemQuantity,
+      this.itemActive,
+      this.itemPrice,
+      this.itemDiscount,
+      this.itemRate,
+      this.itemBrand,
+      this.itemDatetime,
+      this.itemCategoryId,
+      this.categoryId,
+      this.categoryName,
+      this.categoryArabicName,
+      this.categoryImage,
+      this.categoryDatetime,
+      this.favorite});
 
   Item.fromJson(Map<String, dynamic> json) {
     itemId = int.tryParse(json['item_id']);
@@ -60,7 +59,7 @@ class Item {
     itemDiscount = int.tryParse(json['item_discount']);
     itemRate = json['item_rate'];
     itemBrand = json['item_brand'];
-    isFavorite = int.tryParse(json['favorite']);
+    favorite = json['favorite'] == "1" ? true : false;
     itemDatetime = json['item_datetime'];
     itemCategoryId = int.tryParse(json['item_categoryId']);
     categoryId = int.tryParse(json['category_id']);
@@ -91,9 +90,7 @@ class Item {
     data['category_arabic_name'] = categoryArabicName;
     data['category_image'] = categoryImage;
     data['category_datetime'] = categoryDatetime;
-    data['favorite'] = isFavorite;
+    data['favorite'] = favorite;
     return data;
   }
-
-
 }

@@ -1,15 +1,15 @@
-import 'package:commplete_commerce_app/core/class/status_request.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/class/status_request.dart';
 import '../../../core/services/services.dart';
-import '../../../controller/items_controller.dart';
+import '../../../controller/category_items_controller.dart';
 import '../../../core/constant/constants.dart';
 import '../../../data/model/item.dart';
-import '../home/favorite_icon_button.dart';
+import '../favorite_icon_button.dart';
 
-class ItemTile extends GetView<ItemsController> {
+class ItemTile extends GetView<CategoryItemsController> {
   const ItemTile({
     super.key,
     required this.item,
@@ -24,7 +24,7 @@ class ItemTile extends GetView<ItemsController> {
       margin: const EdgeInsets.only(top: 5),
       child: Stack(
         children: [
-          controller.statusRequest.value == StatusRequest.loading
+          controller.statusRequest == StatusRequest.loading
               ? const CircularProgressIndicator()
               : ListTile(
                   onTap: () {},
@@ -83,15 +83,12 @@ class ItemTile extends GetView<ItemsController> {
           Positioned(
             right: 7,
             top: 6,
-            child: FavoriteIconButton(
-              isFavorite: item.isFavorite == 1 ? true : false,
-              onPress: () {},
-              iconSize: 18,
-              height: 28,
-            ),
-          )
+            child: FavoriteIconButton(item: item),
+          ),
         ],
       ),
     );
   }
 }
+
+

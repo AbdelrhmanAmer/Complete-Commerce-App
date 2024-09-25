@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/controller/favorite_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,7 +6,8 @@ import 'package:intl/intl.dart';
 
 import '../../../core/services/services.dart';
 import '../../../data/model/item.dart';
-import 'favorite_icon_button.dart';
+import '../conditional_icon_button.dart';
+import '../favorite_icon_button.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
@@ -13,6 +15,7 @@ class ItemCard extends StatelessWidget {
     required this.item,
     required this.onPress,
   });
+
   final Item item;
   final Function() onPress;
 
@@ -21,6 +24,7 @@ class ItemCard extends StatelessWidget {
     // Safeguard for itemDiscount
     int discount = item.itemDiscount ?? 0;
     bool hasDiscount = discount > 0.0;
+
     // Safeguard for itemPrice
     double price = item.itemPrice ?? 0.0;
     double discountedPrice = price * (1 - discount / 100);
@@ -76,7 +80,7 @@ class ItemCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                       // Discounted Price
+                        // Discounted Price
                         Text(
                           '\$${NumberFormat('#,##0').format(discountedPrice)}',
                           style: GoogleFonts.oswald(
@@ -86,8 +90,7 @@ class ItemCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         hasDiscount
-                            ? Text(
-                                '\$${NumberFormat('#,##0').format(price)}',
+                            ? Text('\$${NumberFormat('#,##0').format(price)}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -102,15 +105,7 @@ class ItemCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 15,
-            right: 15,
-            child: FavoriteIconButton(
-                isFavorite: myServices.sharedPreferences
-                        .getBool('favorite-${item.itemId}') ??
-                    false,
-                onPress: () {}),
-          ),
+          Positioned(top: 15, right: 15, child: FavoriteIconButton(item: item)),
         ],
       ),
     );

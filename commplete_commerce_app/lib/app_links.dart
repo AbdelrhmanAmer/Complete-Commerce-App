@@ -1,6 +1,6 @@
 class AppLinks {
   // Server
-  static const String server = 'http://10.0.2.2/ecommerce-app-backend';
+  static const String server = 'http://127.0.0.1/ecommerce-app-backend';
   // Authentication
   static const String signIn = '$server/auth/sign_in.php';
   static const String signUp = '$server/auth/sign_up.php';
@@ -21,4 +21,9 @@ class AppLinks {
 
   // Items
   static const String items = '$server/items/items.php';
+  
+  // Favorite Items
+  static const String addFavoriteItem = '$server/favorite/add.php';
+  static const String removeFavoriteItem = '$server/favorite/remove.php';
+  
 }

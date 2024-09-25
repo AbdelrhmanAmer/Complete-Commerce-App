@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import 'favorite_controller.dart';
 import '../core/constant/app_routes.dart';
 import '../data/data_source/remote/home_data.dart';
 import '../data/model/category.dart';
@@ -23,6 +24,14 @@ class HomeController extends GetxController {
   String? email;
   String? address;
 
+  @override
+  void onInit() {
+    initiateData();
+    getData();
+
+    super.onInit();
+  }
+
   getData() async {
     statusRequest.value = StatusRequest.loading;
 
@@ -38,6 +47,7 @@ class HomeController extends GetxController {
         }
         items.add(Item.fromJson(item));
       }
+      _populateFavoriteList();
     } else {
       statusRequest.value = StatusRequest.failure;
     }
@@ -60,10 +70,12 @@ class HomeController extends GetxController {
     address = myServices.sharedPreferences.getString('address');
   }
 
-  @override
-  void onInit() {
-    initiateData();
-    getData();
-    super.onInit();
+  _populateFavoriteList() {
+    FavoriteController favoriteController = Get.find<FavoriteController>();
+    for (Item item in items) {
+      favoriteController.isFavorite[item.itemId!] = item.favorite!;
+    }
   }
+
+
 }

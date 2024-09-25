@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widgets/favorite_icon_button.dart';
 import '../widgets/item_details.dart/custom_bottom_navbar.dart';
 import '../widgets/item_details.dart/item_details_body.dart';
-import '../widgets/home/favorite_icon_button.dart';
+import '../widgets/conditional_icon_button.dart';
 import '../../controller/item_details_controller.dart';
 
 class ItemDetails extends StatelessWidget {
@@ -18,13 +19,8 @@ class ItemDetails extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           actions: [
-            FavoriteIconButton(
-              isFavorite: false,
-              onPress: () {},
-              iconSize: 22,
-              height: 35,
-              rightMargin: 10,
-            ),
+            FavoriteIconButton(item: controller.item),
+            const SizedBox(width: 20),
           ],
         ),
         body: const ItemDetailsBody(),

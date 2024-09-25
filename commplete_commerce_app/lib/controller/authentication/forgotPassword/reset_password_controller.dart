@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../core/constant/app_routes.dart';
 import '../../../core/functions/handle_response_status.dart';
-import '../../../core/functions/show_custom_snackbar.dart';
+import '../../../core/functions/show_custom_snack_bar.dart';
 import '../../../data/data_source/remote/auth/forgotPassword/reset_password_data.dart';
 import '../../../core/class/status_request.dart';
 
@@ -33,7 +33,7 @@ class ResetPasswordController extends GetxController {
       log('ResetPasswordController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
         Get.offAllNamed(Routes.signIn);
-        showCustomSnackbar(
+        showCustomSnackBar(
             title: response['status'], content: response['message']);
       }
     }

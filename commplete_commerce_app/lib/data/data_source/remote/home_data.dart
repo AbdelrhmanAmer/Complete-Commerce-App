@@ -1,6 +1,6 @@
-import 'package:commplete_commerce_app/app_links.dart';
 
 import '../../../core/class/crud.dart';
+import '../../../app_links.dart';
 
 class HomeData {
   Crud crud;

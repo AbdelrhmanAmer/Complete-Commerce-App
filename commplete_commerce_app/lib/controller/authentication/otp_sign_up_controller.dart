@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/functions/show_custom_snackbar.dart';
+import '../../core/functions/show_custom_snack_bar.dart';
 import '../../data/data_source/remote/auth/otp_sign_up_data.dart';
 import '../../core/class/status_request.dart';
 import '../../core/constant/app_routes.dart';
@@ -36,7 +36,7 @@ class OtpSignUpController extends GetxController {
 
     if (statusRequest.value == StatusRequest.success) {
       if (response is Map) {
-        showCustomSnackbar(
+        showCustomSnackBar(
           title: response['status'],
           content: response['message'],
         );

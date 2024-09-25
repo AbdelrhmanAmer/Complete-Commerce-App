@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../core/functions/show_custom_snackbar.dart';
+import '../../core/functions/show_custom_snack_bar.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handle_response_status.dart';
 import '../../core/services/services.dart';
@@ -47,7 +47,7 @@ class SignInController extends GetxController {
         _setSharedUser();
 
         Get.offAllNamed(Routes.home);
-        showCustomSnackbar(
+        showCustomSnackBar(
             title: response['status'], content: response['message']);
       }
     }
