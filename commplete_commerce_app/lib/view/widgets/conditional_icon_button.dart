@@ -5,16 +5,17 @@ import 'package:get/get.dart';
 import '../../core/constant/color.dart';
 
 class ConditionalIconButton extends StatelessWidget {
-  const ConditionalIconButton({super.key,
-    required this.trueCondition,
-    required this.onPress,
-    this.trueIconData = CupertinoIcons.heart_fill,
-    this.falseIconData = CupertinoIcons.heart,
-    this.trueColor = Colors.red,
-    this.falseColor,
-    this.iconSize = 15,
-    this.height = 25,
-    this.rightMargin = 0});
+  const ConditionalIconButton(
+      {super.key,
+      required this.trueCondition,
+      required this.onPress,
+      this.trueIconData = CupertinoIcons.heart_fill,
+      this.falseIconData = CupertinoIcons.heart,
+      this.trueColor = Colors.red,
+      this.falseColor,
+      this.iconSize = 15,
+      this.height = 25,
+      this.rightMargin = 0});
 
   final bool trueCondition;
   final Function() onPress;
@@ -34,10 +35,7 @@ class ConditionalIconButton extends StatelessWidget {
       width: height,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Theme
-            .of(context)
-            .colorScheme
-            .surface,
+        color: Theme.of(context).colorScheme.surface,
       ),
       child: InkWell(
         onTap: onPress,
@@ -47,8 +45,10 @@ class ConditionalIconButton extends StatelessWidget {
           child: Icon(
             trueCondition ? trueIconData : falseIconData,
             size: iconSize,
-            color: trueCondition ? trueColor : (falseColor ??
-                (Get.isDarkMode ? AppColor.whiteText : AppColor.darkText)),
+            color: trueCondition
+                ? trueColor
+                : (falseColor ??
+                    (Get.isDarkMode ? AppColor.whiteText : AppColor.darkText)),
           ),
         ),
       ),

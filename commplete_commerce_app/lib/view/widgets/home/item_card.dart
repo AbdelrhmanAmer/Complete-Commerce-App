@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/services/services.dart';
-import '../../../data/model/item.dart';
+import '../../../data/model/item/item.dart';
 import '../conditional_icon_button.dart';
 import '../favorite_icon_button.dart';
 
@@ -28,8 +28,6 @@ class ItemCard extends StatelessWidget {
     // Safeguard for itemPrice
     double price = item.itemPrice ?? 0.0;
     double discountedPrice = price * (1 - discount / 100);
-
-    MyServices myServices = Get.find();
 
     return InkWell(
       onTap: onPress,

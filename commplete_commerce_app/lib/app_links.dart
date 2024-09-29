@@ -25,5 +25,6 @@ class AppLinks {
   // Favorite Items
   static const String addFavoriteItem = '$server/favorite/add.php';
   static const String removeFavoriteItem = '$server/favorite/remove.php';
+  static const String allFavoriteItems = '$server/favorite/items.php';
   
 }

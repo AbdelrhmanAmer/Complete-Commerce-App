@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:commplete_commerce_app/core/constant/app_routes.dart';
+import 'package:commplete_commerce_app/data/model/item/base_item.dart';
 import 'package:get/get.dart';
 
 import 'home_controller.dart';
@@ -5,7 +9,7 @@ import '../core/class/status_request.dart';
 import '../core/functions/handle_response_status.dart';
 import '../data/data_source/remote/items_data.dart';
 import '../data/model/category.dart';
-import '../data/model/item.dart';
+import '../data/model/item/item.dart';
 
 class CategoryItemsController extends GetxController {
   List<Category> categories = <Category>[];
@@ -30,7 +34,7 @@ class CategoryItemsController extends GetxController {
     if (Get.arguments != null) {
       var args = Get.arguments;
       if (args['categories'] != null) {
-        categories= Get.arguments['categories'];
+        categories = Get.arguments['categories'];
       }
       if (args['selectedCategory'] != null) {
         selectedIndex = Get.arguments['selectedCategory'];
@@ -45,7 +49,7 @@ class CategoryItemsController extends GetxController {
     statusRequest = handleResponseStatus(response);
     update();
     if (statusRequest == StatusRequest.success) {
-      List itemsList = response['items'] as List;
+      List itemsList = response['items'];
       items = itemsList.map((item) => Item.fromJson(item)).toList();
     } else {
       statusRequest = StatusRequest.failure;
@@ -59,8 +63,12 @@ class CategoryItemsController extends GetxController {
     filterCategoryItems(newIndex);
   }
 
+  goToItemsDetailsScreen(BaseItem item) {
+    Get.toNamed(Routes.itemDetails, arguments: {'item': item});
+  }
+
   void filterCategoryItems(int categoryIndex) {
-    int? selectedCategoryId = categories[categoryIndex].categoryId;
+    String? selectedCategoryId = categories[categoryIndex].categoryId;
     selectedCategoryItems = items
         .where((Item item) => item.itemCategoryId == selectedCategoryId)
         .toList();

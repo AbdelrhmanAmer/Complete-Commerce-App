@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 
-import 'favorite_controller.dart';
 import '../core/constant/app_routes.dart';
 import '../data/data_source/remote/home_data.dart';
 import '../data/model/category.dart';
-import '../data/model/item.dart';
+import '../data/model/item/item.dart';
 import '../core/class/status_request.dart';
 import '../core/functions/handle_response_status.dart';
 import '../core/services/services.dart';
@@ -37,22 +36,30 @@ class HomeController extends GetxController {
 
     var response = await homeData.getData(id!);
     statusRequest.value = handleResponseStatus(response);
+
     if (statusRequest.value == StatusRequest.success) {
-      for (Map<String, dynamic> category in response['categories']) {
-        categories.add(Category.fromJson(category));
-      }
-      for (Map<String, dynamic> item in response['items']) {
-        if (int.tryParse(item['item_discount'])! > 0) {
-          discountedItems.add(Item.fromJson(item));
-        }
-        items.add(Item.fromJson(item));
-      }
-      _populateFavoriteList();
+      _processCategories(response['categories']);
+      _processItems(response['items']);
     } else {
       statusRequest.value = StatusRequest.failure;
     }
 
     update();
+  }
+
+  _processCategories(List<dynamic> categoriesData) {
+    categories
+        .addAll(categoriesData.map((category) => Category.fromJson(category)));
+  }
+
+  _processItems(List<dynamic> itemsData) {
+    for (Map<String, dynamic> item in itemsData) {
+      var itemObject = Item.fromJson(item);
+      items.add(itemObject);
+      if (int.tryParse(item['item_discount'])! > 0) {
+        discountedItems.add(itemObject);
+      }
+    }
   }
 
   goToItemsScreen(int categoryIndex) {
@@ -70,12 +77,10 @@ class HomeController extends GetxController {
     address = myServices.sharedPreferences.getString('address');
   }
 
-  _populateFavoriteList() {
-    FavoriteController favoriteController = Get.find<FavoriteController>();
-    for (Item item in items) {
-      favoriteController.isFavorite[item.itemId!] = item.favorite!;
-    }
-  }
-
-
+  // _populateFavoriteList() {
+  //   FavoriteController favoriteController = Get.find<FavoriteController>();
+  //   for (Item item in items) {
+  //     favoriteController.isFavorite[item.itemId!] = item.favorite!;
+  //   }
+  // }
 }

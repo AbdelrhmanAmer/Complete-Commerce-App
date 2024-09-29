@@ -6,28 +6,33 @@ import '../../../core/class/status_request.dart';
 import '../../../core/services/services.dart';
 import '../../../controller/category_items_controller.dart';
 import '../../../core/constant/constants.dart';
-import '../../../data/model/item.dart';
+import '../../../data/model/item/base_item.dart';
+import '../../../data/model/item/item.dart';
 import '../favorite_icon_button.dart';
 
-class ItemTile extends GetView<CategoryItemsController> {
+class ItemTile extends StatelessWidget {
   const ItemTile({
     super.key,
     required this.item,
+    required this.onPress,
+    required this.statusRequest,
   });
 
-  final Item item;
+  final BaseItem item;
+  final StatusRequest statusRequest;
+  final VoidCallback onPress;
 
   @override
   Widget build(BuildContext context) {
     MyServices myServices = Get.find();
     return Container(
-      margin: const EdgeInsets.only(top: 5),
+      margin: const EdgeInsets.only(top: 8, right: 10, left: 10),
       child: Stack(
         children: [
-          controller.statusRequest == StatusRequest.loading
+          statusRequest == StatusRequest.loading
               ? const CircularProgressIndicator()
               : ListTile(
-                  onTap: () {},
+                  onTap: onPress,
                   shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none,
@@ -90,5 +95,3 @@ class ItemTile extends GetView<CategoryItemsController> {
     );
   }
 }
-
-

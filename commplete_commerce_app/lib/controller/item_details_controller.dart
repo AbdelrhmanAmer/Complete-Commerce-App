@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../data/model/item.dart';
+import '../data/model/item/base_item.dart';
 
 class ItemDetailsController extends GetxController {
-  late Item item;
+  late BaseItem item;
   RxInt selectedQuantity = 1.obs;
 
   void increase() {

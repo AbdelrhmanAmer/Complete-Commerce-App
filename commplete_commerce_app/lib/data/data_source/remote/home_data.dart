@@ -1,4 +1,3 @@
-
 import '../../../core/class/crud.dart';
 import '../../../app_links.dart';
 
@@ -7,7 +6,7 @@ class HomeData {
 
   HomeData(this.crud);
 
-  getData(String userId) async {
+  Future<Map<String, dynamic>> getData(String userId) async {
     var response = await crud.postData(AppLinks.home, {
       'user_id': userId,
     });

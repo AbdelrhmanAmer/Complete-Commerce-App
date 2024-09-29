@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
 import '../../controller/root_controller.dart';
+import '../widgets/root/button_nav_bar.dart';
 
 class RootScreen extends StatelessWidget {
   const RootScreen({super.key});
@@ -14,33 +15,7 @@ class RootScreen extends StatelessWidget {
     return GetBuilder<RootController>(
       builder: ((controller) {
         return Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.category),
-                label: 'Categories',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart),
-                label: 'Cart',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-            ],
-            selectedItemColor: AppColor.primaryColor,
-            currentIndex: controller.currentPageIndex,
-            unselectedItemColor: Colors.grey,
-            showUnselectedLabels: true,
-            onTap: (int pageIndex){
-              controller.changePage(pageIndex);
-            },
-          ),
+          bottomNavigationBar: ButtonNavBar(controller: controller),
           body: controller.pageList.elementAt(controller.currentPageIndex),
         );
       }),
