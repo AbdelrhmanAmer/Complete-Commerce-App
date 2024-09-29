@@ -13,4 +13,11 @@ class OtpSignUpData {
     });
     return response;
   }
+
+  resetData(String email)async{
+    var response = await crud.postData(AppLinks.resendOtp, {
+      'email': email,
+    });
+    return response;
+  }
 }

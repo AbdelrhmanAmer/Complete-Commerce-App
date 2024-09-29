@@ -49,7 +49,7 @@ class SignUp extends StatelessWidget {
                           foregroundColor: Colors.white,
                           text: 'Continue',
                           press: controller.signUp,
-                          width: .85,
+                          width: size.width * .85,
                         ),
                         SizedBox(height: size.height * .03),
                         const SocialIcons(),

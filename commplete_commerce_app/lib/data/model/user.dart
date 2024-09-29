@@ -1,11 +1,11 @@
 class User {
-  int? id;
+  String? id;
   String? username;
   String? email;
   String? password;
   String? phone;
   String? address;
-  int? otp;
+  String? otp;
   String? createDate;
 
   User(

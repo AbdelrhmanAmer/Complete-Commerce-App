@@ -35,14 +35,17 @@ class SignInController extends GetxController {
       statusRequest.value = handleResponseStatus(response);
       update();
 
-      log('SignInController.dart: Controller ${response.toString()}');
-      log('SignInController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
-        user.id = int.tryParse(response['data']['id'].toString());
-        user.email = response['data']['email'];
-        user.phone = response['data']['phone'];
-        user.username = response['data']['name'];
-        user.address = response['data']['address'];
+
+        if (response['data']['user_approve'] == '1') {
+          user.id = response['data']['id'];
+          user.email = response['data']['email'];
+          user.phone = response['data']['phone'];
+          user.username = response['data']['name'];
+          user.address = response['data']['address'];
+        } else if (response['data']['user_approve'] == '0') {
+          Get.offNamed(Routes.otpSignUp, arguments: {'email': email.text});
+        }
 
         _setSharedUser();
 
@@ -54,12 +57,12 @@ class SignInController extends GetxController {
   }
 
   void _setSharedUser() {
-    myServices.sharedPreferences.setString('id', user.id.toString());
+    myServices.sharedPreferences.setString('id', user.id!);
     myServices.sharedPreferences.setString('email', user.email!);
     myServices.sharedPreferences.setString('phone', user.phone!);
     myServices.sharedPreferences.setString('username', user.username!);
     myServices.sharedPreferences.setString('address', user.address!);
-    myServices.sharedPreferences.setString('step', '3');
+    myServices.sharedPreferences.setString('step', '2');
   }
 
   togglePasswordVisibility() {

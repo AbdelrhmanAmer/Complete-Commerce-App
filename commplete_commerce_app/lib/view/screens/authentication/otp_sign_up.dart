@@ -57,7 +57,7 @@ class OTPSignUp extends StatelessWidget {
                               foregroundColor: Colors.white,
                               text: 'Continue',
                               press: () => controller.checkOtp(),
-                              width: .85,
+                              width: size.width * .85,
                             ),
                             SizedBox(height: size.height * .04),
                             AccountPrompt(

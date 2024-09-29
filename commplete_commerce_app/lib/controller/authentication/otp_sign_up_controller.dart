@@ -51,7 +51,9 @@ class OtpSignUpController extends GetxController {
     }
   }
 
-  resendOtp() {}
+  resendOtp() {
+    otpSignUpData.resetData(email!);
+  }
 
   @override
   void onInit() {

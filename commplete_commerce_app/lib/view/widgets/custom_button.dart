@@ -1,4 +1,5 @@
 import 'package:commplete_commerce_app/core/constant/color.dart';
+import 'package:commplete_commerce_app/core/constant/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -6,7 +7,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.press,
-    this.width = double.infinity,
+    this.width,
     this.elevation = 0,
     this.textStyle,
     this.foregroundColor = Colors.white,
@@ -20,7 +21,7 @@ class CustomButton extends StatelessWidget {
   final Color foregroundColor;
   final String text;
   final double elevation;
-  final double width;
+  final double? width;
   final TextStyle? textStyle;
   final double horizontalPadding;
   final double verticalPadding;
@@ -30,11 +31,12 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      width: width ?? size.width * .8,
       child: ElevatedButton(
         onPressed: press,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
+          // foregroundColor: foregroundColor,
           padding: EdgeInsets.symmetric(
               horizontal: horizontalPadding, vertical: verticalPadding),
           shape:

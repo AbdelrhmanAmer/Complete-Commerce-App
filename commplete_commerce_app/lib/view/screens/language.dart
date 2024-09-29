@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/core/constant/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,12 +23,12 @@ class Language extends GetView<LocaleController> {
             CustomButton(
               backgroundColor: AppColor.primaryColor,
               foregroundColor: Colors.white,
+
               text: "arabic".tr,
               press: () {
                 controller.changeLang("ar");
                 Get.toNamed(Routes.onBoarding);
               },
-              width: .45,
             ),
             const SizedBox(height: 20),
             CustomButton(
@@ -38,7 +39,6 @@ class Language extends GetView<LocaleController> {
                 controller.changeLang("en");
                 Get.toNamed(Routes.onBoarding);
               },
-              width: .45,
             ),
           ],
         ),
