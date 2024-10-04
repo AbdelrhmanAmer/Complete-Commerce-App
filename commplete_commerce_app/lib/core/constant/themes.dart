@@ -76,6 +76,14 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
       fontWeight: FontWeight.bold,
       fontSize: 25,
     ),
+    titleLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 20),
+    titleMedium:
+        GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 18),
+    titleSmall: GoogleFonts.poppins(
+      color: colorScheme.onSurface,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
     bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
     bodySmall: GoogleFonts.poppins(

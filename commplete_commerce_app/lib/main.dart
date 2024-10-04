@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'controller/theme_controller.dart';
 import 'core/constant/themes.dart';
 import 'initial_bindings.dart';
 import 'core/localization/change_local.dart';
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeController themeController = Get.put(ThemeController());
     LocaleController controller = Get.put(LocaleController());
 
     return GetMaterialApp(
@@ -30,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: lightTheme(),
       darkTheme: darkTheme(),
-      themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
+      themeMode: Get.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       getPages: routes,
       initialBinding: InitialBindings(),
     );

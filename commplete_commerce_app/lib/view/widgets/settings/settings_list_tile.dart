@@ -30,6 +30,7 @@ class SettingsListTile extends StatelessWidget {
     return ListTile(
       onTap: onPress,
       enabled: enabled,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       leading: Container(
           margin: const EdgeInsets.only(right: 8),
           child: isSvgIcon

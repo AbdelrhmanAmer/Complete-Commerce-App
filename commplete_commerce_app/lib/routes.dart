@@ -1,11 +1,10 @@
-import 'package:commplete_commerce_app/view/screens/item_details.dart';
-import 'package:commplete_commerce_app/view/screens/categoryItems.dart';
-import 'package:commplete_commerce_app/view/screens/root_screen.dart';
-import 'package:commplete_commerce_app/view/screens/settings.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
 import 'core/middleware/my_middleware.dart';
+import 'view/screens/categoryItems.dart';
+import 'view/screens/item_details.dart';
+import 'view/screens/root_screen.dart';
 import 'view/screens/language.dart';
 import 'view/screens/onboarding.dart';
 import 'view/screens/authentication/forgot_password/reset_password.dart';
@@ -14,6 +13,8 @@ import 'view/screens/authentication/forgot_password/forgot_password.dart';
 import 'view/screens/authentication/otp_sign_up.dart';
 import 'view/screens/authentication/sign_in.dart';
 import 'view/screens/authentication/sign_up.dart';
+import 'view/screens/profile/preferences.dart';
+import 'view/screens/profile/profile.dart';
 
 List<GetPage<dynamic>>? routes = [
   // Language
@@ -40,5 +41,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.items, page: () => const CategoryItems()),
   GetPage(name: Routes.itemDetails, page: () => const ItemDetails()),
 
-  GetPage(name: Routes.settings, page: () => const Settings()),
+  // Settings
+  GetPage(name: Routes.profile, page: () => const Profile()),
+  GetPage(name: Routes.preferences, page: () => const Preferences()),
 ];

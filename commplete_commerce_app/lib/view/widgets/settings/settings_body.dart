@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/constant/app_routes.dart';
 
+import '../../../controller/profile/settings_controller.dart';
 import 'settings_list_tile.dart';
-import '../../../controller/settings/settings_controller.dart';
 
-class SettingsBody extends GetView<SettingsController> {
+class SettingsBody extends GetView<ProfileController> {
   const SettingsBody({super.key});
 
   @override
@@ -24,18 +25,20 @@ class SettingsBody extends GetView<SettingsController> {
                 ),
               ),
               const SizedBox(width: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Hi, ${controller.myServices.sharedPreferences.getString('username')}',
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  Text(
-                    '${controller.myServices.sharedPreferences.getString('email')}',
-                    style: Theme.of(context).textTheme.labelSmall,
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Hi, ${controller.myServices.sharedPreferences.getString('username')}',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    Text(
+                      '${controller.myServices.sharedPreferences.getString('email')}',
+                      style: Theme.of(context).textTheme.labelSmall,
+                    )
+                  ],
+                ),
               )
             ],
           ),
@@ -118,9 +121,8 @@ class SettingsBody extends GetView<SettingsController> {
         ),
         const SizedBox(height: 10),
         SettingsListTile(
-          onPress: () {},
+          onPress: () => Get.toNamed(Routes.preferences),
           title: 'Preferences',
-          enabled: false,
           isSvgIcon: true,
           svgPath: 'assets/icons/Preferences.svg',
         ),
@@ -180,7 +182,7 @@ class SettingsBody extends GetView<SettingsController> {
           onPress: () {},
           title: 'FAQ',
           isSvgIcon: true,
-          // enabled: false,
+          enabled: false,
           svgPath: 'assets/icons/FAQ.svg',
         ),
 

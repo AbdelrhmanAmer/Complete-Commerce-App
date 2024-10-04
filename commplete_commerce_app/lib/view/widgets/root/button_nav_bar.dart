@@ -18,8 +18,12 @@ class ButtonNavBar extends StatelessWidget {
 
     return BottomNavigationBar(
       items: [
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            'assets/icons/home.svg',
+            colorFilter: _getColorFilter(controller.currentPageIndex == 0, context),
+            height: iconHeight,
+          ),
           label: 'Home',
         ),
         BottomNavigationBarItem(
@@ -38,8 +42,12 @@ class ButtonNavBar extends StatelessWidget {
           ),
           label: 'Cart',
         ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_outline),
+         BottomNavigationBarItem(
+          icon:SvgPicture.asset(
+            'assets/icons/favorite.svg',
+            colorFilter: _getColorFilter(controller.currentPageIndex == 3, context),
+            height: iconHeight,
+          ),
           label: 'Favorites',
         ),
         BottomNavigationBarItem(

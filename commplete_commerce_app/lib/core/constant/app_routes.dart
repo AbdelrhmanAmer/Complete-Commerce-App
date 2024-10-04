@@ -13,6 +13,8 @@ class Routes {
   static const String items = '/items';
   static const String itemDetails = '/itemDetails';
 
-  static const String settings = '/settings';
+  static const String profile = '/profile';
+  static const String preferences = '/preferences';
+
   
 }

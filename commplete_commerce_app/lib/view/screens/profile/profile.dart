@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/settings/settings_controller.dart';
-import '../widgets/profile/settings_body.dart';
+import '../../../controller/profile/settings_controller.dart';
+import '../../widgets/settings/settings_body.dart';
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class Profile extends StatelessWidget {
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SettingsController());
+    Get.put(ProfileController());
 
     return SafeArea(
       child: Scaffold(

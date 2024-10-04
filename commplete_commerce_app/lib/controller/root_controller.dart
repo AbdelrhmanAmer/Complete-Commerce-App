@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../view/screens/settings.dart';
+import '../view/screens/profile/profile.dart';
 import '../view/screens/favorites.dart';
 import '../view/screens/home.dart';
 
@@ -13,7 +13,7 @@ class RootController extends GetxController {
     const Center(child: Text('Categories', style: TextStyle(fontSize: 20))),
     const Center(child: Text('Cart', style: TextStyle(fontSize: 20))),
     const Favorites(),
-    const Settings(),
+    const Profile(),
   ];
 
   changePage(int i) {
