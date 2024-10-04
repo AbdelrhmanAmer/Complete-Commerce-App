@@ -12,7 +12,7 @@ import '../../../core/class/status_request.dart';
 class ResetPasswordController extends GetxController {
   String? email;
   late TextEditingController password;
-  late TextEditingController repassword;
+  late TextEditingController rePassword;
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
 
   final ResetPasswordData _resetPasswordData = ResetPasswordData(Get.find());
@@ -44,14 +44,14 @@ class ResetPasswordController extends GetxController {
     email = Get.arguments['email'];
 
     password = TextEditingController();
-    repassword = TextEditingController();
+    rePassword = TextEditingController();
     super.onInit();
   }
 
   @override
   void dispose() {
     password.dispose();
-    repassword.dispose();
+    rePassword.dispose();
     super.dispose();
   }
 }

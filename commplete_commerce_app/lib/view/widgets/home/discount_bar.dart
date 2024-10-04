@@ -13,9 +13,10 @@ class DiscountBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double fontSize = 17;
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 100,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -42,25 +43,24 @@ class DiscountBar extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .labelSmall!
-                    .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: fontSize),
               ),
-              SmallContainer(object: discountPercentage.toInt().toString()),
+              SmallContainer(object: discountPercentage.toInt().toString(), fontSize: fontSize,),
               Text(
                 ' cheaper',
                 style: Theme.of(context)
                     .textTheme
                     .labelSmall!
-                    .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: fontSize),
               ),
             ],
           ),
           Positioned(
               right: 0,
-              bottom: 4,
+              bottom: 10,
               child: SvgPicture.asset(
-                'assets/svgs/discount-svgrepo-com.svg',
-                height: 58,
-                width: 60,
+                'assets/icons/discount-svgrepo-com.svg',
+                height: 80,
               )),
         ],
       ),

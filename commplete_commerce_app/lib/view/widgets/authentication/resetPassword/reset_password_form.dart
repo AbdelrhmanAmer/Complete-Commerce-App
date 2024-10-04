@@ -35,7 +35,7 @@ class ResetPasswordForm extends StatelessWidget {
                 labelText: "Confirm Password",
                 hintText: "Re-Enter your password",
                 iconData: Icons.lock_outline),
-            controller: controller.repassword,
+            controller: controller.rePassword,
             obscureText: true,
             validator: (value) {
               String? result =

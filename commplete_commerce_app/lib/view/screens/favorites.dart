@@ -1,12 +1,7 @@
-import 'dart:developer';
-
-import 'package:commplete_commerce_app/view/widgets/favorites/favorite_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/favorite_controller.dart';
-import '../../core/constant/app_routes.dart';
-import '../widgets/categoryItems/items_appbar.dart';
 import '../widgets/categoryItems/item_tile.dart';
 
 class Favorites extends StatelessWidget {
@@ -14,17 +9,16 @@ class Favorites extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FavoriteController favoriteController = Get.put(FavoriteController());
+    Get.put(FavoriteController());
     ScrollController scrollController = ScrollController();
 
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Get.isDarkMode ? Colors.black : Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Column(
               children: [
-                const FavoriteAppBar(),
                 const SizedBox(height: 15),
                 Expanded(
                   child: GetBuilder<FavoriteController>(

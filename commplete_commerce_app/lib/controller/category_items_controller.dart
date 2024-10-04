@@ -1,12 +1,10 @@
-import 'dart:developer';
-
-import 'package:commplete_commerce_app/core/constant/app_routes.dart';
-import 'package:commplete_commerce_app/data/model/item/base_item.dart';
 import 'package:get/get.dart';
 
 import 'home_controller.dart';
 import '../core/class/status_request.dart';
 import '../core/functions/handle_response_status.dart';
+import '../core/constant/app_routes.dart';
+import '../data/model/item/base_item.dart';
 import '../data/data_source/remote/items_data.dart';
 import '../data/model/category.dart';
 import '../data/model/item/item.dart';

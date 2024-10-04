@@ -55,8 +55,8 @@ class SectionBar extends StatelessWidget {
             CustomIconButton(
               iconData: CupertinoIcons.forward,
               onPress: onPress,
-              width: 23,
-              height: 23,
+              buttonWidth: 23,
+              buttonHeight: 23,
               iconSize: 16,
               backgroundColor: AppColor.lightWhiteBackground,
             )

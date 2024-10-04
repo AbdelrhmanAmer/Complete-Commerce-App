@@ -59,6 +59,7 @@ class CustomBottomNavBar extends GetView<ItemDetailsController> {
               text: 'Add To Bag',
               press: () {},
               iconData: Icons.shopping_basket_outlined,
+              width: size.width * .4,
               verticalPadding: 17,
               horizontalPadding: 20,
               textStyle: TextStyle(

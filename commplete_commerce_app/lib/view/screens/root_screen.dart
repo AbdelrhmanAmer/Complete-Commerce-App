@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/constant/color.dart';
 import '../../controller/root_controller.dart';
+import '../widgets/root_appbar.dart';
 import '../widgets/root/button_nav_bar.dart';
 
 class RootScreen extends StatelessWidget {
@@ -15,6 +15,7 @@ class RootScreen extends StatelessWidget {
     return GetBuilder<RootController>(
       builder: ((controller) {
         return Scaffold(
+          appBar: appBar(context),
           bottomNavigationBar: ButtonNavBar(controller: controller),
           body: controller.pageList.elementAt(controller.currentPageIndex),
         );

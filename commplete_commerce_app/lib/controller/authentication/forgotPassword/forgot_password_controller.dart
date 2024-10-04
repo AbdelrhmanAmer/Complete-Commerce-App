@@ -32,8 +32,6 @@ class ForgotPasswordController extends GetxController {
       statusRequest.value = handleResponseStatus(response);
       update();
 
-      log('FogotPasswordController.dart: Controller ${response.toString()}');
-      log('FogotPasswordController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
         Get.toNamed(Routes.otpResetPassword, arguments: {'email': email.text});
       }

@@ -1,7 +1,7 @@
-import 'package:commplete_commerce_app/core/services/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../core/services/services.dart';
 import '../data/data_source/static/static.dart';
 import '../core/constant/app_routes.dart';
 

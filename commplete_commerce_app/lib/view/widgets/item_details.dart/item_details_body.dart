@@ -108,9 +108,9 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
                       child: CustomButton(
                     text: 'Checkout',
                     press: () {},
-                        textStyle: TextStyle(fontSize: 17),
-                        verticalPadding: 15,
-                        width: MediaQuery.of(context).size.width * .9,
+                    textStyle: TextStyle(fontSize: 17, color: Theme.of(context).colorScheme.surface),
+                    verticalPadding: 15,
+                    width: size.width * .9,
                   ))
                 ],
               ),

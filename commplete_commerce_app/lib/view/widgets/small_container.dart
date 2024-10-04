@@ -19,7 +19,6 @@ class SmallContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 21,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(5),
@@ -28,9 +27,11 @@ class SmallContainer extends StatelessWidget {
       child: object is Timer
           ? object
           : Text(object,
+              textAlign: TextAlign.center,
               style: TextStyle(
                   color: foregroundColor,
                   fontWeight: FontWeight.bold,
+
                   fontSize: fontSize)),
     );
   }

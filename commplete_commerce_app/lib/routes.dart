@@ -1,6 +1,7 @@
 import 'package:commplete_commerce_app/view/screens/item_details.dart';
 import 'package:commplete_commerce_app/view/screens/categoryItems.dart';
 import 'package:commplete_commerce_app/view/screens/root_screen.dart';
+import 'package:commplete_commerce_app/view/screens/settings.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
@@ -38,5 +39,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.home, page: () => const RootScreen()),
   GetPage(name: Routes.items, page: () => const CategoryItems()),
   GetPage(name: Routes.itemDetails, page: () => const ItemDetails()),
-  
+
+  GetPage(name: Routes.settings, page: () => const Settings()),
 ];

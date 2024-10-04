@@ -49,7 +49,7 @@ class CategoriesList extends StatelessWidget {
                   if (hasImage)
                     SvgImageCard(
                       imagePath:
-                          'assets/svgs/${categories![index].categoryImage}',
+                          'assets/icons/${categories![index].categoryImage}',
                     ),
                   const SizedBox(height: 7),
                   Text(

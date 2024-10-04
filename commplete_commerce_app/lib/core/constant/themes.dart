@@ -35,7 +35,7 @@ AppBarTheme _appBarTheme(TextTheme textTheme, bool isDarkMode) {
   return AppBarTheme(
     centerTitle: true,
     titleTextStyle: textTheme.headlineSmall!.copyWith(
-      fontSize: 18,
+        fontSize: 18,
         color: isDarkMode
             ? AppColor.lightWhite.withOpacity(.7)
             : Colors.black.withOpacity(.7)),
@@ -69,7 +69,12 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
     displayLarge: GoogleFonts.poppins(
       color: colorScheme.onSurface,
       fontWeight: FontWeight.w600,
-      fontSize: 22,
+      fontSize: 28,
+    ),
+    displaySmall: GoogleFonts.poppins(
+      color: colorScheme.onSurface,
+      fontWeight: FontWeight.bold,
+      fontSize: 25,
     ),
     bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
