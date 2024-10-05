@@ -1,3 +1,5 @@
+import 'package:commplete_commerce_app/view/widgets/profile/personalTile.dart';
+import 'package:commplete_commerce_app/view/widgets/profile/premium_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constant/app_routes.dart';
@@ -10,43 +12,17 @@ class SettingsBody extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    final String? username =
+        controller.myServices.sharedPreferences.getString('username');
+    final String? email =
+        controller.myServices.sharedPreferences.getString('email');
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ListTile(
-          onTap: () {},
-          title: Row(
-            children: [
-              const CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.transparent,
-                backgroundImage: NetworkImage(
-                  'https://th.bing.com/th/id/R.90bb9597bff6b281ea8e079c339e97d8?rik=T1yOj6l%2bhakOrw&pid=ImgRaw&r=0',
-                ),
-              ),
-              const SizedBox(width: 15),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hi, ${controller.myServices.sharedPreferences.getString('username')}',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                    Text(
-                      '${controller.myServices.sharedPreferences.getString('email')}',
-                      style: Theme.of(context).textTheme.labelSmall,
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          trailing: const Icon(
-            Icons.arrow_forward_rounded,
-            size: 17,
-          ),
-        ),
+        PersonalTile(username: username!, email: email!, onPress: () {}),
+        const SizedBox(height: 20),
+        const PremiumCard(),
         const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),

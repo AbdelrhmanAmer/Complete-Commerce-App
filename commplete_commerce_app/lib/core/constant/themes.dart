@@ -53,10 +53,14 @@ ColorScheme _colorScheme(bool isDarkMode) {
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
       surfaceContainerHighest:
           isDarkMode ? AppColor.lightDarkText : AppColor.lightWhiteText,
-      primary: AppColor.primaryColor,
-      onPrimary: AppColor.lightWhite,
+      primary: isDarkMode
+          ? AppColor.primaryColor.withOpacity(.8)
+          : AppColor.primaryColor,
+      onPrimary: isDarkMode ? AppColor.lightBlack : AppColor.lightWhite,
       secondary: AppColor.darkText,
       onSecondary: AppColor.lightDarkText,
+      onSecondaryContainer: isDarkMode ? Colors.black : Colors.white,
+      onPrimaryContainer: isDarkMode ? Colors.white : Colors.black,
       surfaceContainerHigh: isDarkMode
           ? AppColor.lightDarkBackground
           : AppColor.lightWhiteBackground);
