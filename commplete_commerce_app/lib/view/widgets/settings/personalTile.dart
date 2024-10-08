@@ -6,16 +6,18 @@ class PersonalTile extends StatelessWidget {
     required this.username,
     required this.email,
     required this.onPress,
+    this.justView = false,
   });
 
   final String username;
   final String email;
   final Function() onPress;
+  final bool justView;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: onPress,
+      onTap: justView ? null : onPress,
       title: Row(
         children: [
           const CircleAvatar(
@@ -43,10 +45,12 @@ class PersonalTile extends StatelessWidget {
           )
         ],
       ),
-      trailing: const Icon(
-        Icons.arrow_forward_rounded,
-        size: 17,
-      ),
+      trailing: justView
+          ? null
+          : const Icon(
+              Icons.arrow_forward_rounded,
+              size: 17,
+            ),
     );
   }
 }

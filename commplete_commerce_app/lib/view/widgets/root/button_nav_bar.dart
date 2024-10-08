@@ -17,6 +17,7 @@ class ButtonNavBar extends StatelessWidget {
     const double iconHeight = 25;
 
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -42,8 +43,8 @@ class ButtonNavBar extends StatelessWidget {
           ),
           label: 'Cart',
         ),
-         BottomNavigationBarItem(
-          icon:SvgPicture.asset(
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
             'assets/icons/favorite.svg',
             colorFilter: _getColorFilter(controller.currentPageIndex == 3, context),
             height: iconHeight,
@@ -67,9 +68,12 @@ class ButtonNavBar extends StatelessWidget {
           color: Theme.of(context).colorScheme.onSurface.withOpacity(.8)),
       showSelectedLabels: true,
       currentIndex: controller.currentPageIndex,
+      unselectedItemColor: Colors.transparent,
+      backgroundColor: Theme.of(context).colorScheme.surface, // Set your desired background color here
       onTap: (int pageIndex) {
         controller.changePage(pageIndex);
       },
+
     );
   }
 

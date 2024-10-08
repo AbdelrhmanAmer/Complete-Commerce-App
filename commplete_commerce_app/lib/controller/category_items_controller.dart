@@ -43,7 +43,7 @@ class CategoryItemsController extends GetxController {
   }
 
   getItems() async {
-    var response = await itemsData.postData(HomeController.id!);
+    var response = await itemsData.postData(HomeController.user.id!);
     statusRequest = handleResponseStatus(response);
     update();
     if (statusRequest == StatusRequest.success) {

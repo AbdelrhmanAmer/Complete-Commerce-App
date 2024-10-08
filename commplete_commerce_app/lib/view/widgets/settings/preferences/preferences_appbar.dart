@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constant/color.dart';
 
-settingsAppBar(BuildContext context) {
+preferencesAppbar(BuildContext context) {
   return AppBar(
     backgroundColor: Colors.transparent,
     title: Text(

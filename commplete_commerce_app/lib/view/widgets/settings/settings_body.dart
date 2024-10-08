@@ -1,13 +1,13 @@
-import 'package:commplete_commerce_app/view/widgets/profile/personalTile.dart';
-import 'package:commplete_commerce_app/view/widgets/profile/premium_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'personalTile.dart';
+import 'premium_card.dart';
+import 'settings_list_tile.dart';
+import '../../../controller/settings/settings_controller.dart';
 import '../../../core/constant/app_routes.dart';
 
-import '../../../controller/profile/settings_controller.dart';
-import 'settings_list_tile.dart';
-
-class SettingsBody extends GetView<ProfileController> {
+class SettingsBody extends GetView<SettingsController> {
   const SettingsBody({super.key});
 
   @override
@@ -20,7 +20,10 @@ class SettingsBody extends GetView<ProfileController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PersonalTile(username: username!, email: email!, onPress: () {}),
+        PersonalTile(
+            username: username!,
+            email: email!,
+            onPress: () => Get.toNamed(Routes.profile)),
         const SizedBox(height: 20),
         const PremiumCard(),
         const SizedBox(height: 20),

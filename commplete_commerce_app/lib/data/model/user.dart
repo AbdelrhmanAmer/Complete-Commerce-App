@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 class User {
   String? id;
   String? username;
@@ -14,30 +16,31 @@ class User {
       this.email,
       this.password,
       this.phone,
+      this.address,
       this.otp,
       this.createDate});
 
-  User.fromJson(Map<String, dynamic> json) {
-    id           = json['user_id'];      
-    username     = json['user_name'];    
-    email        = json['user_email'];   
-    password     = json['user_password'];
-    phone        = json['user_phone'];
-    address      = json['user_address'];   
-    otp          = json['user_otp'];     
-    createDate   = json['user_create'];  
+  factory User.fromJson(Map<String, dynamic> json) {
+    log('User Model- json: ${json.toString()}');
+    return User(
+      id: json['id'],
+      email: json['email'],
+      phone: json['phone'],
+      username: json['username'],
+      address: json['address'],
+    );
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['user_id']       = id;
-    data['user_name']     = username;
-    data['user_email']    = email;
+    data['user_id'] = id;
+    data['user_name'] = username;
+    data['user_email'] = email;
     data['user_password'] = password;
-    data['user_phone']    = phone;
-    data['user_address']  = address;
-    data['user_otp']      = otp;
-    data['user_create']   = createDate;
+    data['user_phone'] = phone;
+    data['user_address'] = address;
+    data['user_otp'] = otp;
+    data['user_create'] = createDate;
     return data;
   }
 }

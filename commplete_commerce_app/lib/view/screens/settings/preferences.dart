@@ -1,9 +1,9 @@
-import 'package:commplete_commerce_app/controller/profile/preferences_controller.dart';
+import 'package:commplete_commerce_app/controller/settings/preferences_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../widgets/profile/preferences/preference_list_tile.dart';
-import '../../widgets/profile/preferences/preferences_appbar.dart';
+import '../../widgets/settings/preferences/preference_list_tile.dart';
+import '../../widgets/settings/preferences/preferences_appbar.dart';
 
 
 class Preferences extends StatelessWidget {
@@ -14,7 +14,7 @@ class Preferences extends StatelessWidget {
     Get.put(PreferencesController());
     return SafeArea(
       child: Scaffold(
-        appBar: settingsAppBar(context),
+        appBar: preferencesAppbar(context),
         body: SingleChildScrollView(
           child: Column(
             children: [
