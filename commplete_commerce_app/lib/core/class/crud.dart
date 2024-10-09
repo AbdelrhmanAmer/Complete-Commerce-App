@@ -14,7 +14,6 @@ class Crud {
         final response = await dio.post(url, data: FormData.fromMap(data));
         log('--------------------------------------------------------');
         log('Crud.dart: response.statusCode ${response.statusCode.toString()}');
-        log('--------------------------------------------------------');
 
         Map<String, dynamic>? responseBody;
 

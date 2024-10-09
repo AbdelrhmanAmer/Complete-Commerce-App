@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +17,6 @@ class ForgotPasswordController extends GetxController {
   checkEmail() async {
     FormState? formData = formState.currentState;
     if (formData == null) {
-      log('FormState is null. Cannot validate form.');
       return;
     }
 

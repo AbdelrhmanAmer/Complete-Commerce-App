@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
-    Get.put(FavoriteController()); // used in favoriteIconButton
+    Get.put(FavoriteController());
 
     return SafeArea(
       child: Scaffold(

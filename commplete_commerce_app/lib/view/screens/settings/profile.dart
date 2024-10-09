@@ -1,10 +1,8 @@
-import 'package:commplete_commerce_app/controller/home_controller.dart';
-import 'package:commplete_commerce_app/controller/settings/profile_controller.dart';
-import 'package:commplete_commerce_app/view/widgets/settings/personalTile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../data/model/user.dart';
+import '../../../controller/settings/profile_controller.dart';
+import '../../widgets/settings/personalTile.dart';
 import '../../widgets/settings/profile/profile_appbar.dart';
 
 class Profile extends StatelessWidget {
@@ -19,7 +17,6 @@ class Profile extends StatelessWidget {
         .textTheme
         .bodyLarge!
         .copyWith(fontWeight: FontWeight.bold);
-    final User user = HomeController.user;
 
     return SafeArea(
       child: Scaffold(
@@ -29,8 +26,8 @@ class Profile extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               PersonalTile(
-                username: user.username!,
-                email: user.email!,
+                username: controller.user!.username!,
+                email: controller.user!.email!,
                 onPress: () {},
                 justView: true,
               ),
@@ -41,7 +38,7 @@ class Profile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Name', style: labelStyle),
-                    Text(user.username!, style: labelStyle),
+                    Text(controller.user!.username!, style: labelStyle),
                   ],
                 ),
               )

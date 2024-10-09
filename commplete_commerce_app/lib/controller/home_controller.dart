@@ -1,15 +1,17 @@
 import 'package:get/get.dart';
 
-import '../core/constant/app_routes.dart';
 import '../data/data_source/remote/home_data.dart';
 import '../data/model/category.dart';
 import '../data/model/item/item.dart';
+import '../core/functions/show_custom_snack_bar.dart';
+import '../core/functions/get_shared_user.dart';
 import '../core/class/status_request.dart';
+import '../core/constant/app_routes.dart';
 import '../core/functions/handle_response_status.dart';
 import '../core/services/services.dart';
+import '../data/model/user.dart';
 
 class HomeController extends GetxController {
-  MyServices myServices = Get.find();
   HomeData homeData = HomeData(Get.find());
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
 
@@ -17,34 +19,33 @@ class HomeController extends GetxController {
   List<Item> discountedItems = [];
   List<Item> items = [];
 
-  String? username;
-  static String? id;
-  String? phone;
-  String? email;
-  String? address;
+  MyServices myServices = Get.find();
+  User? user;
 
   @override
   void onInit() {
-    initiateData();
+    user = getSharedUser(myServices);
     getData();
-
     super.onInit();
   }
 
   getData() async {
     statusRequest.value = StatusRequest.loading;
 
-    var response = await homeData.getData(id!);
-    statusRequest.value = handleResponseStatus(response);
+    if (user?.id != null) {
+      var response = await homeData.getData(user!.id!);
+      statusRequest.value = handleResponseStatus(response);
 
-    if (statusRequest.value == StatusRequest.success) {
-      _processCategories(response['categories']);
-      _processItems(response['items']);
+      if (statusRequest.value == StatusRequest.success) {
+        _processCategories(response['categories']);
+        _processItems(response['items']);
+      } else {
+        statusRequest.value = StatusRequest.failure;
+      }
+      update();
     } else {
-      statusRequest.value = StatusRequest.failure;
+      showCustomSnackBar(title: 'HomeController, User id is Null');
     }
-
-    update();
   }
 
   _processCategories(List<dynamic> categoriesData) {
@@ -68,19 +69,4 @@ class HomeController extends GetxController {
       'selectedCategory': categoryIndex,
     });
   }
-
-  initiateData() {
-    username = myServices.sharedPreferences.getString('username');
-    id = myServices.sharedPreferences.getString('id');
-    email = myServices.sharedPreferences.getString('email');
-    phone = myServices.sharedPreferences.getString('phone');
-    address = myServices.sharedPreferences.getString('address');
-  }
-
-  // _populateFavoriteList() {
-  //   FavoriteController favoriteController = Get.find<FavoriteController>();
-  //   for (Item item in items) {
-  //     favoriteController.isFavorite[item.itemId!] = item.favorite!;
-  //   }
-  // }
 }

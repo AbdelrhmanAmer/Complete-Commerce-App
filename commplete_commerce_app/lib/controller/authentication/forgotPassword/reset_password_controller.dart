@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -29,8 +27,6 @@ class ResetPasswordController extends GetxController {
       statusRequest.value = handleResponseStatus(response);
       update();
 
-      log('ResetPasswordController.dart: Controller ${response.toString()}');
-      log('ResetPasswordController.dart: StatusRequest= ${statusRequest.value.toString()} ');
       if (statusRequest.value == StatusRequest.success) {
         Get.offAllNamed(Routes.signIn);
         showCustomSnackBar(

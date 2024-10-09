@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +16,7 @@ class SignInController extends GetxController {
   RxBool remember = false.obs;
   RxBool hiddenPassword = true.obs;
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
-  User user = User();
+  late User user;
 
   SignInData signInData = SignInData(Get.find());
 
@@ -34,32 +37,26 @@ class SignInController extends GetxController {
       update();
 
       if (statusRequest.value == StatusRequest.success) {
+        if (response['data']['approved'] == '1') {
+          user = User.fromJson(response['data']);
+          log('SignInController, User ID: ${user.id}'); // Check if ID exists here
+          _setSharedUser();
 
-        if (response['data']['user_approve'] == '1') {
-          user.id = response['data']['id'];
-          user.email = response['data']['email'];
-          user.phone = response['data']['phone'];
-          user.username = response['data']['name'];
-          user.address = response['data']['address'];
-        } else if (response['data']['user_approve'] == '0') {
+          Get.offAllNamed(Routes.home);
+          showCustomSnackBar(
+              title: response['status'], content: response['message']);
+        } else if (response['data']['approved'] == '0') {
           Get.offNamed(Routes.otpSignUp, arguments: {'email': email.text});
+          return;
         }
-
-        _setSharedUser();
-
-        Get.offAllNamed(Routes.home);
-        showCustomSnackBar(
-            title: response['status'], content: response['message']);
       }
     }
   }
 
   void _setSharedUser() {
-    myServices.sharedPreferences.setString('id', user.id!);
-    myServices.sharedPreferences.setString('email', user.email!);
-    myServices.sharedPreferences.setString('phone', user.phone!);
-    myServices.sharedPreferences.setString('username', user.username!);
-    myServices.sharedPreferences.setString('address', user.address!);
+    String userJson = jsonEncode(user.toJson());
+    myServices.sharedPreferences.setString('user', userJson);
+    log('userJson, $userJson');
     myServices.sharedPreferences.setString('step', '2');
   }
 
@@ -79,6 +76,7 @@ class SignInController extends GetxController {
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
+    user = User();
     super.onInit();
   }
 

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,10 +29,6 @@ class OtpSignUpController extends GetxController {
 
     statusRequest.value = handleResponseStatus(response);
     update();
-
-    log('OtpSignUpController.dart: Controller ${response.toString()}');
-    log('OtpSignUpController.dart: StatusRequest= ${statusRequest.toString()} ');
-
     if (statusRequest.value == StatusRequest.success) {
       if (response is Map) {
         showCustomSnackBar(
@@ -57,7 +52,9 @@ class OtpSignUpController extends GetxController {
 
   @override
   void onInit() {
-    email = Get.arguments['email'];
+    if (Get.arguments != null && Get.arguments.containsKey('email')) {
+      email = Get.arguments['email'];
+    }
 
     pin2FocusNode = FocusNode();
     pin3FocusNode = FocusNode();

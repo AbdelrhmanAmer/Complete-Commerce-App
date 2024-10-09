@@ -1,9 +1,12 @@
+import 'package:commplete_commerce_app/core/functions/show_custom_snack_bar.dart';
 import 'package:get/get.dart';
 
-import 'home_controller.dart';
+import '../core/functions/get_shared_user.dart';
+import '../core/services/services.dart';
 import '../core/class/status_request.dart';
 import '../core/functions/handle_response_status.dart';
 import '../core/constant/app_routes.dart';
+import '../data/model/user.dart';
 import '../data/model/item/base_item.dart';
 import '../data/data_source/remote/items_data.dart';
 import '../data/model/category.dart';
@@ -16,6 +19,8 @@ class CategoryItemsController extends GetxController {
 
   ItemsData itemsData = ItemsData(Get.find());
   StatusRequest statusRequest = StatusRequest.error;
+  MyServices myServices = Get.find();
+  User? user;
 
   List<Item> selectedCategoryItems = <Item>[];
 
@@ -23,6 +28,7 @@ class CategoryItemsController extends GetxController {
   void onInit() {
     initializeController();
     super.onInit();
+    user = getSharedUser(myServices);
   }
 
   void initializeController() async {
@@ -43,16 +49,20 @@ class CategoryItemsController extends GetxController {
   }
 
   getItems() async {
-    var response = await itemsData.postData(HomeController.user.id!);
-    statusRequest = handleResponseStatus(response);
-    update();
-    if (statusRequest == StatusRequest.success) {
-      List itemsList = response['items'];
-      items = itemsList.map((item) => Item.fromJson(item)).toList();
+    if (user?.id != null) {
+      var response = await itemsData.postData(user!.id!);
+      statusRequest = handleResponseStatus(response);
+      update();
+      if (statusRequest == StatusRequest.success) {
+        List itemsList = response['items'];
+        items = itemsList.map((item) => Item.fromJson(item)).toList();
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      update();
     } else {
-      statusRequest = StatusRequest.failure;
+      showCustomSnackBar(title: 'CategoryItemsController, User is null');
     }
-    update();
   }
 
   void changeSelectedCategory(int newIndex) {

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,9 +29,6 @@ class OtpResetPasswordController extends GetxController {
 
     statusRequest.value = handleResponseStatus(response);
     update();
-
-    log('OtpForgotPasswordController.dart: Controller ${response.toString()}');
-    log('OtpForgotPasswordController.dart: StatusRequest= ${statusRequest.toString()} ');
 
     if (statusRequest.value == StatusRequest.success) {
       if (response is Map) {
