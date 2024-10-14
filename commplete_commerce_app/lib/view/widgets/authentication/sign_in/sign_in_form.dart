@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +6,6 @@ import '../../../../core/constant/constants.dart';
 import '../../../../controller/authentication/sign_in_controller.dart';
 import '../input_decoration.dart';
 import 'forgot_password_widget.dart';
-import 'remeber_me_row.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({
@@ -19,9 +17,6 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    bool isSmallScreen = screenWidth < 280; // Adjust the threshold as needed
-
     return Form(
       key: controller.formState,
       child: Column(
@@ -29,51 +24,30 @@ class SignInForm extends StatelessWidget {
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
-              labelText: "Email",
-              hintText: "Enter your email",
-              iconData: Icons.email_outlined,
+              hintText: "Email address",
+              iconPath: 'assets/icons/Message.svg',
             ),
+            validator: (val) {
+              return validateInput(val!, 'email');
+            },
             controller: controller.email,
-            validator: (value) => validateInput(value!, 'email'),
             keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: size.height * .03),
-          Obx(
-            () => TextFormField(
-              style: Get.textTheme.bodyMedium,
-              decoration: inputDecoration(
-                labelText: "Password",
-                hintText: "Enter your password",
-                iconData: controller.hiddenPassword.value
-                    ? CupertinoIcons.eye
-                    : CupertinoIcons.eye_slash,
-                onpressed: controller.togglePasswordVisibility,
-                pressed: true,
-              ),
-              validator: (value) =>
-                  validateInput(value!, 'password', min: 6, max: 50),
-              keyboardType: TextInputType.text,
-              controller: controller.password,
-              obscureText: controller.hiddenPassword.value,
+          TextFormField(
+            style: Get.textTheme.bodyMedium,
+            decoration: inputDecoration(
+              hintText: "Password",
+              iconPath: 'assets/icons/Lock.svg',
             ),
+            validator: (val) {
+              return validateInput(val!, 'password', min: 6, max: 50);
+            },
+            controller: controller.password,
+            obscureText: true,
           ),
-          SizedBox(height: size.height * .02),
-          isSmallScreen
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RemeberMeRow(signInController: controller),
-                    const SizedBox(height: 3),
-                    ForgotPasswordWidget(controller: controller)
-                  ],
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    RemeberMeRow(signInController: controller),
-                    ForgotPasswordWidget(controller: controller)
-                  ],
-                ),
+          SizedBox(height: size.height * .004),
+          const ForgotPasswordWidget(),
         ],
       ),
     );

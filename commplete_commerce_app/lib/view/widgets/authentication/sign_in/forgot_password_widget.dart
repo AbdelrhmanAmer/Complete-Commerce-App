@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../../../../controller/authentication/sign_in_controller.dart';
+import '../../../../core/constant/color.dart';
+import '../../../../core/constant/app_routes.dart';
 
 class ForgotPasswordWidget extends StatelessWidget {
   const ForgotPasswordWidget({
     super.key,
-    required this.controller,
   });
-  final SignInController controller;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: controller.goToForgotPassword,
+    return TextButton(
+      onPressed: (){
+        Get.toNamed(Routes.passwordRecovery);
+      },
       child: Text("Forgot Password",
-          style: Theme.of(context).textTheme.bodyMedium!
-              .copyWith(decoration: TextDecoration.underline)),
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              color: AppColor.primaryColor, fontWeight: FontWeight.w500)),
     );
   }
 }

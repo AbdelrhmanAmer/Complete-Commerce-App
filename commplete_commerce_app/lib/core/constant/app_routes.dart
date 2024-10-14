@@ -5,10 +5,11 @@ class Routes {
   static const String signUp = '/signUp';
   static const String otpSignUp = '/otpSignUp';
   
-  static const String forgotPassword = '/forgotPassword';
+  static const String passwordRecovery = '/forgotPassword';
   static const String otpResetPassword = '/otpResetPassword';
   static const String resetPassword = '/resetPassword';
-  
+  static const String chooseVerificationMethod = '/chooseVerificationMethod';
+
   static const String home = '/home';
   static const String items = '/items';
   static const String itemDetails = '/itemDetails';
@@ -16,6 +17,7 @@ class Routes {
   static const String settings = '/settings';
   static const String preferences = '/preferences';
   static const String profile = '/profile';
+  static const String termOfService = '/termOfService';
 
 
 }

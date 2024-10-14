@@ -11,11 +11,13 @@ ThemeData lightTheme() {
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
-    scaffoldBackgroundColor: AppColor.lightWhiteBackground,
+    scaffoldBackgroundColor: Colors.white,
     inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: false),
     appBarTheme: _appBarTheme(textTheme, false),
+    checkboxTheme: _checkboxTheme(),
   );
 }
+
 
 ThemeData darkTheme() {
   final baseTheme = ThemeData.dark(useMaterial3: true);
@@ -25,9 +27,18 @@ ThemeData darkTheme() {
   return baseTheme.copyWith(
     colorScheme: colorScheme,
     textTheme: textTheme,
-    scaffoldBackgroundColor: AppColor.lightDarkBackground,
+    scaffoldBackgroundColor: Colors.black,
     inputDecorationTheme: _inputDecorationTheme(textTheme, isDarkMode: true),
+    checkboxTheme: _checkboxTheme(),
     appBarTheme: _appBarTheme(textTheme, true),
+  );
+}
+CheckboxThemeData _checkboxTheme() {
+  return CheckboxThemeData(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(6),
+      side: const BorderSide(color: Colors.blue),
+    ),
   );
 }
 
@@ -68,57 +79,69 @@ ColorScheme _colorScheme(bool isDarkMode) {
 
 TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
   return TextTheme(
-    headlineSmall:
-        GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 20),
+    headlineSmall: GoogleFonts.poppins(
+        color: colorScheme.onSurface,
+        fontSize: 14,
+        fontWeight: FontWeight.w600),
+    headlineLarge: GoogleFonts.poppins(
+        color: colorScheme.onSurface,
+        fontSize: 24,
+        fontWeight: FontWeight.w500),
     displayLarge: GoogleFonts.poppins(
       color: colorScheme.onSurface,
       fontWeight: FontWeight.w600,
-      fontSize: 28,
+      fontSize: 26,
     ),
     displaySmall: GoogleFonts.poppins(
       color: colorScheme.onSurface,
-      fontWeight: FontWeight.bold,
-      fontSize: 25,
+      fontWeight: FontWeight.w400,
+      fontSize: 21,
     ),
-    titleLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 20),
+    titleLarge: GoogleFonts.poppins(
+        color: colorScheme.onSurface,
+        fontSize: 20,
+        fontWeight: FontWeight.w500),
     titleMedium:
         GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 18),
     titleSmall: GoogleFonts.poppins(
       color: colorScheme.onSurface,
       fontSize: 16,
-      fontWeight: FontWeight.bold,
     ),
     bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
     bodySmall: GoogleFonts.poppins(
-        color: colorScheme.surfaceContainerHighest, fontSize: 13),
+        color: colorScheme.onSurface, fontSize: 13),
     labelLarge: GoogleFonts.poppins(
-        color: colorScheme.onSurface,
-        fontWeight: FontWeight.w600,
-        fontSize: 19),
-    labelMedium:
-        GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
-    labelSmall: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 13),
+        color: colorScheme.surfaceContainerHighest, fontSize: 16),
+    labelMedium: GoogleFonts.poppins(
+        color: colorScheme.surfaceContainerHighest, fontSize: 15),
+    labelSmall: GoogleFonts.poppins(
+        color: colorScheme.surfaceContainerHighest, fontSize: 13),
   );
 }
 
 InputDecorationTheme _inputDecorationTheme(TextTheme textTheme,
     {required bool isDarkMode}) {
   var outlineInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(30),
-    gapPadding: 10,
-    borderSide: BorderSide(
-        color: isDarkMode ? AppColor.lightWhite : AppColor.lightBlack),
+    borderRadius: BorderRadius.circular(10),
+    borderSide: const BorderSide(color: Colors.transparent),
   );
+  var focusedBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    borderSide: const BorderSide(color: AppColor.primaryColor),
+  );
+
   return InputDecorationTheme(
-    hintStyle: textTheme.labelSmall,
-    labelStyle: textTheme.labelMedium,
-    floatingLabelAlignment: FloatingLabelAlignment.start,
-    floatingLabelBehavior: FloatingLabelBehavior.always,
+    hintStyle: textTheme.labelLarge,
+    errorStyle: textTheme.labelSmall!.copyWith(color: Colors.red[900]),
+    filled: true,
+    fillColor: isDarkMode
+        ? AppColor.lightDarkBackground
+        : AppColor.lightWhiteBackground,
     border: outlineInputBorder,
     enabledBorder: outlineInputBorder,
-    focusedBorder: outlineInputBorder,
+    focusedBorder: focusedBorder,
     disabledBorder: outlineInputBorder,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 24),
   );
 }

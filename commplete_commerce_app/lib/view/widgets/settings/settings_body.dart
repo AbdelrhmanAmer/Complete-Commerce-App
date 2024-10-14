@@ -12,17 +12,12 @@ class SettingsBody extends GetView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
-    final String? username =
-        controller.myServices.sharedPreferences.getString('username');
-    final String? email =
-        controller.myServices.sharedPreferences.getString('email');
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         PersonalTile(
-            username: username!,
-            email: email!,
+            username: controller.user!.username!,
+            email: controller.user!.email!,
             onPress: () => Get.toNamed(Routes.profile)),
         const SizedBox(height: 20),
         const PremiumCard(),
@@ -173,6 +168,7 @@ class SettingsBody extends GetView<SettingsController> {
           tileColor: Colors.red,
           svgPath: 'assets/icons/Logout.svg',
         ),
+        const SizedBox(height: 20),
       ],
     );
   }

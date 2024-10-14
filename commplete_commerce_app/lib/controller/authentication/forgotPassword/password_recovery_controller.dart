@@ -6,13 +6,14 @@ import '../../../data/data_source/remote/auth/forgotPassword/check_email_data.da
 import '../../../core/class/status_request.dart';
 import '../../../core/constant/app_routes.dart';
 
-class ForgotPasswordController extends GetxController {
+class PasswordRecoveryController extends GetxController {
   final CheckEmailData checkEmailData = CheckEmailData(Get.find());
 
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   late TextEditingController email;
+  String? phone;
 
   checkEmail() async {
     FormState? formData = formState.currentState;
@@ -25,18 +26,19 @@ class ForgotPasswordController extends GetxController {
       update();
 
       var response = await checkEmailData.postData(email.text);
-
       statusRequest.value = handleResponseStatus(response);
       update();
+      phone = response['data']['user_phone'];
 
       if (statusRequest.value == StatusRequest.success) {
-        Get.toNamed(Routes.otpResetPassword, arguments: {'email': email.text});
+        goToChooseVerificationMethodScreen();
       }
     }
   }
 
-  goToSignUp() {
-    Get.offAllNamed(Routes.signUp);
+  goToChooseVerificationMethodScreen() {
+    Get.toNamed(Routes.chooseVerificationMethod,
+        arguments: {'email': email.text, 'phone': phone});
   }
 
   @override

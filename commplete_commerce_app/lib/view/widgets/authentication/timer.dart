@@ -21,12 +21,15 @@ class Timer extends StatelessWidget {
   String _formatTime(int totalSeconds) {
     int hours = totalSeconds ~/ 3600; // Calculate hours
     int minutes = (totalSeconds % 3600) ~/ 60; // Calculate minutes
-    int seconds = totalSeconds % 60; 
+    int seconds = totalSeconds % 60;
 
     String hoursStr = hours.toString().padLeft(2, '0');
     String minutesStr = minutes.toString().padLeft(2, '0');
     String secondsStr = seconds.toString().padLeft(2, '0');
 
+    if (hoursStr == '00') {
+      return '$minutesStr:$secondsStr';
+    }
     return '$hoursStr:$minutesStr:$secondsStr';
   }
 

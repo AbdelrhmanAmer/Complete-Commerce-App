@@ -24,23 +24,8 @@ class SignUpFrom extends StatelessWidget {
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
-              labelText: "Username",
-              hintText: "Enter your username",
-              iconData: Icons.person_2_outlined,
-            ),
-            validator: (val) {
-              return validateInput(val!, 'username', min: 8);
-            },
-            controller: controller.username,
-            keyboardType: TextInputType.text,
-          ),
-          SizedBox(height: size.height * .03),
-          TextFormField(
-            style: Get.textTheme.bodyMedium,
-            decoration: inputDecoration(
-              labelText: "Email",
               hintText: "Enter your email",
-              iconData: Icons.email_outlined,
+              iconPath: 'assets/icons/Message.svg',
             ),
             validator: (val) {
               return validateInput(val!, 'email');
@@ -48,52 +33,19 @@ class SignUpFrom extends StatelessWidget {
             controller: controller.email,
             keyboardType: TextInputType.emailAddress,
           ),
-          SizedBox(height: size.height * .03),
+          SizedBox(height: size.height * .02),
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
-              labelText: "Phone",
-              hintText: "Enter your phone",
-              iconData: Icons.local_phone_outlined,
+              hintText: "Password",
+              iconPath: 'assets/icons/Lock.svg',
             ),
             validator: (val) {
-              return validateInput(val!, 'phone');
+              return validateInput(val!, 'password', min: 6, max: 50);
             },
-            controller: controller.phone,
-            keyboardType: TextInputType.phone,
+            controller: controller.password,
+            obscureText: true,
           ),
-          SizedBox(height: size.height * .03),
-          TextFormField(
-            style: Get.textTheme.bodyMedium,
-            decoration: inputDecoration(
-              labelText: "Address",
-              hintText: "Enter your address",
-              iconData: Icons.map,
-            ),
-            controller: controller.address,
-            keyboardType: TextInputType.text,
-          ),
-          SizedBox(height: size.height * .03),
-          Obx(
-            () => TextFormField(
-              style: Get.textTheme.bodyMedium,
-              decoration: inputDecoration(
-                labelText: "Password",
-                hintText: "Enter your password",
-                onpressed: controller.togglePasswordVisibility,
-                pressed: true,
-                iconData: controller.hiddenPassword.value
-                    ? CupertinoIcons.eye
-                    : CupertinoIcons.eye_slash,
-              ),
-              validator: (val) {
-                return validateInput(val!, 'password', min: 6, max: 50);
-              },
-              controller: controller.password,
-              obscureText: controller.hiddenPassword.value,
-            ),
-          ),
-          SizedBox(height: size.height * .03),
         ],
       ),
     );

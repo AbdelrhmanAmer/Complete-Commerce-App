@@ -12,7 +12,6 @@ class User {
       {this.id,
       this.username,
       this.email,
-      this.password,
       this.phone,
       this.address,
       this.otp,
@@ -33,7 +32,6 @@ class User {
     data['user_id'] = id;
     data['user_name'] = username;
     data['user_email'] = email;
-    data['user_password'] = password;
     data['user_phone'] = phone;
     data['user_address'] = address;
     data['user_otp'] = otp;

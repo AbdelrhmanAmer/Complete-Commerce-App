@@ -16,7 +16,6 @@ class OtpResetPasswordController extends GetxController {
   FocusNode? pin2FocusNode;
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
-  FocusNode? pin5FocusNode;
 
   List<FocusNode?>? focusNodes;
 
@@ -32,7 +31,7 @@ class OtpResetPasswordController extends GetxController {
 
     if (statusRequest.value == StatusRequest.success) {
       if (response is Map) {
-        Get.offAllNamed(Routes.resetPassword, arguments: {'email': email});
+        Get.toNamed(Routes.resetPassword, arguments: {'email': email});
       }
     }
   }
@@ -56,8 +55,7 @@ class OtpResetPasswordController extends GetxController {
     pin2FocusNode = FocusNode();
     pin3FocusNode = FocusNode();
     pin4FocusNode = FocusNode();
-    pin5FocusNode = FocusNode();
-    focusNodes = [pin2FocusNode, pin3FocusNode, pin4FocusNode, pin5FocusNode];
+    focusNodes = [pin2FocusNode, pin3FocusNode, pin4FocusNode];
     super.onInit();
   }
 
@@ -66,7 +64,6 @@ class OtpResetPasswordController extends GetxController {
     pin2FocusNode!.dispose();
     pin3FocusNode!.dispose();
     pin4FocusNode!.dispose();
-    pin5FocusNode!.dispose();
 
     super.dispose();
   }

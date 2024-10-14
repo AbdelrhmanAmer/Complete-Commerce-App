@@ -17,44 +17,40 @@ class ResetPassword extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(title: const Text('Reset Password')),
+          appBar: AppBar(),
           body: GetBuilder<ResetPasswordController>(
             builder: (controller) {
               return controller.statusRequest.value == StatusRequest.loading
                   ? const Center(child: CircularProgressIndicator())
                   : Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(height: size.height * .05),
-                            Text(
-                              'Reset Password',
-                              style: Theme.of(context).textTheme.displayLarge,
-                            ),
-                            SizedBox(height: size.height * .03),
-                            Text(
-                              'Please enter your new password and confirm it\n',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelSmall!
-                                  .copyWith(height: 1.5),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: size.height * .09),
-                            ResetPasswordForm(controller: controller),
-                            SizedBox(height: size.height * .22),
-                            CustomButton(
-                              backgroundColor: AppColor.primaryColor,
-                              foregroundColor: Colors.white,
-                              text: 'Continue',
-                              press: controller.resetPassword,
-                              width: .75,
-                            ),
-                            SizedBox(height: size.height * .01),
-                          ],
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: size.height * .03),
+                          Text(
+                            'Set new password',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          SizedBox(height: size.height * .01),
+                          Text(
+                            'Your new password must be different from previously used passwords',
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium!
+                                .copyWith(height: 1.5),
+                          ),
+                          SizedBox(height: size.height * .02),
+                          ResetPasswordForm(controller: controller),
+                          const Spacer(),
+                          CustomButton(
+                            backgroundColor: AppColor.primaryColor,
+                            foregroundColor: Colors.white,
+                            text: 'Change password',
+                            press: controller.resetPassword,
+                          ),
+                          SizedBox(height: size.height * .06),
+                        ],
                       ),
                     );
             },

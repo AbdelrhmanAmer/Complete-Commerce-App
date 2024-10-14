@@ -15,16 +15,9 @@ class SignUpController extends GetxController {
   late TextEditingController address;
 
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
-  RxBool hiddenPassword = true.obs;
-
   SignUpData signUpData = SignUpData(Get.find());
-  List data = [];
-
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-
-  togglePasswordVisibility() {
-    hiddenPassword.value = !hiddenPassword.value;
-  }
+  bool acceptTerms = false;
 
   signUp() async {
     FormState? formData = formState.currentState;
@@ -44,6 +37,11 @@ class SignUpController extends GetxController {
         }
       }
     }
+  }
+
+  toggleTermsState(){
+    acceptTerms = !acceptTerms;
+    update();
   }
 
   goToSignIn() {

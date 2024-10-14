@@ -1,31 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 InputDecoration inputDecoration({
-  required String labelText,
   String? hintText,
-  IconData? iconData,
-  bool pressed = false,
-  VoidCallback? onpressed,
+  String? iconPath,
   Color iconColor = Colors.grey,
-  double iconSize = 22,
+  double iconSize = 24,
 }) {
   return InputDecoration(
-    labelText: labelText,
     hintText: hintText,
-    suffixIcon: pressed
-        ? InkWell(
-            onTap: onpressed,
-            borderRadius: BorderRadius.circular(50),
-            child: Icon(
-              iconData,
-              size: iconSize,
-              color: iconColor.withOpacity(.9),
-            ),
-          )
-        : Icon(
-            iconData,
-            size: iconSize,
-            color: iconColor.withOpacity(.7),
-          ),
+    prefixIcon: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16 * .75),
+      child: SvgPicture.asset(
+        iconPath!,
+        height: iconSize,
+        width: iconSize,
+        colorFilter: ColorFilter.mode(iconColor.withOpacity(.9), BlendMode.srcIn),
+      ),
+    ),
   );
 }

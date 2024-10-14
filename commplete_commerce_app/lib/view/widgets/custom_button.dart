@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor = AppColor.primaryColor,
     this.horizontalPadding = 30,
     this.verticalPadding = 18,
-    this.height = 45,
+    this.height = 50,
     this.iconData,
   });
 
@@ -33,17 +33,18 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? size.width * .8,
+      width: width ?? size.width * .9,
       height: height,
       child: ElevatedButton(
         onPressed: press,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           // foregroundColor: foregroundColor,
+
           padding: EdgeInsets.symmetric(
               horizontal: horizontalPadding, vertical: verticalPadding),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10), side: BorderSide(color: Theme.of(context).colorScheme.primary)),
           elevation: elevation,
         ),
         child: Row(
@@ -58,8 +59,8 @@ class CustomButton extends StatelessWidget {
               style: textStyle ??
                   Theme.of(context)
                       .textTheme
-                      .labelLarge!
-                      .copyWith(color: foregroundColor),
+                      .bodyMedium!
+                      .copyWith(color: foregroundColor, fontWeight: FontWeight.bold),
             )
           ],
         ),

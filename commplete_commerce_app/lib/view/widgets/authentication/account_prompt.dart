@@ -26,13 +26,15 @@ class AccountPrompt extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(promptText,
-            style: textStyle ?? Theme.of(context).textTheme.bodyMedium),
+            style: textStyle ?? Theme.of(context).textTheme.labelMedium),
         TextButton(
           onPressed: onActionPressed,
           child: Text(
             actionText,
             style: TextStyle(
               fontSize: 14,
+              fontWeight: FontWeight.bold,
+
               decoration: textDecoration,
               color: buttonTextColor,
             ),

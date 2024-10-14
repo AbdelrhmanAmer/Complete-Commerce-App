@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/settings/profile_controller.dart';
+import '../../../core/functions/formatPhoneNumber.dart';
 import '../../widgets/settings/personalTile.dart';
+import '../../widgets/settings/profile/fieldProfileTile.dart';
 import '../../widgets/settings/profile/profile_appbar.dart';
 
 class Profile extends StatelessWidget {
@@ -11,9 +13,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProfileController controller = Get.put(ProfileController());
-
-    final labelStyle = Theme.of(context).textTheme.bodyLarge;
-    final valueStyle = Theme.of(context)
+    final TextStyle labelStyle = Theme.of(context)
         .textTheme
         .bodyLarge!
         .copyWith(fontWeight: FontWeight.bold);
@@ -31,17 +31,50 @@ class Profile extends StatelessWidget {
                 onPress: () {},
                 justView: true,
               ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Name', style: labelStyle),
-                    Text(controller.user!.username!, style: labelStyle),
-                  ],
+              const SizedBox(height: 30),
+              FieldProfileTile(
+                label: 'Name',
+                widget: SelectableText(controller.user!.username!,
+                    style: labelStyle),
+              ),
+              const Divider(
+                height: 40,
+                color: Colors.grey,
+              ),
+              FieldProfileTile(
+                label: 'Phone Number',
+                widget: SelectableText(
+                  formatPhoneNumber(controller.user!.phone!),
+                  style: labelStyle,
                 ),
-              )
+              ),
+              const Divider(height: 40, color: Colors.grey),
+              FieldProfileTile(
+                label: 'Address',
+                widget: SelectableText(
+                  controller.user!.address!,
+                  style: labelStyle,
+                ),
+              ),
+              const Divider(height: 40, color: Colors.grey),
+              FieldProfileTile(
+                label: 'Email',
+                widget: SelectableText(
+                  controller.user!.email!,
+                  style: labelStyle,
+                ),
+              ),
+              const Divider(height: 40, color: Colors.grey),
+              FieldProfileTile(
+                label: 'Password',
+                widget: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Change password',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -49,3 +82,4 @@ class Profile extends StatelessWidget {
     );
   }
 }
+

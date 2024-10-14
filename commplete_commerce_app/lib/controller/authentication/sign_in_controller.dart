@@ -14,7 +14,6 @@ import '../../data/model/user.dart';
 
 class SignInController extends GetxController {
   RxBool remember = false.obs;
-  RxBool hiddenPassword = true.obs;
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
   late User user;
 
@@ -60,16 +59,12 @@ class SignInController extends GetxController {
     myServices.sharedPreferences.setString('step', '2');
   }
 
-  togglePasswordVisibility() {
-    hiddenPassword.value = !hiddenPassword.value;
-  }
-
   goToSignUp() {
     Get.offNamed(Routes.signUp);
   }
 
   goToForgotPassword() {
-    Get.offNamed(Routes.forgotPassword);
+    Get.offNamed(Routes.passwordRecovery);
   }
 
   @override
