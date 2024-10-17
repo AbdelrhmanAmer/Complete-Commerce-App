@@ -2,12 +2,12 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../core/functions/handle_response_status.dart';
-import '../../../data/data_source/remote/auth/forgotPassword/check_email_data.dart';
 import '../../../core/class/status_request.dart';
 import '../../../core/constant/app_routes.dart';
+import '../../../data/data_source/remote/auth/forgotPassword/otp_reset_password_data.dart';
 
 class PasswordRecoveryController extends GetxController {
-  final CheckEmailData checkEmailData = CheckEmailData(Get.find());
+  final otpResetPasswordData = OtpResetPasswordData(Get.find());
 
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
   GlobalKey<FormState> formState = GlobalKey<FormState>();
@@ -25,7 +25,7 @@ class PasswordRecoveryController extends GetxController {
       statusRequest.value = StatusRequest.loading;
       update();
 
-      var response = await checkEmailData.postData(email.text);
+      var response = await otpResetPasswordData.checkEmailExistence(email.text);
       statusRequest.value = handleResponseStatus(response);
       update();
       phone = response['data']['user_phone'];
@@ -37,8 +37,13 @@ class PasswordRecoveryController extends GetxController {
   }
 
   goToChooseVerificationMethodScreen() {
-    Get.toNamed(Routes.chooseVerificationMethod,
-        arguments: {'email': email.text, 'phone': phone});
+    if (phone != null) {
+      Get.toNamed(Routes.chooseVerificationMethod,
+          arguments: {'email': email.text, 'phone': phone});
+    } else {
+      Get.toNamed(Routes.chooseVerificationMethod,
+          arguments: {'email': email.text, 'phone': null});
+    }
   }
 
   @override

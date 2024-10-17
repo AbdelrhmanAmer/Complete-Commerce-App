@@ -18,7 +18,6 @@ ThemeData lightTheme() {
   );
 }
 
-
 ThemeData darkTheme() {
   final baseTheme = ThemeData.dark(useMaterial3: true);
   final colorScheme = _colorScheme(true);
@@ -33,6 +32,7 @@ ThemeData darkTheme() {
     appBarTheme: _appBarTheme(textTheme, true),
   );
 }
+
 CheckboxThemeData _checkboxTheme() {
   return CheckboxThemeData(
     shape: RoundedRectangleBorder(
@@ -62,8 +62,6 @@ ColorScheme _colorScheme(bool isDarkMode) {
           isDarkMode ? AppColor.darkBackgroundColor : AppColor.backgroundColor,
       onSurface: isDarkMode ? AppColor.whiteText : AppColor.darkText,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      surfaceContainerHighest:
-          isDarkMode ? AppColor.lightDarkText : AppColor.lightWhiteText,
       primary: isDarkMode
           ? AppColor.primaryColor.withOpacity(.8)
           : AppColor.primaryColor,
@@ -72,6 +70,8 @@ ColorScheme _colorScheme(bool isDarkMode) {
       onSecondary: AppColor.lightDarkText,
       onSecondaryContainer: isDarkMode ? Colors.black : Colors.white,
       onPrimaryContainer: isDarkMode ? Colors.white : Colors.black,
+      surfaceContainerHighest:
+          isDarkMode ? AppColor.lightDarkText : AppColor.lightWhiteText,
       surfaceContainerHigh: isDarkMode
           ? AppColor.lightDarkBackground
           : AppColor.lightWhiteBackground);
@@ -107,10 +107,9 @@ TextTheme _textTheme(bool isDarkMode, ColorScheme colorScheme) {
       color: colorScheme.onSurface,
       fontSize: 16,
     ),
-    bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 15),
+    bodyLarge: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 16),
     bodyMedium: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 14),
-    bodySmall: GoogleFonts.poppins(
-        color: colorScheme.onSurface, fontSize: 13),
+    bodySmall: GoogleFonts.poppins(color: colorScheme.onSurface, fontSize: 13),
     labelLarge: GoogleFonts.poppins(
         color: colorScheme.surfaceContainerHighest, fontSize: 16),
     labelMedium: GoogleFonts.poppins(
@@ -142,6 +141,6 @@ InputDecorationTheme _inputDecorationTheme(TextTheme textTheme,
     enabledBorder: outlineInputBorder,
     focusedBorder: focusedBorder,
     disabledBorder: outlineInputBorder,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 24),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
   );
 }

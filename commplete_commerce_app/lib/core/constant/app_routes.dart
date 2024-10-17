@@ -3,12 +3,15 @@ class Routes {
   
   static const String signIn = "/signIn";
   static const String signUp = '/signUp';
+  static const String setupProfile = '/setupProfile';
   static const String otpSignUp = '/otpSignUp';
   
   static const String passwordRecovery = '/forgotPassword';
   static const String otpResetPassword = '/otpResetPassword';
   static const String resetPassword = '/resetPassword';
   static const String chooseVerificationMethod = '/chooseVerificationMethod';
+  static const String successResetPassword = '/successResetPassword';
+
 
   static const String home = '/home';
   static const String items = '/items';

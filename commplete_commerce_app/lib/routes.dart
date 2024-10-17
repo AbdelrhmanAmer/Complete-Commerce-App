@@ -2,22 +2,24 @@ import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
 import 'core/middleware/my_middleware.dart';
-import 'view/screens/authentication/term_of_service.dart';
+import 'view/screens/authentication/sign_up/term_of_service.dart';
+import 'view/screens/authentication/sign_up/setup_profile.dart';
+import 'view/screens/authentication/forgot_password/success_reset.dart';
+import 'view/screens/language.dart';
+import 'view/screens/root/item_details.dart';
+import 'view/screens/onboarding/onboarding.dart';
+import 'view/screens/root/root_screen.dart';
 import 'view/screens/settings/profile.dart';
 import 'view/screens/settings/preferences.dart';
 import 'view/screens/settings/settings.dart';
-import 'view/screens/categoryItems.dart';
-import 'view/screens/item_details.dart';
-import 'view/screens/root_screen.dart';
-import 'view/screens/language.dart';
-import 'view/screens/onboarding.dart';
+import 'view/screens/root/categoryItems.dart';
 import 'view/screens/authentication/forgot_password/choose_verification_method.dart';
 import 'view/screens/authentication/forgot_password/reset_password.dart';
 import 'view/screens/authentication/forgot_password/otp_reset_pass.dart';
 import 'view/screens/authentication/forgot_password/password_recovery.dart';
-import 'view/screens/authentication/otp_sign_up.dart';
+import 'view/screens/authentication/sign_up/signup_otp.dart';
 import 'view/screens/authentication/sign_in.dart';
-import 'view/screens/authentication/sign_up.dart';
+import 'view/screens/authentication/sign_up/sign_up.dart';
 
 List<GetPage<dynamic>>? routes = [
   // Language
@@ -35,7 +37,8 @@ List<GetPage<dynamic>>? routes = [
   // Authentication
   GetPage(name: Routes.signIn, page: () => const SignIn()),
   GetPage(name: Routes.signUp, page: () => const SignUp()),
-  GetPage(name: Routes.otpSignUp, page: () => const OTPSignUp()),
+  GetPage(name: Routes.setupProfile, page: () => const SetupProfile()),
+  GetPage(name: Routes.otpSignUp, page: () => const OtpSignUp()),
 
   GetPage(name: Routes.passwordRecovery, page: () => const PasswordRecovery()),
   GetPage(name: Routes.otpResetPassword, page: () => const OTPResetPassword()),
@@ -43,6 +46,9 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: Routes.chooseVerificationMethod,
       page: () => const ChooseVerificationMethod()),
+  GetPage(
+      name: Routes.successResetPassword,
+      page: () => const SuccessResetPassword()),
 
   GetPage(name: Routes.home, page: () => const RootScreen()),
   GetPage(name: Routes.items, page: () => const CategoryItems()),

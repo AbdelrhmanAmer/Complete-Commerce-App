@@ -24,6 +24,7 @@ class SignInForm extends StatelessWidget {
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
+              context,
               hintText: "Email address",
               iconPath: 'assets/icons/Message.svg',
             ),
@@ -37,6 +38,7 @@ class SignInForm extends StatelessWidget {
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
+              context,
               hintText: "Password",
               iconPath: 'assets/icons/Lock.svg',
             ),

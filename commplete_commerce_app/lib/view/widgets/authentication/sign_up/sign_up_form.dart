@@ -18,12 +18,13 @@ class SignUpFrom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: controller.formState,
+      key: controller.signupFormState,
       child: Column(
         children: [
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
+              context,
               hintText: "Enter your email",
               iconPath: 'assets/icons/Message.svg',
             ),
@@ -37,6 +38,7 @@ class SignUpFrom extends StatelessWidget {
           TextFormField(
             style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
+              context,
               hintText: "Password",
               iconPath: 'assets/icons/Lock.svg',
             ),

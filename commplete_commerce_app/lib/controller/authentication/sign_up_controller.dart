@@ -1,4 +1,3 @@
-
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -14,38 +13,76 @@ class SignUpController extends GetxController {
   late TextEditingController phone;
   late TextEditingController address;
 
-  Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
+  Rx<StatusRequest> signupStatusRequest = StatusRequest.error.obs;
+  Rx<StatusRequest> setupProfileStatusRequest = StatusRequest.error.obs;
+
+  GlobalKey<FormState> signupFormState = GlobalKey<FormState>();
+  GlobalKey<FormState> setupFromState = GlobalKey<FormState>();
+
   SignUpData signUpData = SignUpData(Get.find());
-  GlobalKey<FormState> formState = GlobalKey<FormState>();
   bool acceptTerms = false;
 
-  signUp() async {
-    FormState? formData = formState.currentState;
-    if (formData!.validate()) {
-      statusRequest.value = StatusRequest.loading;
+  setupProfile() async {
+    FormState? setupFromData = setupFromState.currentState;
+    if (setupFromData!.validate()) {
+      setupProfileStatusRequest.value = StatusRequest.loading;
       update();
 
-      var response = await signUpData.postData(
-          username.text, password.text, email.text, phone.text, address.text);
+      var response = await signUpData.setupProfile(
+        email: email.text,
+        username: username.text,
+        address: address.text,
+        phone: phone.text,
+      );
 
-      statusRequest.value = handleResponseStatus(response);
+      setupProfileStatusRequest.value = handleResponseStatus(response);
       update();
 
-      if (statusRequest.value == StatusRequest.success) {
+      if (setupProfileStatusRequest.value == StatusRequest.success) {
         if (response is Map) {
-          Get.toNamed(Routes.otpSignUp, arguments: {'email': email.text});
+          goToOtp();
         }
       }
     }
   }
 
-  toggleTermsState(){
+  signUp() async {
+    FormState? signupFromData = signupFormState.currentState;
+    if (signupFromData!.validate()) {
+      signupStatusRequest.value = StatusRequest.loading;
+      update();
+
+      var response = await signUpData.signUp(
+        password: password.text,
+        email: email.text,
+      );
+
+      signupStatusRequest.value = handleResponseStatus(response);
+      update();
+
+      if (signupStatusRequest.value == StatusRequest.success) {
+        if (response is Map) {
+          goToSetupProfile();
+        }
+      }
+    }
+  }
+
+  toggleTermsState() {
     acceptTerms = !acceptTerms;
     update();
   }
 
+  goToOtp() {
+    Get.toNamed(Routes.otpSignUp, arguments: {'email': email.text});
+  }
+
   goToSignIn() {
     Get.offNamed(Routes.signIn);
+  }
+
+  goToSetupProfile() {
+    Get.offAllNamed(Routes.setupProfile);
   }
 
   @override

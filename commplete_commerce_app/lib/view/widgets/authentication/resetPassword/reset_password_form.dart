@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../controller/authentication/forgotPassword/reset_password_controller.dart';
 import '../../../../core/constant/constants.dart';
@@ -22,8 +21,8 @@ class ResetPasswordForm extends StatelessWidget {
         children: [
           SizedBox(height: size.height * .03),
           TextFormField(
-            style: Get.textTheme.bodyMedium,
             decoration: inputDecoration(
+              context,
               hintText: "Enter your password",
               iconPath: 'assets/icons/Lock.svg',
             ),
@@ -36,6 +35,7 @@ class ResetPasswordForm extends StatelessWidget {
           SizedBox(height: size.height * .03),
           TextFormField(
             decoration: inputDecoration(
+              context,
               hintText: "Re-Enter your password",
               iconPath: 'assets/icons/Lock.svg',
             ),

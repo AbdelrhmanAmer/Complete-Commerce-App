@@ -1,14 +1,14 @@
-import 'package:commplete_commerce_app/core/class/status_request.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/authentication/sign_up_controller.dart';
-import '../../../core/constant/constants.dart';
-import '../../../core/constant/color.dart';
-import '../../widgets/authentication/account_prompt.dart';
-import '../../widgets/authentication/sign_up/sign_up_form.dart';
-import '../../widgets/authentication/sign_up/terms_of_services_checkbox.dart';
-import '../../widgets/custom_button.dart';
+import '../../../../core/class/status_request.dart';
+import '../../../../controller/authentication/sign_up_controller.dart';
+import '../../../../core/constant/constants.dart';
+import '../../../../core/constant/color.dart';
+import '../../../widgets/authentication/account_prompt.dart';
+import '../../../widgets/authentication/sign_up/sign_up_form.dart';
+import '../../../widgets/authentication/sign_up/terms_of_services_checkbox.dart';
+import '../../../widgets/custom_button.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -20,7 +20,7 @@ class SignUp extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: GetBuilder<SignUpController>(builder: (controller) {
-          return controller.statusRequest.value == StatusRequest.loading
+          return controller.signupStatusRequest.value == StatusRequest.loading
               ? const Center(child: CircularProgressIndicator())
               : SingleChildScrollView(
                   child: Column(
@@ -66,7 +66,7 @@ class SignUp extends StatelessWidget {
                               child: CustomButton(
                                 backgroundColor: AppColor.primaryColor,
                                 foregroundColor: Colors.white,
-                                text: 'Sign up',
+                                text: 'Continue',
                                 press: controller.signUp,
                               ),
                             ),

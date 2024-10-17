@@ -8,7 +8,7 @@ import '../../../core/functions/handle_response_status.dart';
 
 class OtpResetPasswordController extends GetxController {
   late List<String> otpCode = List.filled(5, '');
-  OtpResetPasswordData otpResetPasswordData = OtpResetPasswordData(Get.find());
+  final otpResetPasswordData = OtpResetPasswordData(Get.find());
 
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
   String? email;
@@ -19,12 +19,12 @@ class OtpResetPasswordController extends GetxController {
 
   List<FocusNode?>? focusNodes;
 
-  checkOtp() async {
+  confirmOtp() async {
     statusRequest.value = StatusRequest.loading;
     update();
 
     var response =
-        await otpResetPasswordData.postData(email!, otpCode.join(''));
+        await otpResetPasswordData.verifyResetOtp(email!, otpCode.join(''));
 
     statusRequest.value = handleResponseStatus(response);
     update();
@@ -46,7 +46,9 @@ class OtpResetPasswordController extends GetxController {
     Get.offAllNamed(Routes.resetPassword);
   }
 
-  resendOtp() {}
+  resendOtp() {
+    otpResetPasswordData.sendResetPasswordOtp(email!);
+  }
 
   @override
   void onInit() {

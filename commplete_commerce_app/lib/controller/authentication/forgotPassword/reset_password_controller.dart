@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../core/constant/app_routes.dart';
 import '../../../core/functions/handle_response_status.dart';
-import '../../../data/data_source/remote/auth/forgotPassword/reset_password_data.dart';
+import '../../../data/data_source/remote/auth/forgotPassword/otp_reset_password_data.dart';
 import '../../../core/class/status_request.dart';
 
 class ResetPasswordController extends GetxController {
@@ -12,7 +12,7 @@ class ResetPasswordController extends GetxController {
   late TextEditingController rePassword;
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
 
-  final ResetPasswordData _resetPasswordData = ResetPasswordData(Get.find());
+  final otpResetPasswordData = OtpResetPasswordData(Get.find());
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   resetPassword() async {
@@ -21,13 +21,14 @@ class ResetPasswordController extends GetxController {
       statusRequest.value = StatusRequest.loading;
       update();
 
-      var response = await _resetPasswordData.postData(email!, password.text);
+      var response =
+          await otpResetPasswordData.resetPassword(email!, password.text);
 
       statusRequest.value = handleResponseStatus(response);
       update();
 
       if (statusRequest.value == StatusRequest.success) {
-        Get.offAllNamed(Routes.signIn);
+        Get.offNamed(Routes.successResetPassword);
       }
     }
   }

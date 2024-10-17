@@ -2,10 +2,10 @@ import 'package:commplete_commerce_app/view/widgets/root_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/favorite_controller.dart';
-import '../../controller/category_items_controller.dart';
-import '../widgets/categoryItems/item_tile.dart';
-import '../widgets/categories_list.dart';
+import '../../../controller/favorite_controller.dart';
+import '../../../controller/category_items_controller.dart';
+import '../../widgets/categoryItems/item_tile.dart';
+import '../../widgets/categories_list.dart';
 
 class CategoryItems extends StatelessWidget {
   const CategoryItems({super.key});

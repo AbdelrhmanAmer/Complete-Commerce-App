@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widgets/favorite_icon_button.dart';
-import '../widgets/item_details.dart/custom_bottom_navbar.dart';
-import '../widgets/item_details.dart/item_details_body.dart';
-import '../widgets/conditional_icon_button.dart';
-import '../../controller/item_details_controller.dart';
+import '../../widgets/favorite_icon_button.dart';
+import '../../widgets/item_details.dart/custom_bottom_navbar.dart';
+import '../../widgets/item_details.dart/item_details_body.dart';
+import '../../../controller/item_details_controller.dart';
 
 class ItemDetails extends StatelessWidget {
   const ItemDetails({super.key});

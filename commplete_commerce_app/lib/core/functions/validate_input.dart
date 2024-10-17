@@ -17,10 +17,6 @@ validateInput(String val, String type, {int min = 6, int max = 100}) {
     }
   }
 
-  if (val.length < min) {
-    return "Value must be at least $min characters.";
-  }
-
   if (val.isEmpty) {
     return "Value cannot be empty.";
   }

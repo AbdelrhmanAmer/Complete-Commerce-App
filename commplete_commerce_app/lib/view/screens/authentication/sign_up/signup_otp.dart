@@ -1,31 +1,30 @@
+import 'package:commplete_commerce_app/core/class/status_request.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/authentication/forgotPassword/otp_reset_pass_controller.dart';
-import '../../../../core/constant/constants.dart';
-import '../../../../core/constant/color.dart';
+import '../../../../../core/constant/constants.dart';
+import '../../../../controller/authentication/otp_sign_up_controller.dart';
+import '../../../../../core/constant/color.dart';
 import '../../../../core/functions/maskEmail.dart';
-import '../../../../core/class/status_request.dart';
-import '../../../widgets/authentication/timer.dart';
 import '../../../widgets/authentication/otp_form.dart';
+import '../../../widgets/authentication/timer.dart';
 import '../../../widgets/custom_button.dart';
 
-class OTPResetPassword extends StatelessWidget {
-  const OTPResetPassword({super.key});
+class OtpSignUp extends StatelessWidget {
+  const OtpSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OtpResetPasswordController());
+    Get.put(OtpSignUpController());
 
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(),
-          body: GetBuilder<OtpResetPasswordController>(
-            builder: (controller) {
-              if (controller.statusRequest.value == StatusRequest.loading) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return Padding(
+        appBar: AppBar(),
+        body: GetBuilder<OtpSignUpController>(
+          builder: (controller) => controller.statusRequest.value ==
+                  StatusRequest.loading
+              ? const Center(child: CircularProgressIndicator())
+              : Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,10 +99,9 @@ class OTPResetPassword extends StatelessWidget {
                       SizedBox(height: size.height * .06),
                     ],
                   ),
-                );
-              }
-            },
-          )),
+                ),
+        ),
+      ),
     );
   }
 }

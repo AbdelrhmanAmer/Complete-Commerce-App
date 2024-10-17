@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../view/screens/settings/settings.dart';
-import '../view/screens/favorites.dart';
-import '../view/screens/home.dart';
+import '../view/screens/root/favorites.dart';
+import '../view/screens/root/home.dart';
 
 class RootController extends GetxController {
   int currentPageIndex = 0;

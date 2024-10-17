@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/favorite_controller.dart';
-import '../../core/constant/app_routes.dart';
-import '../widgets/authentication/timer.dart';
-import '../../core/class/status_request.dart';
-import '../../controller/home_controller.dart';
-import '../widgets/categories_list.dart';
-import '../widgets/home/discount_bar.dart';
-import '../widgets/home/item_card.dart';
-import '../widgets/home/section_bar.dart';
+import '../../../controller/favorite_controller.dart';
+import '../../../core/constant/app_routes.dart';
+import '../../widgets/authentication/timer.dart';
+import '../../../core/class/status_request.dart';
+import '../../../controller/home_controller.dart';
+import '../../widgets/categories_list.dart';
+import '../../widgets/home/discount_bar.dart';
+import '../../widgets/home/item_card.dart';
+import '../../widgets/home/section_bar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

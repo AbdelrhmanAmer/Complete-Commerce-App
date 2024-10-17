@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/onboarding_controller.dart';
-import '../../core/constant/color.dart';
-import '../widgets/custom_button.dart';
-import '../widgets/onboarding/custom_page_view.dart';
-import '../widgets/onboarding/dot_controller.dart';
+import '../../../controller/onboarding_controller.dart';
+import '../../../core/constant/color.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/onboarding/custom_page_view.dart';
+import '../../widgets/onboarding/dot_controller.dart';
 
 class OnBoarding extends GetView<OnBoardingControllerImp> {
   const OnBoarding({super.key});
@@ -39,7 +39,7 @@ class OnBoarding extends GetView<OnBoardingControllerImp> {
                   ),
                   const SizedBox(height: 6),
                   CustomButton(
-                    backgroundColor: AppColor.lightWhite,
+                    backgroundColor: Colors.white,
                     foregroundColor: Colors.black,
                     text: "Skip",
                     press: () => controller.skip(),

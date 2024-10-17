@@ -17,11 +17,10 @@ class OtpSignUpController extends GetxController {
   FocusNode? pin2FocusNode;
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
-  FocusNode? pin5FocusNode;
 
   List<FocusNode?>? focusNodes;
 
-  checkOtp() async {
+  confirmOtp() async {
     statusRequest.value = StatusRequest.loading;
     update();
 
@@ -59,8 +58,7 @@ class OtpSignUpController extends GetxController {
     pin2FocusNode = FocusNode();
     pin3FocusNode = FocusNode();
     pin4FocusNode = FocusNode();
-    pin5FocusNode = FocusNode();
-    focusNodes = [pin2FocusNode, pin3FocusNode, pin4FocusNode, pin5FocusNode];
+    focusNodes = [pin2FocusNode, pin3FocusNode, pin4FocusNode];
     super.onInit();
   }
 
@@ -69,7 +67,6 @@ class OtpSignUpController extends GetxController {
     pin2FocusNode!.dispose();
     pin3FocusNode!.dispose();
     pin4FocusNode!.dispose();
-    pin5FocusNode!.dispose();
 
     super.dispose();
   }

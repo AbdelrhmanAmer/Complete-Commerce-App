@@ -46,6 +46,7 @@ class PasswordRecovery extends StatelessWidget {
                         child: TextFormField(
                           style: Get.textTheme.bodyMedium,
                           decoration: inputDecoration(
+                            context,
                             hintText: "Email address",
                             iconPath: 'assets/icons/Message.svg',
                           ),
