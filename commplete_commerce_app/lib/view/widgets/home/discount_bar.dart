@@ -9,6 +9,7 @@ class DiscountBar extends StatelessWidget {
     super.key,
     required this.discountPercentage,
   });
+
   final double discountPercentage;
 
   @override
@@ -40,18 +41,23 @@ class DiscountBar extends StatelessWidget {
             children: [
               Text(
                 'Delivery is ',
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall!
-                    .copyWith(fontWeight: FontWeight.bold, fontSize: fontSize),
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: fontSize,
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
               ),
-              SmallContainer(object: discountPercentage.toInt().toString(), fontSize: fontSize,),
+              SmallContainer(
+                object: discountPercentage.toInt().toString(),
+                fontSize: fontSize,
+              ),
               Text(
                 ' cheaper',
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall!
-                    .copyWith(fontWeight: FontWeight.bold, fontSize: fontSize),
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: fontSize,
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
               ),
             ],
           ),
@@ -67,5 +73,3 @@ class DiscountBar extends StatelessWidget {
     );
   }
 }
-
-

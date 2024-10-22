@@ -36,7 +36,7 @@ class ItemPrice extends StatelessWidget {
                       '\$${NumberFormat('#,##0').format(itemPrice! * (1 - itemDiscount! / 100))}',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Get.isDarkMode ? Colors.red[400] : Colors.red),
+                      color: Theme.of(context).colorScheme.primary),
                 ),
                 TextSpan(
                   text: ' - ',

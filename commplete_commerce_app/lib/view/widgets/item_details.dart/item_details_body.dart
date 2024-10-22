@@ -8,7 +8,7 @@ import 'product_view.dart';
 import 'color_options.dart';
 import 'item_price.dart';
 import 'label_and_value_text.dart';
-import '../../../controller/root/item_details_controller.dart';
+import '../../../controller/item_details_controller.dart';
 import 'product_rate_and_share.dart';
 
 class ItemDetailsBody extends GetView<ItemDetailsController> {
@@ -21,7 +21,7 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
         topLeft: Radius.circular(15),
         topRight: Radius.circular(15),
       ),
-      color: Theme.of(context).colorScheme.surface,
+      color: Theme.of(context).colorScheme.onSecondaryContainer,
     );
     const edgeInsets = EdgeInsets.symmetric(horizontal: 20, vertical: 10);
 
@@ -85,15 +85,29 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
                   const SizedBox(height: 10),
                   const ColorOptions(),
                   const SizedBox(height: 10),
-                  Text(
-                    'Description',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .copyWith(fontWeight: FontWeight.bold),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .surfaceContainerHighest
+                            .withOpacity(.2),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Description',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 8),
+                        Text('${controller.item.itemDescription}'),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 8),
-                  Text('${controller.item.itemDescription}'),
                   const SizedBox(height: 15),
                   Divider(
                       thickness: 2,
@@ -108,7 +122,9 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
                       child: CustomButton(
                     text: 'Checkout',
                     press: () {},
-                    textStyle: TextStyle(fontSize: 17, color: Theme.of(context).colorScheme.surface),
+                    textStyle: TextStyle(
+                        fontSize: 17,
+                        color: Theme.of(context).colorScheme.surface),
                     verticalPadding: 15,
                     width: size.width * .9,
                   ))

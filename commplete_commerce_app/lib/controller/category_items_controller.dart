@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../core/services/user_service.dart';
-import '../../core/functions/show_custom_snack_bar.dart';
-import '../../core/functions/handle_response_status.dart';
-import '../../core/class/status_request.dart';
-import '../../core/constant/app_routes.dart';
-import '../../data/data_source/remote/items_data.dart';
-import '../../data/model/user.dart';
-import '../../data/model/item/base_item.dart';
-import '../../data/model/category.dart';
-import '../../data/model/item/item.dart';
+import '../core/services/user_service.dart';
+import '../core/functions/show_custom_snack_bar.dart';
+import '../core/functions/handle_response_status.dart';
+import '../core/class/status_request.dart';
+import '../core/constant/app_routes.dart';
+import '../data/data_source/remote/items_data.dart';
+import '../data/model/user.dart';
+import '../data/model/item/base_item.dart';
+import '../data/model/category.dart';
+import '../data/model/item/item.dart';
 
 class CategoryItemsController extends GetxController {
   List<Category> categories = <Category>[];

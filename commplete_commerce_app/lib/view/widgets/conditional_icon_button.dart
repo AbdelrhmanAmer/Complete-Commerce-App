@@ -11,7 +11,7 @@ class ConditionalIconButton extends StatelessWidget {
       required this.onPress,
       this.trueIconData = CupertinoIcons.heart_fill,
       this.falseIconData = CupertinoIcons.heart,
-      this.trueColor = Colors.red,
+      this.trueColor = const Color(0xFF4caac9),
       this.falseColor,
       this.iconSize = 15,
       this.height = 25,

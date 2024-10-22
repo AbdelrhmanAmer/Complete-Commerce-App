@@ -25,13 +25,15 @@ class ItemCard extends StatelessWidget {
     double price = item.itemPrice ?? 0.0;
     double discountedPrice = price * (1 - discount / 100);
 
-    return InkWell(
-      onTap: onPress,
-      child: Stack(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(right: 3),
-            width: 150,
+    return Stack(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(right: 5),
+          width: 150,
+
+          child: InkWell(
+            borderRadius: BorderRadius.circular(15),
+            onTap: onPress,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               child: Column(
@@ -41,7 +43,7 @@ class ItemCard extends StatelessWidget {
                   Container(
                     height: 130,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surfaceContainerHigh,
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Center(
@@ -99,9 +101,9 @@ class ItemCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(top: 15, right: 15, child: FavoriteIconButton(item: item)),
-        ],
-      ),
+        ),
+        Positioned(top: 15, right: 15, child: FavoriteIconButton(item: item)),
+      ],
     );
   }
 }

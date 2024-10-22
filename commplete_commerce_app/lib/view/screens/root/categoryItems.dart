@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/root/favorite_controller.dart';
-import '../../../controller/root/category_items_controller.dart';
+import '../../../controller/category_items_controller.dart';
 import '../../widgets/categoryItems/item_tile.dart';
 import '../../widgets/categories_list.dart';
 

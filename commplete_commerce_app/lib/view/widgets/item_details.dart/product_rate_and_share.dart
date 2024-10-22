@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../controller/root/item_details_controller.dart';
+import '../../../controller/item_details_controller.dart';
 import '../custom_icon_button.dart';
 
 

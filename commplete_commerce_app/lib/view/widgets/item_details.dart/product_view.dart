@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/root/item_details_controller.dart';
+import '../../../controller/item_details_controller.dart';
 import '../../../core/constant/constants.dart';
 import 'image_card.dart';
 
@@ -28,7 +28,7 @@ class ProductView extends GetView<ItemDetailsController> {
             bottom: 6,
             left: 20,
             child: SizedBox(
-              height: 55, // Set a height for the ListView
+              height: 65, // Set a height for the ListView
               width: size.width,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -37,6 +37,7 @@ class ProductView extends GetView<ItemDetailsController> {
                   return Container(
                     margin: const EdgeInsets.only(right: 12),
                     child: ImageCard(
+                      selected: index == 2 ? true : false,
                       imagePath: 'assets/images/${controller.item.itemImage}',
                     ),
                   );

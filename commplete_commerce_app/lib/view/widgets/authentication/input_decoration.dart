@@ -38,12 +38,17 @@ InputDecoration inputDecoration(
                       ),
                     ),
                     const SizedBox(width: 5),
-                    Text('+20 ', style: Theme.of(context).textTheme.labelLarge),
+                    Text('+20 ',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .copyWith(color: iconColor)),
                     SizedBox(
-                      height:
-                          25,
+                      height: 25,
                       child: VerticalDivider(
-                        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .surfaceContainerHighest,
                         thickness: 1.5,
                         width: 10,
                       ),

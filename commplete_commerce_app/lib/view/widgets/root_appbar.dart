@@ -8,7 +8,10 @@ appBar(BuildContext context, {Color? backgroundColor}) {
     backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.surface,
     title: Text(
       'ShopEase',
-      style: Theme.of(context).textTheme.labelLarge,
+      style: Theme.of(context)
+          .textTheme
+          .titleMedium!
+          .copyWith(fontWeight: FontWeight.bold),
     ),
     centerTitle: false,
     actions: [

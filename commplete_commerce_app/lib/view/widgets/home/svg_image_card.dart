@@ -14,7 +14,7 @@ class SvgImageCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surfaceContainerHigh,
+          color: Theme.of(context).colorScheme.onSecondaryContainer,
           shape: BoxShape.circle),
       child: SvgPicture.asset(
         imagePath,

@@ -13,6 +13,7 @@ abstract class BaseItem {
   String? itemBrand;
   String? itemDatetime;
   String? itemCategoryId;
+  int selectedQuantity = 1;
 
   BaseItem();
 

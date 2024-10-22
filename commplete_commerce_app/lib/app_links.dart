@@ -15,7 +15,7 @@ class AppLinks {
   static const String checkEmail =
       '$server/auth/forgotPassword/check_email.php';
   static const String verifyResetPasswordOtp =
-      '$server/auth/forgotPassword/otp_reset_password.php';
+      '$server/auth/forgotPassword/verify_reset_otp.php';
   static const String resetPassword =
       '$server/auth/forgotPassword/reset_password.php';
   static const String sendResetPasswordOtp =
@@ -34,6 +34,12 @@ class AppLinks {
 
   // Items
   static const String items = '$server/items/items.php';
+
+  // Cart
+  static const String getCartItems = '$server/cart/get_items.php';
+  static const String addToCart = '$server/cart/add.php';
+  static const String deleteFromCart = '$server/cart/delete.php';
+  static const String updateItemQuantity = '$server/cart/update.php';
 
   // Favorite Items
   static const String addFavoriteItem = '$server/favorite/add.php';

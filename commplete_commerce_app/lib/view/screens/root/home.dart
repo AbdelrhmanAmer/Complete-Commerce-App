@@ -25,17 +25,22 @@ class Home extends StatelessWidget {
         } else {
           return SafeArea(
             child: Scaffold(
+              backgroundColor:
+                  Theme.of(context).colorScheme.onSecondaryContainer,
               body: SingleChildScrollView(
                 child: GetBuilder<HomeController>(
                   builder: (controller) {
-                    return controller.statusRequest.value == StatusRequest.loading
+                    return controller.statusRequest.value ==
+                            StatusRequest.loading
                         ? const Center(child: CircularProgressIndicator())
                         : Column(
                             children: [
                               Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.surfaceContainerHigh,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .surfaceContainerHigh,
                                   borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(20),
                                     bottomRight: Radius.circular(20),
@@ -56,20 +61,25 @@ class Home extends StatelessWidget {
                               Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.surface,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .surfaceContainerHigh,
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
                                   child: Column(
                                     children: [
                                       const SizedBox(height: 20),
-                                      SectionBar(title: 'Categories', onPress: () {}),
+                                      SectionBar(
+                                          title: 'Categories', onPress: () {}),
                                       const SizedBox(height: 10),
                                       CategoriesList(
                                         categories: controller.categories,
                                         onPress: (index) {
-                                          controller.goToCategoryItemsScreen(index);
+                                          controller
+                                              .goToCategoryItemsScreen(index);
                                         },
                                       ),
                                       SectionBar(
@@ -92,13 +102,16 @@ class Home extends StatelessWidget {
                                           itemCount:
                                               controller.discountedItems.length,
                                           itemBuilder: (_, index) => ItemCard(
-                                              item: controller.discountedItems[index],
-                                              onPress: () => Get.toNamed(
-                                                      Routes.itemDetails,
-                                                      arguments: {
-                                                        'item': controller
-                                                            .discountedItems[index],
-                                                      })),
+                                            item: controller
+                                                .discountedItems[index],
+                                            onPress: () => Get.toNamed(
+                                              Routes.itemDetails,
+                                              arguments: {
+                                                'item': controller
+                                                    .discountedItems[index],
+                                              },
+                                            ),
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(height: 15),
@@ -119,7 +132,8 @@ class Home extends StatelessWidget {
                                               onPress: () => Get.toNamed(
                                                 Routes.itemDetails,
                                                 arguments: {
-                                                  'item': controller.items[index],
+                                                  'item':
+                                                      controller.items[index],
                                                 },
                                               ),
                                             );

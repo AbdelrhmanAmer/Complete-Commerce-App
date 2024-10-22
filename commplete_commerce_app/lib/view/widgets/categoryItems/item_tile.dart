@@ -51,7 +51,7 @@ class ItemTile extends StatelessWidget {
                                   .bodyMedium!
                                   .copyWith(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.red,
+                                    color: Theme.of(context).colorScheme.primary,
                                   ),
                             ),
                             const SizedBox(height: 4),

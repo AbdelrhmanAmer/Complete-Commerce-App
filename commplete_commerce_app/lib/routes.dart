@@ -7,7 +7,7 @@ import 'view/screens/authentication/sign_up/term_of_service.dart';
 import 'view/screens/authentication/sign_up/setup_profile.dart';
 import 'view/screens/authentication/forgot_password/success_reset.dart';
 import 'view/screens/language.dart';
-import 'view/screens/root/item_details.dart';
+import 'view/screens/item_details.dart';
 import 'view/screens/onboarding/onboarding.dart';
 import 'view/screens/root/root_screen.dart';
 import 'view/screens/profile/profile.dart';

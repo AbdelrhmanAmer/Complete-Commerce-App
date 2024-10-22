@@ -13,12 +13,12 @@ class Routes {
   static const String chooseVerificationMethod = '/chooseVerificationMethod';
   static const String successResetPassword = '/successResetPassword';
 
-
+  // root
   static const String root = '/home';
-  static const String items = '/items';
-  static const String itemDetails = '/itemDetails';
-
   static const String settings = '/settings';
+  static const String items = '/items';
+
+  static const String itemDetails = '/itemDetails';
   static const String preferences = '/preferences';
   static const String profile = '/profile';
   static const String editProfile = '/editProfile';

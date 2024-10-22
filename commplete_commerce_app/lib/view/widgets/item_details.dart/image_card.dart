@@ -6,18 +6,21 @@ class ImageCard extends StatelessWidget {
   const ImageCard({
     super.key,
     required this.imagePath,
+    this.selected = false,
   });
 
   final String imagePath;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 55,
+      width: 65,
       padding: const EdgeInsets.all(7),
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          border: Border.all(color: AppColor.primaryColor),
+          color: Theme.of(context).colorScheme.onSecondaryContainer,
+          border: Border.all(
+              color: selected ? AppColor.primaryColor : Colors.transparent,width: 1.5),
           borderRadius: BorderRadius.circular(8)),
       child: Image.asset(imagePath),
     );

@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/core/functions/set_shared_user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -65,6 +66,7 @@ class EditProfileController extends GetxController {
       update();
 
       if (statusRequest == StatusRequest.success) {
+        setSharedUser(userService.user.value!);
         Get.back();
       }
     }
