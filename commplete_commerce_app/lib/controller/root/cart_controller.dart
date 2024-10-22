@@ -7,7 +7,7 @@ import '../../core/services/user_service.dart';
 import '../../data/data_source/remote/cart_data.dart';
 import '../../data/model/user.dart';
 
-class Cart extends GetxController {
+class CartController extends GetxController {
   List<CartItem> cartItems = [];
   CartData cartData = CartData(Get.find());
   StatusRequest statusRequest = StatusRequest.error;

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/constant/color.dart';
-import '../small_container.dart';
+import '../../../../core/constant/color.dart';
+import '../../small_container.dart';
+
 
 class DiscountBar extends StatelessWidget {
   const DiscountBar({

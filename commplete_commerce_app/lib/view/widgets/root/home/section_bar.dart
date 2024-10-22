@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../authentication/timer.dart';
-import '../../../core/constant/color.dart';
-import '../custom_icon_button.dart';
+import '../../../../core/constant/color.dart';
+import '../../authentication/timer.dart';
+import '../../custom_icon_button.dart';
+
 
 class SectionBar extends StatelessWidget {
   const SectionBar({

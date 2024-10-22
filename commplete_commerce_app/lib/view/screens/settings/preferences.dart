@@ -1,9 +1,9 @@
-import 'package:commplete_commerce_app/controller/settings/preferences_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../widgets/settings/preferences/preference_list_tile.dart';
-import '../../widgets/settings/preferences/preferences_appbar.dart';
+import '../../../controller/settings/preferences_controller.dart';
+import '../../widgets/root/settings/preferences/preference_list_tile.dart';
+import '../../widgets/root/settings/preferences/preferences_appbar.dart';
 
 
 class Preferences extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../background_dot.dart';
-import '../custom_button.dart';
-import '../../../core/constant/constants.dart';
+import '../../background_dot.dart';
+import '../../custom_button.dart';
+import '../../../../core/constant/constants.dart';
 
 class PremiumCard extends StatelessWidget {
   const PremiumCard({super.key});

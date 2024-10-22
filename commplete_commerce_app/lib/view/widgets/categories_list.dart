@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constant/color.dart';
-import '../../data/model/category.dart';
-import 'home/svg_image_card.dart';
+import '../../../core/constant/color.dart';
+import '../../../data/model/category.dart';
+import 'root/home/svg_image_card.dart';
 
 class CategoriesList extends StatelessWidget {
   const CategoriesList({

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/settings/settings_controller.dart';
-import '../../widgets/settings/settings_body.dart';
+import '../../widgets/root/settings/settings_body.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

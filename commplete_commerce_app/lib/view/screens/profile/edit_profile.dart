@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../widgets/settings/profile/profile_appbar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/authentication/input_decoration.dart';
-import '../../widgets/settings/profile/edit_profile/edit_profile_image_picker.dart';
 import '../../../controller/profile/edit_profile_controller.dart';
 import '../../../core/functions/validate_input.dart';
 import '../../../../core/constant/constants.dart';
+import '../../widgets/root/settings/profile/edit_profile/edit_profile_image_picker.dart';
+import '../../widgets/root/settings/profile/profile_appbar.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});

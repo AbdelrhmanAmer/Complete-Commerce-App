@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/model/item/item.dart';
-import '../favorite_icon_button.dart';
+import '../../../../data/model/item/item.dart';
+import '../../favorite_icon_button.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({

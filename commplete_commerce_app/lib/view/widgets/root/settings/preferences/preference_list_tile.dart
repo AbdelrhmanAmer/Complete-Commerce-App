@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constant/color.dart';
+import '../../../../../core/constant/color.dart';
+
 
 class PreferenceListTile extends StatelessWidget {
   const PreferenceListTile({

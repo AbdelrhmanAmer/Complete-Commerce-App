@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/constant/constants.dart';
+import '../../../../../../core/constant/constants.dart';
 
 class EditImagePicker extends StatelessWidget {
   const EditImagePicker({

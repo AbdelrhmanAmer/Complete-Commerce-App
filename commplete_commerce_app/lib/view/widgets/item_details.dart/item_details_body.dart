@@ -1,6 +1,3 @@
-import 'package:commplete_commerce_app/core/constant/constants.dart';
-import 'package:commplete_commerce_app/view/widgets/custom_button.dart';
-import 'package:commplete_commerce_app/view/widgets/home/section_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,8 +5,11 @@ import 'product_view.dart';
 import 'color_options.dart';
 import 'item_price.dart';
 import 'label_and_value_text.dart';
-import '../../../controller/item_details_controller.dart';
 import 'product_rate_and_share.dart';
+import '../custom_button.dart';
+import '../root/home/section_bar.dart';
+import '../../../core/constant/constants.dart';
+import '../../../controller/item_details_controller.dart';
 
 class ItemDetailsBody extends GetView<ItemDetailsController> {
   const ItemDetailsBody({super.key});

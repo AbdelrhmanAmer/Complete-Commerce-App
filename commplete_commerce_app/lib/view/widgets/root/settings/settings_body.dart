@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'personalTile.dart';
 import 'premium_card.dart';
 import 'settings_list_tile.dart';
-import '../../../controller/settings/settings_controller.dart';
-import '../../../core/constant/app_routes.dart';
+import '../../../../controller/settings/settings_controller.dart';
+import '../../../../core/constant/app_routes.dart';
 
 class SettingsBody extends GetView<SettingsController> {
   const SettingsBody({super.key});

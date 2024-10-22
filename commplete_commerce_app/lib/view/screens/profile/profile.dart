@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 import '../../../controller/profile/profile_controller.dart';
 import '../../../core/functions/formatPhoneNumber.dart';
-import '../../widgets/settings/personalTile.dart';
-import '../../widgets/settings/profile/fieldProfileTile.dart';
-import '../../widgets/settings/profile/profile_appbar.dart';
+import '../../widgets/root/settings/personalTile.dart';
+import '../../widgets/root/settings/profile/fieldProfileTile.dart';
+import '../../widgets/root/settings/profile/profile_appbar.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
