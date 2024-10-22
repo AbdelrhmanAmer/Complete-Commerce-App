@@ -1,12 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/favorite_controller.dart';
+import '../../controller/root/favorite_controller.dart';
 import '../../data/model/item/base_item.dart';
-import '../../data/model/item/favorite_item.dart';
-import '../../data/model/item/item.dart';
 import 'conditional_icon_button.dart';
 
 class FavoriteIconButton extends StatelessWidget {

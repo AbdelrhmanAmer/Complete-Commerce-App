@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/functions/validate_input.dart';
 import '../../../../core/constant/constants.dart';
-import '../../../../controller/authentication/sign_up_controller.dart';
+import '../../../../controller/authentication/sign_up/sign_up_controller.dart';
 import '../input_decoration.dart';
 
 class SignUpFrom extends StatelessWidget {

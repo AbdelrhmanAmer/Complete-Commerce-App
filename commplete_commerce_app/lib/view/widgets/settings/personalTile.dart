@@ -33,12 +33,15 @@ class PersonalTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hi, $username',
-                  style: Theme.of(context).textTheme.labelLarge,
+                  justView ? username : 'Hi, $username',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontWeight: FontWeight.w600),
                 ),
                 Text(
                   email,
-                  style: Theme.of(context).textTheme.labelSmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 )
               ],
             ),

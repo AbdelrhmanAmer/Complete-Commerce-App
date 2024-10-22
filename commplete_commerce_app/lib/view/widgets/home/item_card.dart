@@ -1,12 +1,8 @@
-import 'package:commplete_commerce_app/controller/favorite_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/services/services.dart';
 import '../../../data/model/item/item.dart';
-import '../conditional_icon_button.dart';
 import '../favorite_icon_button.dart';
 
 class ItemCard extends StatelessWidget {

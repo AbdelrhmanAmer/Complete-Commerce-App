@@ -1,16 +1,16 @@
-import 'package:commplete_commerce_app/core/functions/show_custom_snack_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../core/functions/get_shared_user.dart';
-import '../core/services/services.dart';
-import '../core/class/status_request.dart';
-import '../core/functions/handle_response_status.dart';
-import '../core/constant/app_routes.dart';
-import '../data/model/user.dart';
-import '../data/model/item/base_item.dart';
-import '../data/data_source/remote/items_data.dart';
-import '../data/model/category.dart';
-import '../data/model/item/item.dart';
+import '../../core/services/user_service.dart';
+import '../../core/functions/show_custom_snack_bar.dart';
+import '../../core/functions/handle_response_status.dart';
+import '../../core/class/status_request.dart';
+import '../../core/constant/app_routes.dart';
+import '../../data/data_source/remote/items_data.dart';
+import '../../data/model/user.dart';
+import '../../data/model/item/base_item.dart';
+import '../../data/model/category.dart';
+import '../../data/model/item/item.dart';
 
 class CategoryItemsController extends GetxController {
   List<Category> categories = <Category>[];
@@ -19,16 +19,19 @@ class CategoryItemsController extends GetxController {
 
   ItemsData itemsData = ItemsData(Get.find());
   StatusRequest statusRequest = StatusRequest.error;
-  MyServices myServices = Get.find();
-  User? user;
+
+  UserService userService = Get.find();
+
+  User? get user => userService.user.value;
 
   List<Item> selectedCategoryItems = <Item>[];
 
   @override
   void onInit() {
-    initializeController();
     super.onInit();
-    user = getSharedUser(myServices);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      initializeController();
+    });
   }
 
   void initializeController() async {

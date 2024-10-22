@@ -1,9 +1,7 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../core/functions/set_shared_user.dart';
 import '../../core/functions/show_custom_snack_bar.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handle_response_status.dart';
@@ -38,10 +36,12 @@ class SignInController extends GetxController {
       if (statusRequest.value == StatusRequest.success) {
         if (response['data']['approved'] == '1') {
           user = User.fromJson(response['data']);
-          log('SignInController, User ID: ${user.id}'); // Check if ID exists here
-          _setSharedUser();
 
-          Get.offAllNamed(Routes.home);
+          myServices.sharedPreferences.setString('step', '2');
+
+          setSharedUser(user);
+          Get.offAllNamed(Routes.root, arguments: {'user': user});
+
           showCustomSnackBar(
               title: response['status'], content: response['message']);
         } else if (response['data']['approved'] == '0') {
@@ -50,13 +50,6 @@ class SignInController extends GetxController {
         }
       }
     }
-  }
-
-  void _setSharedUser() {
-    String userJson = jsonEncode(user.toJson());
-    myServices.sharedPreferences.setString('user', userJson);
-    log('userJson, $userJson');
-    myServices.sharedPreferences.setString('step', '2');
   }
 
   goToSignUp() {

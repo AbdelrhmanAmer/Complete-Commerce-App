@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/item_details_controller.dart';
+import '../../../controller/root/item_details_controller.dart';
 import '../../../core/constant/constants.dart';
 import '../custom_button.dart';
 import '../custom_icon_button.dart';

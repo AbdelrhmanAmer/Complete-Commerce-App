@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../controller/root_controller.dart';
+import '../../../controller/root/root_controller.dart';
 import '../../../core/constant/color.dart';
 
 class ButtonNavBar extends StatelessWidget {

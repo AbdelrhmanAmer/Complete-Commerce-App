@@ -12,7 +12,6 @@ class ResetPasswordForm extends StatelessWidget {
   });
 
   final ResetPasswordController controller;
-
   @override
   Widget build(BuildContext context) {
     return Form(

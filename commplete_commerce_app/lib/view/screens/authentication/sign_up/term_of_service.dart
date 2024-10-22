@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/authentication/terms_controller.dart';
+import '../../../../controller/authentication/sign_up/terms_controller.dart';
 
 class TermOfService extends StatelessWidget {
   const TermOfService({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/item_details_controller.dart';
+import '../../../controller/root/item_details_controller.dart';
 import '../../../core/constant/constants.dart';
 import 'image_card.dart';
 

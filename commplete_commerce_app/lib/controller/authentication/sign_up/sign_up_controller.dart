@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../../core/functions/handle_response_status.dart';
-import '../../data/data_source/remote/auth/sign_up_data.dart';
-import '../../core/class/status_request.dart';
-import '../../core/constant/app_routes.dart';
+import '../../../core/functions/handle_response_status.dart';
+import '../../../data/data_source/remote/auth/sign_up_data.dart';
+import '../../../core/class/status_request.dart';
+import '../../../core/constant/app_routes.dart';
 
 class SignUpController extends GetxController {
   late TextEditingController username;
@@ -13,8 +13,8 @@ class SignUpController extends GetxController {
   late TextEditingController phone;
   late TextEditingController address;
 
-  Rx<StatusRequest> signupStatusRequest = StatusRequest.error.obs;
-  Rx<StatusRequest> setupProfileStatusRequest = StatusRequest.error.obs;
+  StatusRequest signupStatusRequest = StatusRequest.error;
+  StatusRequest setupProfileStatusRequest = StatusRequest.error;
 
   GlobalKey<FormState> signupFormState = GlobalKey<FormState>();
   GlobalKey<FormState> setupFromState = GlobalKey<FormState>();
@@ -25,7 +25,7 @@ class SignUpController extends GetxController {
   setupProfile() async {
     FormState? setupFromData = setupFromState.currentState;
     if (setupFromData!.validate()) {
-      setupProfileStatusRequest.value = StatusRequest.loading;
+      setupProfileStatusRequest = StatusRequest.loading;
       update();
 
       var response = await signUpData.setupProfile(
@@ -35,10 +35,10 @@ class SignUpController extends GetxController {
         phone: phone.text,
       );
 
-      setupProfileStatusRequest.value = handleResponseStatus(response);
+      setupProfileStatusRequest = handleResponseStatus(response);
       update();
 
-      if (setupProfileStatusRequest.value == StatusRequest.success) {
+      if (setupProfileStatusRequest == StatusRequest.success) {
         if (response is Map) {
           goToOtp();
         }
@@ -49,7 +49,7 @@ class SignUpController extends GetxController {
   signUp() async {
     FormState? signupFromData = signupFormState.currentState;
     if (signupFromData!.validate()) {
-      signupStatusRequest.value = StatusRequest.loading;
+      signupStatusRequest = StatusRequest.loading;
       update();
 
       var response = await signUpData.signUp(
@@ -57,10 +57,10 @@ class SignUpController extends GetxController {
         email: email.text,
       );
 
-      signupStatusRequest.value = handleResponseStatus(response);
+      signupStatusRequest = handleResponseStatus(response);
       update();
 
-      if (signupStatusRequest.value == StatusRequest.success) {
+      if (signupStatusRequest== StatusRequest.success) {
         if (response is Map) {
           goToSetupProfile();
         }

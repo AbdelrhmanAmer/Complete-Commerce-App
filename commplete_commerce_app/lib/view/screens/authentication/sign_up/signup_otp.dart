@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/constant/constants.dart';
-import '../../../../controller/authentication/otp_sign_up_controller.dart';
+import '../../../../controller/authentication/sign_up/otp_sign_up_controller.dart';
 import '../../../../../core/constant/color.dart';
 import '../../../../core/functions/maskEmail.dart';
 import '../../../widgets/authentication/otp_form.dart';

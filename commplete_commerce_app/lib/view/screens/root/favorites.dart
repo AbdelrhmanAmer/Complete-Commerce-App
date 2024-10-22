@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/favorite_controller.dart';
+import '../../../controller/root/favorite_controller.dart';
 import '../../widgets/categoryItems/item_tile.dart';
 
 class Favorites extends StatelessWidget {

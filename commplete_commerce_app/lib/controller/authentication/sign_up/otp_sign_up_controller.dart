@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/functions/show_custom_snack_bar.dart';
-import '../../data/data_source/remote/auth/otp_sign_up_data.dart';
-import '../../core/class/status_request.dart';
-import '../../core/constant/app_routes.dart';
-import '../../core/functions/handle_response_status.dart';
+import '../../../core/functions/show_custom_snack_bar.dart';
+import '../../../data/data_source/remote/auth/otp_sign_up_data.dart';
+import '../../../core/class/status_request.dart';
+import '../../../core/constant/app_routes.dart';
+import '../../../core/functions/handle_response_status.dart';
 
 class OtpSignUpController extends GetxController {
   late List<String> otpCode = List.filled(5, '');

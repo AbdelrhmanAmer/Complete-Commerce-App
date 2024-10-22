@@ -22,7 +22,7 @@ class FieldProfileTile extends StatelessWidget {
               label,
               style: Theme.of(context)
                   .textTheme
-                  .bodyLarge!
+                  .bodyMedium!
                   .copyWith(fontWeight: FontWeight.normal),
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/authentication/sign_up_controller.dart';
+import '../../../../controller/authentication/sign_up/sign_up_controller.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/authentication/sign_up/setup_profile/personalImagePicker.dart';

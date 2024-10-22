@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/root_controller.dart';
+import '../../../controller/root/root_controller.dart';
 import '../../widgets/root_appbar.dart';
 import '../../widgets/root/button_nav_bar.dart';
 

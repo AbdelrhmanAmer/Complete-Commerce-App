@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/class/status_request.dart';
-import '../../../../controller/authentication/sign_up_controller.dart';
+import '../../../../controller/authentication/sign_up/sign_up_controller.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../core/constant/color.dart';
 import '../../../widgets/authentication/account_prompt.dart';
@@ -20,7 +20,7 @@ class SignUp extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: GetBuilder<SignUpController>(builder: (controller) {
-          return controller.signupStatusRequest.value == StatusRequest.loading
+          return controller.signupStatusRequest == StatusRequest.loading
               ? const Center(child: CircularProgressIndicator())
               : SingleChildScrollView(
                   child: Column(

@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/view/screens/profile/edit_profile.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
@@ -9,7 +10,7 @@ import 'view/screens/language.dart';
 import 'view/screens/root/item_details.dart';
 import 'view/screens/onboarding/onboarding.dart';
 import 'view/screens/root/root_screen.dart';
-import 'view/screens/settings/profile.dart';
+import 'view/screens/profile/profile.dart';
 import 'view/screens/settings/preferences.dart';
 import 'view/screens/settings/settings.dart';
 import 'view/screens/root/categoryItems.dart';
@@ -39,6 +40,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.signUp, page: () => const SignUp()),
   GetPage(name: Routes.setupProfile, page: () => const SetupProfile()),
   GetPage(name: Routes.otpSignUp, page: () => const OtpSignUp()),
+  GetPage(name: Routes.termOfService, page: () => const TermOfService()),
 
   GetPage(name: Routes.passwordRecovery, page: () => const PasswordRecovery()),
   GetPage(name: Routes.otpResetPassword, page: () => const OTPResetPassword()),
@@ -50,7 +52,7 @@ List<GetPage<dynamic>>? routes = [
       name: Routes.successResetPassword,
       page: () => const SuccessResetPassword()),
 
-  GetPage(name: Routes.home, page: () => const RootScreen()),
+  GetPage(name: Routes.root, page: () => const RootScreen()),
   GetPage(name: Routes.items, page: () => const CategoryItems()),
   GetPage(name: Routes.itemDetails, page: () => const ItemDetails()),
 
@@ -58,5 +60,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Routes.settings, page: () => const Settings()),
   GetPage(name: Routes.preferences, page: () => const Preferences()),
   GetPage(name: Routes.profile, page: () => const Profile()),
-  GetPage(name: Routes.termOfService, page: () => const TermOfService()),
+  GetPage(name: Routes.editProfile, page: () => const EditProfile()),
 ];

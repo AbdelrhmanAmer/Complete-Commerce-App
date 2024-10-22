@@ -1,7 +1,8 @@
-import 'package:commplete_commerce_app/core/constant/app_routes.dart';
-import 'package:commplete_commerce_app/core/services/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+
+import '../constant/app_routes.dart';
+import '../services/services.dart';
 
 class MyMiddleware extends GetMiddleware {
   MyServices myServices = Get.find();
@@ -11,7 +12,7 @@ class MyMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (myServices.sharedPreferences.getString('step') == '2') {
-      return const RouteSettings(name: Routes.home);
+      return const RouteSettings(name: Routes.root);
     }
     if (myServices.sharedPreferences.getString('step') == '1') {
       return const RouteSettings(name: Routes.signIn);

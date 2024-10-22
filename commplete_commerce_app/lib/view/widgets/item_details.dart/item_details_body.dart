@@ -8,7 +8,7 @@ import 'product_view.dart';
 import 'color_options.dart';
 import 'item_price.dart';
 import 'label_and_value_text.dart';
-import '../../../controller/item_details_controller.dart';
+import '../../../controller/root/item_details_controller.dart';
 import 'product_rate_and_share.dart';
 
 class ItemDetailsBody extends GetView<ItemDetailsController> {

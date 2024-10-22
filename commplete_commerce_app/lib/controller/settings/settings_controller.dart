@@ -1,22 +1,16 @@
 import 'package:get/get.dart';
 
 import '../../core/constant/app_routes.dart';
-import '../../core/functions/get_shared_user.dart';
-import '../../core/services/services.dart';
+import '../../core/services/user_service.dart';
 import '../../data/model/user.dart';
 
 class SettingsController extends GetxController {
-  MyServices myServices = Get.find();
-  User? user;
+  UserService userService = Get.find();
 
-  @override
-  onInit() {
-    super.onInit();
-    user = getSharedUser(myServices);
-  }
+  User? get user => userService.user.value;
 
   logout() {
-    myServices.sharedPreferences.clear();
+    userService.clearUser();
     Get.offAllNamed(Routes.signIn);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../data/model/item/base_item.dart';
+import '../../data/model/item/base_item.dart';
 
 class ItemDetailsController extends GetxController {
   late BaseItem item;

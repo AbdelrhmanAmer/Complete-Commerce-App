@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/class/status_request.dart';
-import '../../../core/services/services.dart';
-import '../../../controller/category_items_controller.dart';
 import '../../../core/constant/constants.dart';
 import '../../../data/model/item/base_item.dart';
-import '../../../data/model/item/item.dart';
 import '../favorite_icon_button.dart';
 
 class ItemTile extends StatelessWidget {
@@ -24,7 +20,6 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyServices myServices = Get.find();
     return Container(
       margin: const EdgeInsets.only(top: 8, right: 10, left: 10),
       child: Stack(

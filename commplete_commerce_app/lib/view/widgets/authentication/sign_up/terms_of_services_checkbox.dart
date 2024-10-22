@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/authentication/sign_up_controller.dart';
+import '../../../../controller/authentication/sign_up/sign_up_controller.dart';
 import '../../../../core/constant/app_routes.dart';
 import '../../../../core/constant/color.dart';
 
