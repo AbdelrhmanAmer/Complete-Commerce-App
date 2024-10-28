@@ -1,8 +1,8 @@
+import 'package:commplete_commerce_app/data/model/item/base_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../data/model/item/item.dart';
 import '../../favorite_icon_button.dart';
 
 class ItemCard extends StatelessWidget {
@@ -18,19 +18,18 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Safeguard for itemDiscount
-    int discount = item.itemDiscount ?? 0;
+    double discount = item.itemDiscount ?? 0.0;
     bool hasDiscount = discount > 0.0;
 
     // Safeguard for itemPrice
     double price = item.itemPrice ?? 0.0;
-    double discountedPrice = price * (1 - discount / 100);
+    double discountedPrice = item.discountedPrice;
 
     return Stack(
       children: [
         Container(
           margin: const EdgeInsets.only(right: 5),
           width: 150,
-
           child: InkWell(
             borderRadius: BorderRadius.circular(15),
             onTap: onPress,
@@ -85,15 +84,16 @@ class ItemCard extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 8),
-                        hasDiscount
-                            ? Text('\$${NumberFormat('#,##0').format(price)}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                        decoration: TextDecoration.lineThrough,
-                                        fontWeight: FontWeight.bold))
-                            : const Text('')
+                        if (hasDiscount)
+                          Text(
+                            '\$${NumberFormat('#,##0').format(price)}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelSmall!
+                                .copyWith(
+                                    decoration: TextDecoration.lineThrough,
+                                    fontWeight: FontWeight.bold),
+                          ),
                       ],
                     ),
                   ),

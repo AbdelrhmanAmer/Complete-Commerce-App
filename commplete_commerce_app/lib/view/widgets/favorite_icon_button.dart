@@ -9,7 +9,7 @@ import 'conditional_icon_button.dart';
 class FavoriteIconButton extends StatelessWidget {
   const FavoriteIconButton({super.key, required this.item});
 
-  final BaseItem item;
+  final Item item;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class FavoriteIconButton extends StatelessWidget {
           onPress: () {
             favController.toggleFavorite(item);
           },
-          iconSize: 18,
+          iconSize: 20,
           height: 28,
         );
       },

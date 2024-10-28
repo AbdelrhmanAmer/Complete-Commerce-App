@@ -40,7 +40,7 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
                   ProductRateAndShare(controller: controller),
                   const SizedBox(height: 8),
                   ItemPrice(
-                    itemPrice: controller.item.itemPrice,
+                    price: controller.item.discountedPrice,
                     itemDiscount: controller.item.itemDiscount,
                   ),
                   const SizedBox(height: 8),

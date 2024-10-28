@@ -1,7 +1,6 @@
 import 'base_item.dart';
-import 'item.dart';
 
-class CartItem extends BaseItem {
+class CartItem extends Item {
   String? cartId;
   String? cartUserId;
   String? cartItemId;
@@ -15,7 +14,6 @@ class CartItem extends BaseItem {
     this.cartId,
     this.cartUserId,
     this.cartItemId,
-    this.cartItemQuantity,
     this.pricePerUnit,
     this.totalPrice,
     this.addedAt,
@@ -26,14 +24,19 @@ class CartItem extends BaseItem {
     String? itemDescription,
     String? itemArabicDescription,
     String? itemImage,
-    int? itemQuantity,
-    int? itemActive,
+    String? itemQuantity,
+    String? itemActive,
     double? itemPrice,
-    int? itemDiscount,
-    double? itemRate,
+    double? itemDiscount,
+    String? itemRate,
     String? itemBrand,
     String? itemDatetime,
     String? itemCategoryId,
+    String? categoryId,
+    String? categoryName,
+    String? categoryArabicName,
+    String? categoryImage,
+    String? categoryDatetime,
   }) : super() {
     this.itemId = itemId;
     this.itemName = itemName;
@@ -49,13 +52,18 @@ class CartItem extends BaseItem {
     this.itemBrand = itemBrand;
     this.itemDatetime = itemDatetime;
     this.itemCategoryId = itemCategoryId;
+    this.categoryId = categoryId;
+    this.categoryName = categoryName;
+    this.categoryArabicName = categoryArabicName;
+    this.categoryImage = categoryImage;
+    this.categoryDatetime = categoryDatetime;
   }
 
   CartItem.fromJson(Map<String, dynamic> json) : super.fromJson(json) {
     cartId = json['cart_id'];
     cartUserId = json['cart_userId'];
     cartItemId = json['cart_itemId'];
-    cartItemQuantity = json['cart_itemQuantity'];
+    selectedQuantity = int.tryParse(json['cart_itemQuantity'])!;
     pricePerUnit = json['price_per_unit'];
     totalPrice = json['total_price'];
     addedAt = json['added_at'];
@@ -68,7 +76,7 @@ class CartItem extends BaseItem {
     data['cart_id'] = cartId;
     data['cart_userId'] = cartUserId;
     data['cart_itemId'] = cartItemId;
-    data['cart_itemQuantity'] = cartItemQuantity;
+    data['cart_itemQuantity'] = selectedQuantity;
     data['price_per_unit'] = pricePerUnit;
     data['total_price'] = totalPrice;
     data['added_at'] = addedAt;

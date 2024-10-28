@@ -45,7 +45,7 @@ class ButtonNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            'assets/icons/favorite.svg',
+            'assets/icons/heart.svg',
             colorFilter: _getColorFilter(controller.currentPageIndex == 3, context),
             height: iconHeight,
           ),

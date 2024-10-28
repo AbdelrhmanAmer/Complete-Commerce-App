@@ -39,7 +39,7 @@ class AppLinks {
   static const String getCartItems = '$server/cart/get_items.php';
   static const String addToCart = '$server/cart/add.php';
   static const String deleteFromCart = '$server/cart/delete.php';
-  static const String updateItemQuantity = '$server/cart/update.php';
+  static const String updateItemQuantity = '$server/cart/update_quantity.php';
 
   // Favorite Items
   static const String addFavoriteItem = '$server/favorite/add.php';

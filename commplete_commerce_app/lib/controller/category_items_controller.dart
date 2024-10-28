@@ -10,7 +10,6 @@ import '../data/data_source/remote/items_data.dart';
 import '../data/model/user.dart';
 import '../data/model/item/base_item.dart';
 import '../data/model/category.dart';
-import '../data/model/item/item.dart';
 
 class CategoryItemsController extends GetxController {
   List<Category> categories = <Category>[];
@@ -74,14 +73,14 @@ class CategoryItemsController extends GetxController {
     filterCategoryItems(newIndex);
   }
 
-  goToItemsDetailsScreen(BaseItem item) {
+  goToItemsDetailsScreen(Item item) {
     Get.toNamed(Routes.itemDetails, arguments: {'item': item});
   }
 
   void filterCategoryItems(int categoryIndex) {
     String? selectedCategoryId = categories[categoryIndex].categoryId;
     selectedCategoryItems = items
-        .where((Item item) => item.itemCategoryId == selectedCategoryId)
+        .where((item) => item.itemCategoryId == selectedCategoryId)
         .toList();
     update();
   }

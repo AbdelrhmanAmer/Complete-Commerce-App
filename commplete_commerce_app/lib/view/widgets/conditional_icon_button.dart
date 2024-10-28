@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
@@ -9,18 +10,18 @@ class ConditionalIconButton extends StatelessWidget {
       {super.key,
       required this.trueCondition,
       required this.onPress,
-      this.trueIconData = CupertinoIcons.heart_fill,
-      this.falseIconData = CupertinoIcons.heart,
+      this.trueIconData = 'assets/icons/heart_fill.svg',
+      this.falseIconData = 'assets/icons/heart.svg',
       this.trueColor = const Color(0xFF4caac9),
       this.falseColor,
-      this.iconSize = 15,
+      this.iconSize = 18,
       this.height = 25,
       this.rightMargin = 0});
 
   final bool trueCondition;
   final Function() onPress;
-  final IconData trueIconData;
-  final IconData falseIconData;
+  final String trueIconData;
+  final String falseIconData;
   final Color trueColor;
   final Color? falseColor;
   final double iconSize;
@@ -41,14 +42,20 @@ class ConditionalIconButton extends StatelessWidget {
         onTap: onPress,
         borderRadius: BorderRadius.circular(50),
         child: Padding(
-          padding: const EdgeInsets.all(6),
-          child: Icon(
+          padding: const EdgeInsets.all(5),
+          child: SvgPicture.asset(
             trueCondition ? trueIconData : falseIconData,
-            size: iconSize,
-            color: trueCondition
-                ? trueColor
-                : (falseColor ??
-                    (Get.isDarkMode ? AppColor.whiteText : AppColor.darkText)),
+            height: iconSize,
+            width: iconSize,
+            colorFilter: ColorFilter.mode(
+              trueCondition
+                  ? trueColor
+                  : (falseColor ??
+                      (Get.isDarkMode
+                          ? AppColor.whiteText
+                          : AppColor.darkText)),
+              BlendMode.srcIn,
+            ),
           ),
         ),
       ),

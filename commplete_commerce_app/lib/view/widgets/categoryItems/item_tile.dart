@@ -14,7 +14,7 @@ class ItemTile extends StatelessWidget {
     required this.statusRequest,
   });
 
-  final BaseItem item;
+  final Item item;
   final StatusRequest statusRequest;
   final VoidCallback onPress;
 
@@ -45,7 +45,7 @@ class ItemTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'EGP ${NumberFormat('#,##0').format(item.itemPrice! * (1 - item.itemDiscount! / 100))}',
+                              'EGP ${NumberFormat('#,##0').format(item.discountedPrice)}',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!

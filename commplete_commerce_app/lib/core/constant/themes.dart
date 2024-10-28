@@ -62,7 +62,7 @@ ColorScheme _colorScheme(bool isDarkMode) {
           isDarkMode ? AppColor.darkBackgroundColor : AppColor.backgroundColor,
       onSurface: isDarkMode ? AppColor.whiteText : AppColor.darkText,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      primary: AppColor.primaryColor,
+      primary: isDarkMode ? AppColor.primaryColor.withOpacity(1) : AppColor.primaryColor,
       onPrimary: isDarkMode ? AppColor.lightBlack : AppColor.lightWhite,
       secondary: AppColor.darkText,
       onSecondary: AppColor.lightDarkText,

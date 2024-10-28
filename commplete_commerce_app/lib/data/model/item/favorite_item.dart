@@ -1,7 +1,6 @@
 import 'base_item.dart';
-import 'item.dart';
 
-class FavoriteItem extends BaseItem {
+class FavoriteItem extends Item {
   String? favoriteId;
   String? favoriteUserId;
   String? favoriteItemId;
@@ -18,11 +17,11 @@ class FavoriteItem extends BaseItem {
     String? itemDescription,
     String? itemArabicDescription,
     String? itemImage,
-    int? itemQuantity,
-    int? itemActive,
+    String? itemQuantity,
+    String? itemActive,
     double? itemPrice,
-    int? itemDiscount,
-    double? itemRate,
+    double? itemDiscount,
+    String? itemRate,
     String? itemBrand,
     String? itemDatetime,
     String? itemCategoryId,

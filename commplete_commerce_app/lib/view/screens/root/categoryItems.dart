@@ -1,9 +1,9 @@
-import 'package:commplete_commerce_app/view/widgets/root_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/root/favorite_controller.dart';
 import '../../../controller/category_items_controller.dart';
+import '../../widgets/root_appbar.dart';
 import '../../widgets/categoryItems/item_tile.dart';
 import '../../widgets/categories_list.dart';
 
@@ -21,7 +21,7 @@ class CategoryItems extends StatelessWidget {
         appBar: appBar(context,
             backgroundColor: Get.isDarkMode ? Colors.black : Colors.white),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
               const SizedBox(height: 20),

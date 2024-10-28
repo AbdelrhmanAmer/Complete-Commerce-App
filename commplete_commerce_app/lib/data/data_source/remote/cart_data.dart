@@ -19,13 +19,17 @@ class CartData {
     required String userId,
     required String itemId,
     required int quantity,
-    required double pricePerUnit,
+    required double price,
+    required double discount,
   }) async {
+    double pricePerUnit = price - price * (discount / 100);
+    double totalPrice = quantity * pricePerUnit;
     var response = await crud.postData(AppLinks.addToCart, {
       'user_id': userId,
       'item_id': itemId,
       'quantity': quantity,
-      'price_per_unit': pricePerUnit,
+      'pricePerUnit': pricePerUnit,
+      'totalPrice': totalPrice,
     });
     return response;
   }
@@ -45,11 +49,16 @@ class CartData {
     required String userId,
     required String itemId,
     required int newQuantity,
+    required double price,
+    required double discount,
   }) async {
+    double pricePerUnit = price - price * (discount / 100);
+    double totalPrice = newQuantity * pricePerUnit;
     var response = await crud.postData(AppLinks.updateItemQuantity, {
       'user_id': userId,
       'item_id': itemId,
       'quantity': newQuantity,
+      'totalPrice': totalPrice,
     });
     return response;
   }

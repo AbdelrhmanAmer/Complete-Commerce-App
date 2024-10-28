@@ -5,7 +5,6 @@ import '../../core/constant/app_routes.dart';
 import '../../core/functions/handle_response_status.dart';
 import '../../core/class/status_request.dart';
 import '../../data/model/item/favorite_item.dart';
-import '../../data/model/item/item.dart';
 import '../../data/model/item/base_item.dart';
 import '../../data/data_source/remote/favorite_data.dart';
 import '../../data/model/user.dart';
@@ -18,7 +17,7 @@ class FavoriteController extends GetxController {
 
   User? get user => userService.user.value;
 
-  List<BaseItem> favoriteItems = [];
+  List<Item> favoriteItems = [];
 
   @override
   void onInit() {
@@ -38,17 +37,17 @@ class FavoriteController extends GetxController {
     update();
   }
 
-  toggleFavorite(BaseItem item) {
+  toggleFavorite(Item item) {
     bool isItemFavorite = favoriteItems.any((i) => i.itemId == item.itemId);
     if (isItemFavorite) {
       favoriteItems.removeWhere((i) => i.itemId == item.itemId);
       removeFavoriteItem(user!.id!, item.itemId!);
     } else {
       FavoriteItem? favoriteItem;
-      if (item is Item) {
-        favoriteItem = FavoriteItem.fromItem(item);
-      } else {
+      if (item is FavoriteItem) {
         favoriteItem = item as FavoriteItem?;
+      } else {
+        favoriteItem = FavoriteItem.fromItem(item);
       }
       favoriteItems.add(favoriteItem!);
       addFavoriteItem(user!.id!, item.itemId!);
@@ -56,7 +55,7 @@ class FavoriteController extends GetxController {
     update();
   }
 
-  goToItemsDetailsScreen(BaseItem item) {
+  goToItemsDetailsScreen(Item item) {
     Get.toNamed(Routes.itemDetails, arguments: {'item': item});
   }
 

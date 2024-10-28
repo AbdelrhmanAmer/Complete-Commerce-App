@@ -7,12 +7,12 @@ import '../small_container.dart';
 class ItemPrice extends StatelessWidget {
   const ItemPrice({
     super.key,
-    required this.itemPrice,
+    required this.price,
     this.itemDiscount = 0,
   });
 
-  final double? itemPrice;
-  final int? itemDiscount;
+  final double? price;
+  final double? itemDiscount;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +32,7 @@ class ItemPrice extends StatelessWidget {
             children: [
               if (itemDiscount != 0) ...[
                 TextSpan(
-                  text:
-                      '\$${NumberFormat('#,##0').format(itemPrice! * (1 - itemDiscount! / 100))}',
+                  text: '\$${NumberFormat('#,##0').format(price)}',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.primary),
@@ -46,7 +45,7 @@ class ItemPrice extends StatelessWidget {
                 ),
               ],
               TextSpan(
-                text: '\$${NumberFormat('#,##0').format(itemPrice)}',
+                text: '\$${NumberFormat('#,##0').format(price)}',
                 style: Theme.of(context).textTheme.labelLarge!.copyWith(
                     fontWeight: FontWeight.w400,
                     color: itemDiscount != 0

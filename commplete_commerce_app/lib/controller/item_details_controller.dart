@@ -8,7 +8,7 @@ import '../data/model/item/base_item.dart';
 import '../data/model/user.dart';
 
 class ItemDetailsController extends GetxController {
-  late BaseItem item;
+  late Item item;
 
   CartData cartData = CartData(Get.find());
   StatusRequest statusRequest = StatusRequest.error;
@@ -35,14 +35,13 @@ class ItemDetailsController extends GetxController {
       userId: user.id!,
       itemId: item.itemId!,
       quantity: item.selectedQuantity,
-      pricePerUnit:
-          item.itemPrice! - item.itemPrice! * (item.itemDiscount! / 100),
+      price: item.itemPrice!,
+      discount: item.itemDiscount!,
     );
 
     statusRequest = handleResponseStatus(response);
     update();
   }
-
 
   @override
   void onInit() {
