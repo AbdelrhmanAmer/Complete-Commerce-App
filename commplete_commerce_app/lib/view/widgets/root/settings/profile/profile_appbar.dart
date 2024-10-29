@@ -5,11 +5,11 @@ import 'package:get/get.dart';
 import '../../../../../core/constant/app_routes.dart';
 import '../../../../../core/constant/color.dart';
 
-profileAppbar(BuildContext context, {bool editMode = false}) {
+noticeAppbar(BuildContext context, String title, {bool editMode = false}) {
   return AppBar(
     backgroundColor: Colors.transparent,
     title: Text(
-      'Profile',
+      title,
       style: Theme.of(context).textTheme.titleMedium,
     ),
     actions: [

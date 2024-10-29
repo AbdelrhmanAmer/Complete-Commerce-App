@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/constant/constants.dart';
 
@@ -12,14 +13,16 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     this.foregroundColor = Colors.white,
     this.backgroundColor,
+    this.borderColor,
     this.horizontalPadding = 30,
     this.verticalPadding = 18,
     this.height = 50,
-    this.iconData,
+    this.iconPath,
   });
 
   final Color? backgroundColor;
   final Color foregroundColor;
+  final Color? borderColor;
   final String text;
   final double elevation;
   final double? width;
@@ -27,7 +30,7 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final double horizontalPadding;
   final double verticalPadding;
-  final IconData? iconData;
+  final String? iconPath;
   final Function() press;
 
   @override
@@ -38,28 +41,35 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: press,
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.primary,
-
+          backgroundColor:
+              backgroundColor ?? Theme.of(context).colorScheme.primary,
           padding: EdgeInsets.symmetric(
               horizontal: horizontalPadding, vertical: verticalPadding),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10), side: BorderSide(color: Theme.of(context).colorScheme.primary)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(
+                color: borderColor ?? Theme.of(context).colorScheme.primary),
+          ),
           elevation: elevation,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (iconData != null) ...[
-              Icon(iconData, size: 15),
+            if (iconPath != null) ...[
+              SvgPicture.asset(
+                iconPath!,
+                colorFilter: ColorFilter.mode(
+                  foregroundColor,
+                  BlendMode.srcIn,
+                ),
+              ),
               const SizedBox(width: 7)
             ],
             Text(
               text,
               style: textStyle ??
-                  Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(color: foregroundColor, fontWeight: FontWeight.bold),
+                  Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: foregroundColor, fontWeight: FontWeight.bold),
             )
           ],
         ),

@@ -59,7 +59,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       foregroundColor: Theme.of(context).colorScheme.surface,
                       text: 'Add To Bag',
                       press: controller.addToCart,
-                      iconData: Icons.shopping_basket_outlined,
+                      iconPath: 'assets/icons/Bag.svg',
                       width: size.width * .4,
                       verticalPadding: 17,
                       horizontalPadding: 20,

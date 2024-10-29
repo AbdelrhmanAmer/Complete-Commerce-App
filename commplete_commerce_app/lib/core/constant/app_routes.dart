@@ -23,4 +23,7 @@ class Routes {
   static const String profile = '/profile';
   static const String editProfile = '/editProfile';
 
+
+  // payment
+  static const String paymentMethod = '/paymentMethod';
 }

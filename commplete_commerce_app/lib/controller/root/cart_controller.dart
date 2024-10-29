@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/core/constant/app_routes.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/item/base_item.dart';
@@ -57,6 +58,13 @@ class CartController extends GetxController {
     }
   }
 
+  void removeItem(Item item) {
+    cartItems.remove(item);
+    calcSubtotal();
+    update();
+    cartData.deleteFromCart(userId: user.id!, itemId: item.itemId!);
+  }
+
   void calcSubtotal() {
     subtotal = cartItems.fold(0.0, (sum, item) {
       double price =
@@ -65,6 +73,10 @@ class CartController extends GetxController {
       return sum + (price * quantity);
     });
     update();
+  }
+
+  goToPaymentMethod() {
+    Get.toNamed(Routes.paymentMethod);
   }
 
   _processCartItems(List<dynamic> items) {

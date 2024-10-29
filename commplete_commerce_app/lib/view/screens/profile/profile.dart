@@ -20,7 +20,7 @@ class Profile extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: profileAppbar(context),
+        appBar: noticeAppbar(context, 'Profile'),
         body: SingleChildScrollView(
           child: Obx(() {
             final user = Get.find<ProfileController>().user;

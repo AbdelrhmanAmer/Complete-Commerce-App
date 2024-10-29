@@ -10,10 +10,12 @@ class CartTile extends StatelessWidget {
     super.key,
     required this.item,
     required this.onPress,
+    required this.onDismiss,
   });
 
   final CartItem item;
   final VoidCallback onPress;
+  final DismissDirectionCallback onDismiss;
 
   @override
   Widget build(BuildContext context) {
@@ -32,138 +34,157 @@ class CartTile extends StatelessWidget {
           fontWeight: FontWeight.bold,
           color: Theme.of(context).colorScheme.onSurface,
         );
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      height: containerHeight,
-      decoration: BoxDecoration(
-        // border: Border.all(
-        //   color: Colors.grey.withOpacity(.3),
-        // ),
-        color: Get.isDarkMode ? primaryColor.withOpacity(.1) : primaryColor.withOpacity(.05),
-        borderRadius: BorderRadius.circular(15),
+    return Dismissible(
+      direction: DismissDirection.startToEnd,
+      onDismissed: onDismiss,
+      background: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.red.withOpacity(.1),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          padding: EdgeInsets.all(20),
+          child: const Align(
+              alignment: Alignment.centerLeft, child: Icon(Icons.delete)),
+        ),
       ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(15),
-        onTap: onPress,
-        child: Row(
-          children: [
-            // Container for the image
-            Container(
-              width: MediaQuery.of(context).size.width * .22,
-              decoration: BoxDecoration(
-                  color: primaryColor.withOpacity(.25),
-                  borderRadius: BorderRadius.circular(10)),
-              height: containerHeight,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: Image.asset(
-                  'assets/images/${item.itemImage}',
-                  fit: BoxFit.fitWidth,
+      key: UniqueKey(),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        height: containerHeight,
+        decoration: BoxDecoration(
+          // border: Border.all(
+          //   color: Colors.grey.withOpacity(.3),
+          // ),
+          color: Get.isDarkMode
+              ? primaryColor.withOpacity(.1)
+              : primaryColor.withOpacity(.05),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(15),
+          onTap: onPress,
+          child: Row(
+            children: [
+              // Container for the image
+              Container(
+                width: MediaQuery.of(context).size.width * .22,
+                decoration: BoxDecoration(
+                    color: primaryColor.withOpacity(.25),
+                    borderRadius: BorderRadius.circular(10)),
+                height: containerHeight,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  child: Image.asset(
+                    'assets/images/${item.itemImage}',
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
+              const SizedBox(width: 10),
 
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child: Stack(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          '${item.itemName}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                  fontWeight: FontWeight.bold, fontSize: 13),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          '${item.categoryName}',
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                        const SizedBox(height: 4),
-                        item.itemDiscount == 0
-                            ? Text(
-                                'EGP ${NumberFormat('#,##0').format(price)}',
-                                style: priceStyle,
-                              )
-                            : Row(
-                                children: [
-                                  Text(
-                                    '\$ ${NumberFormat('#,##0').format(item.discountedPrice)}',
-                                    style: priceStyle,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      Text(
-                                        'EGP ${NumberFormat('#,##0').format(price)}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelSmall,
-                                      ),
-                                      Positioned(
-                                        left: 0,
-                                        right: 0,
-                                        child: Container(
-                                          height: 2, // Thickness of the line
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onSurface
-                                              .withOpacity(.4),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            '${item.itemName}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                    fontWeight: FontWeight.bold, fontSize: 13),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '${item.categoryName}',
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
+                          const SizedBox(height: 4),
+                          item.itemDiscount == 0
+                              ? Text(
+                                  '\$${NumberFormat('#,##0').format(price)}',
+                                  style: priceStyle,
+                                )
+                              : Row(
+                                  children: [
+                                    Text(
+                                      '\$${NumberFormat('#,##0').format(item.discountedPrice)}',
+                                      style: priceStyle,
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Text(
+                                          '\$${NumberFormat('#,##0').format(price)}',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelSmall,
                                         ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                      ],
-                    ),
-                    GetBuilder<CartController>(
-                      builder: (controller) => Positioned(
-                        top: 2,
-                        right: 15,
-                        bottom: 0,
-                        child: Column(
-                          children: [
-                            IconButton(
-                              onPressed: () => controller.increase(item),
-                              style: iconButtonStyle,
-                              icon: const Icon(
-                                Icons.add,
-                              ),
-                            ),
-                            const SizedBox(height: 3),
-                            Text(
-                              '${item.selectedQuantity}',
-                              style: TextStyle(color: primaryColor),
-                            ),
-                            const SizedBox(height: 3),
-                            IconButton(
-                              onPressed: () => controller.decrease(item),
-                              style: iconButtonStyle,
-                              icon: const Icon(
-                                Icons.remove,
-                              ),
-                            ),
-                          ],
-                        ),
+                                        Positioned(
+                                          left: 0,
+                                          right: 0,
+                                          child: Container(
+                                            height: 2, // Thickness of the line
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSurface
+                                                .withOpacity(.4),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                        ],
                       ),
-                    )
-                  ],
+                      GetBuilder<CartController>(
+                        builder: (controller) => Positioned(
+                          top: 2,
+                          right: 15,
+                          bottom: 0,
+                          child: Column(
+                            children: [
+                              IconButton(
+                                onPressed: () => controller.increase(item),
+                                style: iconButtonStyle,
+                                icon: const Icon(
+                                  Icons.add,
+                                ),
+                              ),
+                              const SizedBox(height: 3),
+                              Text(
+                                '${item.selectedQuantity}',
+                                style: TextStyle(color: primaryColor),
+                              ),
+                              const SizedBox(height: 3),
+                              IconButton(
+                                onPressed: () => controller.decrease(item),
+                                style: iconButtonStyle,
+                                icon: const Icon(
+                                  Icons.remove,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
