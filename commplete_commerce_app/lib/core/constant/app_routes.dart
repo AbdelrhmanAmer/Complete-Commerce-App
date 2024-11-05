@@ -26,4 +26,5 @@ class Routes {
 
   // payment
   static const String paymentMethod = '/paymentMethod';
+  static const String addNewCard = '/addNewCard';
 }

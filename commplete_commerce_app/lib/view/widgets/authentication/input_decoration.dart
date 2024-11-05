@@ -14,7 +14,7 @@ InputDecoration inputDecoration(
         ? Padding(
             padding: const EdgeInsets.symmetric(vertical: 16 * .75),
             child: SvgPicture.asset(
-              iconPath!,
+              iconPath ?? 'assets/icons/info.svg',
               height: iconSize,
               width: iconSize,
               colorFilter:
@@ -29,7 +29,7 @@ InputDecoration inputDecoration(
                   children: [
                     const SizedBox(width: 10),
                     SvgPicture.asset(
-                      iconPath!,
+                      iconPath ?? 'asses/icons/Call.svg',
                       height: iconSize,
                       width: iconSize,
                       colorFilter: ColorFilter.mode(

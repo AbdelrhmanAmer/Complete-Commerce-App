@@ -1,3 +1,4 @@
+import 'package:commplete_commerce_app/view/screens/payment/add_card.dart';
 import 'package:commplete_commerce_app/view/screens/payment/payment_method.dart';
 import 'package:commplete_commerce_app/view/screens/profile/edit_profile.dart';
 import 'package:get/get.dart';
@@ -65,4 +66,5 @@ List<GetPage<dynamic>>? routes = [
 
   // payment
   GetPage(name: Routes.paymentMethod, page: () => const PaymentMethod()),
+  GetPage(name: Routes.addNewCard, page: () => const AddNewCard()),
 ];

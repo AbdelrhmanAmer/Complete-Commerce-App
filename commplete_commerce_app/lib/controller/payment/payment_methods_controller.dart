@@ -1,3 +1,5 @@
+import 'package:commplete_commerce_app/view/screens/payment/pay_with_card.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PaymentMethodsController extends GetxController {
@@ -17,7 +19,8 @@ class PaymentMethodsController extends GetxController {
       'imagePath': 'assets/icons/card.svg',
     },
   ];
-  List methodsScreens = [
+  List<Widget> methodsScreens = [
+    const PayWithCard(),
 
   ] ;
   selectMethod(int index) {

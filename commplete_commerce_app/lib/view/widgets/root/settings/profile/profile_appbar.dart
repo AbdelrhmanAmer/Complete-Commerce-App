@@ -13,7 +13,7 @@ noticeAppbar(BuildContext context, String title, {bool editMode = false}) {
       style: Theme.of(context).textTheme.titleMedium,
     ),
     actions: [
-      editMode
+      !editMode
           ? InkWell(
               borderRadius: BorderRadius.circular(50),
               onTap: () {},
