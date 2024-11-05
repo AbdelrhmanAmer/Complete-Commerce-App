@@ -35,7 +35,7 @@ class ItemTile extends StatelessWidget {
                   subtitle: Row(
                     children: [
                       Image.asset(
-                        'assets/images/${item.itemImage}',
+                        item.itemImage!,
                         fit: BoxFit.fitHeight,
                         width: size.width * .22,
                       ),

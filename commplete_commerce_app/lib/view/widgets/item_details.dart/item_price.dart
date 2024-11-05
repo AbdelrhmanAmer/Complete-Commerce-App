@@ -16,6 +16,8 @@ class ItemPrice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final discountedPrice = price! - price! * (itemDiscount! / 100);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -32,7 +34,7 @@ class ItemPrice extends StatelessWidget {
             children: [
               if (itemDiscount != 0) ...[
                 TextSpan(
-                  text: '\$${NumberFormat('#,##0').format(price)}',
+                  text: '\$${NumberFormat('#,##0').format(discountedPrice)}',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.primary),

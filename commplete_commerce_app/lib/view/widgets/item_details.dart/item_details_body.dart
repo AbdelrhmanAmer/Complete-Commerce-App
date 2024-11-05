@@ -40,7 +40,7 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
                   ProductRateAndShare(controller: controller),
                   const SizedBox(height: 8),
                   ItemPrice(
-                    price: controller.item.discountedPrice,
+                    price: controller.item.itemPrice,
                     itemDiscount: controller.item.itemDiscount,
                   ),
                   const SizedBox(height: 8),
@@ -56,7 +56,7 @@ class ItemDetailsBody extends GetView<ItemDetailsController> {
                   // - Stock
                   LabelAndValueText(
                     label: '- Stock: ',
-                    value: controller.item.itemActive == 1
+                    value: controller.item.itemActive == '1'
                         ? 'In Stock'
                         : 'Out of stock',
                   ),

@@ -20,42 +20,43 @@ class CategoryItems extends StatelessWidget {
         backgroundColor: Get.isDarkMode ? Colors.black : Colors.white,
         appBar: appBar(context,
             backgroundColor: Get.isDarkMode ? Colors.black : Colors.white),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              const SizedBox(height: 10),
-              GetBuilder<CategoryItemsController>(
-                builder: (controller) {
-                  return CategoriesList(
+        body: Column(
+          children: [
+            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            GetBuilder<CategoryItemsController>(
+              builder: (controller) {
+                return Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: CategoriesList(
                     categories: controller.categories,
                     selectedCategoryIndex: controller.selectedIndex,
                     onPress: (index) {
                       controller.changeSelectedCategory(index);
                     },
                     hasImage: false,
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: GetBuilder<CategoryItemsController>(
+                builder: (controller) {
+                  return ListView.builder(
+                    itemCount: controller.selectedCategoryItems.length,
+                    itemBuilder: (ctx, index) {
+                      return ItemTile(
+                          item: controller.selectedCategoryItems[index],
+                          statusRequest: controller.statusRequest,
+                          onPress: () => controller.goToItemsDetailsScreen(
+                              controller.selectedCategoryItems[index]));
+                    },
                   );
                 },
               ),
-              Expanded(
-                child: GetBuilder<CategoryItemsController>(
-                  builder: (controller) {
-                    return ListView.builder(
-                      itemCount: controller.selectedCategoryItems.length,
-                      itemBuilder: (ctx, index) {
-                        return ItemTile(
-                            item: controller.selectedCategoryItems[index],
-                            statusRequest: controller.statusRequest,
-                            onPress: () => controller.goToItemsDetailsScreen(
-                                controller.selectedCategoryItems[index]));
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

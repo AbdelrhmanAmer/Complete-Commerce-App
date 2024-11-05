@@ -21,7 +21,7 @@ class CategoriesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: hasImage ? 105 : 30,
+      height: hasImage ? 120 : 30,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories!.length,
@@ -48,16 +48,17 @@ class CategoriesList extends StatelessWidget {
                 children: [
                   if (hasImage)
                     SvgImageCard(
-                      imagePath:
-                          'assets/icons/${categories![index].categoryImage}',
+                      imagePath: '${categories![index].categoryImage}',
                     ),
                   const SizedBox(height: 7),
-                  Text(
-                    '${categories![index].categoryName}',
-                    style: Theme.of(context).textTheme.labelSmall,
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    overflow: TextOverflow.visible,
+                  Expanded(
+                    child: Text(
+                      '${categories![index].categoryName}',
+                      style: Theme.of(context).textTheme.labelSmall,
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
+                    ),
                   ),
                 ],
               ),

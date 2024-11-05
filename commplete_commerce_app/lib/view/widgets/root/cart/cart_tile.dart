@@ -78,7 +78,7 @@ class CartTile extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Image.asset(
-                    'assets/images/${item.itemImage}',
+                    '${item.itemImage}',
                     fit: BoxFit.fitWidth,
                   ),
                 ),

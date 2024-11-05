@@ -21,7 +21,7 @@ class ProductView extends GetView<ItemDetailsController> {
           SizedBox(
             height: 140,
             child: Image.asset(
-              'assets/images/${controller.item.itemImage}',
+              '${controller.item.itemImage}',
             ),
           ),
           Positioned(
@@ -38,7 +38,7 @@ class ProductView extends GetView<ItemDetailsController> {
                     margin: const EdgeInsets.only(right: 12),
                     child: ImageCard(
                       selected: index == 2 ? true : false,
-                      imagePath: 'assets/images/${controller.item.itemImage}',
+                      imagePath: '${controller.item.itemImage}',
                     ),
                   );
                 },

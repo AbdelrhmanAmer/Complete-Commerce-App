@@ -50,7 +50,7 @@ class ItemCard extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: Image.asset(
                           fit: BoxFit.fitWidth,
-                          'assets/images/${item.itemImage}',
+                          '${item.itemImage}',
                           width: 100,
                         ),
                       ),

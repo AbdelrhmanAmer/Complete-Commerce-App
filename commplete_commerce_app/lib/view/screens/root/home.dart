@@ -27,127 +27,125 @@ class Home extends StatelessWidget {
             child: Scaffold(
               backgroundColor:
                   Theme.of(context).colorScheme.onSecondaryContainer,
-              body: SingleChildScrollView(
-                child: GetBuilder<HomeController>(
-                  builder: (controller) {
-                    return controller.statusRequest.value ==
-                            StatusRequest.loading
-                        ? const Center(child: CircularProgressIndicator())
-                        : Column(
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .surfaceContainerHigh,
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20),
-                                  ),
+              body: GetBuilder<HomeController>(
+                builder: (controller) {
+                  if (controller.statusRequest.value == StatusRequest.loading) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else {
+                    return CustomScrollView(
+                      slivers: [
+                        // Sliver Padding for spacing
+                        SliverPadding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          sliver: SliverToBoxAdapter(
+                            child: Container(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surfaceContainerHigh,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: Column(
+                                  children: [
+                                    SectionBar(
+                                        title: 'Categories', onPress: () {}),
+                                    const SizedBox(height: 10),
+                                    CategoriesList(
+                                      categories: controller.categories,
+                                      onPress: (index) {
+                                        controller
+                                            .goToCategoryItemsScreen(index);
+                                      },
+                                    ),
+                                  ],
                                 ),
-                                child: const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 20),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(height: 20),
-                                      DiscountBar(discountPercentage: 50),
-                                      SizedBox(height: 20),
-                                    ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SliverToBoxAdapter(
+                          child: SizedBox(height: 0),
+                        ),
+                        // Flash Sale Section
+                        SliverPadding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          sliver: SliverToBoxAdapter(
+                            child: SectionBar(
+                              title: 'Flash Sale',
+                              onPress: () {},
+                              enableTimer: true,
+                              timer: const Timer(
+                                hours: 2,
+                                minutes: 0,
+                                seconds: 0,
+                                fontSize: 12,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // Discounted Items - Horizontal List
+                        SliverPadding(
+                          padding: const EdgeInsets.only(left: 15),
+                          sliver: SliverToBoxAdapter(
+                            child: SizedBox(
+                              height: 220,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: controller.discountedItems.length,
+                                itemBuilder: (_, index) => ItemCard(
+                                  item: controller.discountedItems[index],
+                                  onPress: () => Get.toNamed(
+                                    Routes.itemDetails,
+                                    arguments: {
+                                      'item': controller.discountedItems[index],
+                                    },
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 8),
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .surfaceContainerHigh,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20),
-                                  child: Column(
-                                    children: [
-                                      const SizedBox(height: 20),
-                                      SectionBar(
-                                          title: 'Categories', onPress: () {}),
-                                      const SizedBox(height: 10),
-                                      CategoriesList(
-                                        categories: controller.categories,
-                                        onPress: (index) {
-                                          controller
-                                              .goToCategoryItemsScreen(index);
-                                        },
-                                      ),
-                                      SectionBar(
-                                        title: 'Flash Sale',
-                                        onPress: () {},
-                                        enableTimer: true,
-                                        timer: const Timer(
-                                          hours: 2,
-                                          minutes: 0,
-                                          seconds: 0,
-                                          fontSize: 12,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 5),
-                                      SizedBox(
-                                        height: 220,
-                                        child: ListView.builder(
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount:
-                                              controller.discountedItems.length,
-                                          itemBuilder: (_, index) => ItemCard(
-                                            item: controller
-                                                .discountedItems[index],
-                                            onPress: () => Get.toNamed(
-                                              Routes.itemDetails,
-                                              arguments: {
-                                                'item': controller
-                                                    .discountedItems[index],
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 15),
-                                      SectionBar(
-                                        title: 'Products',
-                                        onPress: () {},
-                                        enableTimer: false,
-                                      ),
-                                      const SizedBox(height: 5),
-                                      SizedBox(
-                                        height: 220,
-                                        child: ListView.builder(
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount: controller.items.length,
-                                          itemBuilder: (_, index) {
-                                            return ItemCard(
-                                              item: controller.items[index],
-                                              onPress: () => Get.toNamed(
-                                                Routes.itemDetails,
-                                                arguments: {
-                                                  'item':
-                                                      controller.items[index],
-                                                },
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                      )
-                                    ],
+                            ),
+                          ),
+                        ),
+
+                        // Products Section
+                        SliverPadding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          sliver: SliverToBoxAdapter(
+                            child: SectionBar(
+                              title: 'Products',
+                              onPress: () {},
+                              enableTimer: false,
+                            ),
+                          ),
+                        ),
+
+                        // Products - Horizontal List
+                        SliverPadding(
+                          padding: const EdgeInsets.only(left: 15),
+                          sliver: SliverToBoxAdapter(
+                            child: SizedBox(
+                              height: 220,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: controller.items.length,
+                                itemBuilder: (_, index) => ItemCard(
+                                  item: controller.items[index],
+                                  onPress: () => Get.toNamed(
+                                    Routes.itemDetails,
+                                    arguments: {
+                                      'item': controller.items[index],
+                                    },
                                   ),
                                 ),
-                              )
-                            ],
-                          );
-                  },
-                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                },
               ),
             ),
           );

@@ -15,6 +15,7 @@ class HomeController extends GetxController {
   HomeData homeData = HomeData(Get.find());
   Rx<StatusRequest> statusRequest = StatusRequest.error.obs;
 
+  List<Item> offers = [];
   List<Category> categories = [];
   List<Item> discountedItems = [];
   List<Item> items = [];
