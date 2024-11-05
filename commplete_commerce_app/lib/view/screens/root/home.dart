@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/constant/app_routes.dart';
-import '../../widgets/authentication/timer.dart';
-import '../../../core/class/status_request.dart';
 import '../../../controller/root/home_controller.dart';
+import '../../../core/constant/app_routes.dart';
+import '../../../core/class/status_request.dart';
+import '../../../core/constant/constants.dart';
+import '../../widgets/authentication/timer.dart';
 import '../../widgets/categories_list.dart';
-import '../../widgets/root/home/discount_bar.dart';
 import '../../widgets/root/home/item_card.dart';
 import '../../widgets/root/home/section_bar.dart';
 
@@ -63,10 +63,7 @@ class Home extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SliverToBoxAdapter(
-                          child: SizedBox(height: 0),
-                        ),
-                        // Flash Sale Section
+                        SliverToBoxAdapter(child: SizedBox(height: size.height * .01)),
                         SliverPadding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           sliver: SliverToBoxAdapter(
@@ -84,8 +81,8 @@ class Home extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SliverToBoxAdapter(child: SizedBox(height: size.height * .01)),
 
-                        // Discounted Items - Horizontal List
                         SliverPadding(
                           padding: const EdgeInsets.only(left: 15),
                           sliver: SliverToBoxAdapter(
@@ -107,6 +104,7 @@ class Home extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SliverToBoxAdapter(child: SizedBox(height: size.height * .02)),
 
                         // Products Section
                         SliverPadding(
@@ -119,6 +117,7 @@ class Home extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SliverToBoxAdapter(child: SizedBox(height: size.height * .01)),
 
                         // Products - Horizontal List
                         SliverPadding(

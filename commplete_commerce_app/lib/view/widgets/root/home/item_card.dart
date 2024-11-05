@@ -30,6 +30,10 @@ class ItemCard extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(right: 5),
           width: 150,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surfaceContainerHigh
+                ,borderRadius: BorderRadius.circular(15)
+          ),
           child: InkWell(
             borderRadius: BorderRadius.circular(15),
             onTap: onPress,
