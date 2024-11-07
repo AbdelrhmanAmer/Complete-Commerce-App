@@ -54,20 +54,22 @@ class CustomBottomNavBar extends StatelessWidget {
               const SizedBox(width: 10),
               controller.statusRequest == StatusRequest.loading
                   ? const CircularProgressIndicator()
-                  : CustomButton(
-                      backgroundColor: Theme.of(context).colorScheme.onSurface,
-                      foregroundColor: Theme.of(context).colorScheme.surface,
-                      text: 'Add To Bag',
-                      press: controller.addToCart,
-                      iconPath: 'assets/icons/Bag.svg',
-                      width: size.width * .4,
-                      verticalPadding: 17,
-                      horizontalPadding: 20,
-                      textStyle: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).colorScheme.surface,
+                  : Expanded(
+                    child: CustomButton(
+                        backgroundColor: Theme.of(context).colorScheme.onSurface,
+                        foregroundColor: Theme.of(context).colorScheme.surface,
+                        text: 'Add To Bag',
+                        press: controller.addToCart,
+                        iconPath: 'assets/icons/Bag.svg',
+                        width: size.width * .4,
+                        verticalPadding: 17,
+                        horizontalPadding: 20,
+                        textStyle: TextStyle(
+                          fontSize: 14,
+                          color: Theme.of(context).colorScheme.surface,
+                        ),
                       ),
-                    ),
+                  ),
             ],
           ),
         ),

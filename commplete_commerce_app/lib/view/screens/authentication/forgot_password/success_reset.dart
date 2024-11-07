@@ -29,10 +29,13 @@ class SuccessResetPassword extends StatelessWidget {
                   )),
             ),
             SizedBox(height: size.height * .07),
-            Text(
-              'Your password has been changed successfully!',
-              style: Theme.of(context).textTheme.displaySmall,
-              textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                'Your password has been changed successfully!',
+                style: Theme.of(context).textTheme.displaySmall,
+                textAlign: TextAlign.center,
+              ),
             ),
             SizedBox(height: size.height * .13),
             CustomButton(text: 'Log in', press: () => controller.goToLogIn()),

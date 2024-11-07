@@ -65,11 +65,15 @@ class CustomButton extends StatelessWidget {
               ),
               const SizedBox(width: 7)
             ],
-            Text(
-              text,
-              style: textStyle ??
-                  Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: foregroundColor, fontWeight: FontWeight.bold),
+            Expanded(
+              child: Center(
+                child: Text(
+                  text,
+                  style: textStyle ??
+                      Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: foregroundColor, fontWeight: FontWeight.bold),
+                ),
+              ),
             )
           ],
         ),

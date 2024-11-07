@@ -22,7 +22,7 @@ class EditProfile extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: noticeAppbar(context, 'profile', editMode: true),
+        appBar: noticeAppbar(context, 'Edit profile', editMode: false),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: GetBuilder<EditProfileController>(
