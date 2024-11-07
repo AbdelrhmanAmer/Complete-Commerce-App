@@ -61,9 +61,9 @@ class Cart extends StatelessWidget {
                   iconPath: 'assets/icons/Coupon.svg',
                 ),
               ),
-              SizedBox(height: size.height * .03),
+              SizedBox(height: size.height * .02),
               OrderSummary(controller: controller),
-              SizedBox(height: size.height * .04),
+              SizedBox(height: size.height * .02),
               CustomButton(
                 text: 'Continue',
                 press: controller.goToPaymentMethod,
