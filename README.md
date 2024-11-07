@@ -10,6 +10,10 @@
   <img src="commplete_commerce_app/images/view1.png" alt="Build you shop app in days" style="width: 700px; height: auto;">
 </p>
 
+<p align="center">
+  <img src="commplete_commerce_app/images/view2.png" alt="Build you shop app in days" style="width: 700px; height: auto;">
+</p>
+
 
 
 
