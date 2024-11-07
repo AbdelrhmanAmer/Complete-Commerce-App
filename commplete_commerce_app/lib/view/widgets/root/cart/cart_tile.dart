@@ -71,7 +71,9 @@ class CartTile extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width * .22,
                 decoration: BoxDecoration(
-                    color: primaryColor.withOpacity(.25),
+                    color: Get.isDarkMode
+                        ? primaryColor.withOpacity(.7)
+                        : primaryColor.withOpacity(.25),
                     borderRadius: BorderRadius.circular(10)),
                 height: containerHeight,
                 child: Padding(

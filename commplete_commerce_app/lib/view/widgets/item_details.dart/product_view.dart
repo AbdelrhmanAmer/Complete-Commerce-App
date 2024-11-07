@@ -13,13 +13,14 @@ class ProductView extends GetView<ItemDetailsController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.height * .3,
+
+      height: size.height * .35,
       width: double.infinity,
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
           SizedBox(
-            height: 140,
+            height: size.height * .28,
             child: Image.asset(
               '${controller.item.itemImage}',
             ),
